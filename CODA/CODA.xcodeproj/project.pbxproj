@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AE19F237221E52FA0090D7B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19F236221E52FA0090D7B6 /* AppDelegate.swift */; };
-		AE19F239221E52FA0090D7B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19F238221E52FA0090D7B6 /* ViewController.swift */; };
 		AE19F23C221E52FA0090D7B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE19F23A221E52FA0090D7B6 /* Main.storyboard */; };
 		AE19F23E221E52FC0090D7B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE19F23D221E52FC0090D7B6 /* Assets.xcassets */; };
 		AE19F241221E52FC0090D7B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE19F23F221E52FC0090D7B6 /* LaunchScreen.storyboard */; };
 		AE19F24C221E52FC0090D7B6 /* CODATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19F24B221E52FC0090D7B6 /* CODATests.swift */; };
 		AE19F257221E52FC0090D7B6 /* CODAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19F256221E52FC0090D7B6 /* CODAUITests.swift */; };
+		AE89279B221E57170007E4D9 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89279A221E57170007E4D9 /* MainScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		AE19F233221E52FA0090D7B6 /* CODA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CODA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE19F236221E52FA0090D7B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE19F238221E52FA0090D7B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE19F23B221E52FA0090D7B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE19F23D221E52FC0090D7B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE19F240221E52FC0090D7B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		AE19F252221E52FC0090D7B6 /* CODAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CODAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE19F256221E52FC0090D7B6 /* CODAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CODAUITests.swift; sourceTree = "<group>"; };
 		AE19F258221E52FC0090D7B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE89279A221E57170007E4D9 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				AE19F236221E52FA0090D7B6 /* AppDelegate.swift */,
-				AE19F238221E52FA0090D7B6 /* ViewController.swift */,
+				AE89279A221E57170007E4D9 /* MainScreen.swift */,
 				AE19F23A221E52FA0090D7B6 /* Main.storyboard */,
 				AE19F23D221E52FC0090D7B6 /* Assets.xcassets */,
 				AE19F23F221E52FC0090D7B6 /* LaunchScreen.storyboard */,
@@ -256,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE19F239221E52FA0090D7B6 /* ViewController.swift in Sources */,
+				AE89279B221E57170007E4D9 /* MainScreen.swift in Sources */,
 				AE19F237221E52FA0090D7B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M2C2XTBKWP;
 				INFOPLIST_FILE = CODA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M2C2XTBKWP;
 				INFOPLIST_FILE = CODA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
