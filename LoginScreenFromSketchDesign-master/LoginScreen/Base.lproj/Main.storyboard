@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,28 +19,28 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgLogin" translatesAutoresizingMaskIntoConstraints="NO" id="PlE-Rs-QnQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812.33333333333337"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="666.5"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBGCard" translatesAutoresizingMaskIntoConstraints="NO" id="9XZ-ch-b3B">
-                                <rect key="frame" x="14.666666666666657" y="198.66666666666663" width="346" height="415"/>
+                                <rect key="frame" x="14.5" y="126" width="346" height="415"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="346" id="A8P-2m-4D9"/>
                                     <constraint firstAttribute="height" constant="415" id="v0L-7a-AFb"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coda_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-8A-bSw">
-                                <rect key="frame" x="107.66666666666669" y="287.66666666666669" width="159" height="84"/>
+                                <rect key="frame" x="107.5" y="215" width="159" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="0Vs-EK-f7k"/>
                                     <constraint firstAttribute="width" constant="159" id="lWZ-9O-9A5"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHk-IY-hIb" customClass="LoginTextField" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="60.666666666666657" y="395.66666666666669" width="250.99999999999997" height="50"/>
+                                <rect key="frame" x="60.5" y="323" width="251" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fd9-cC-bhm"/>
                                 </constraints>
@@ -49,25 +49,25 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN4-OO-HQd">
-                                <rect key="frame" x="68" y="400.66666666666669" width="57.666666666666657" height="12"/>
+                                <rect key="frame" x="68" y="328" width="57.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="10"/>
                                 <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFZ-2Y-3Yk" customClass="LoginTextField" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="60.666666666666657" y="453.66666666666669" width="250.99999999999997" height="50"/>
+                                <rect key="frame" x="60.5" y="381" width="251" height="50"/>
                                 <color key="textColor" red="0.35686274509999999" green="0.39607843139999999" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZr-E6-ceo">
-                                <rect key="frame" x="68" y="460.66666666666669" width="58.666666666666657" height="12"/>
+                                <rect key="frame" x="68" y="388" width="58.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="10"/>
                                 <color key="textColor" red="0.78823529410000004" green="0.78823529410000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-tv-gPs">
-                                <rect key="frame" x="61" y="511.66666666666674" width="251" height="50"/>
+                                <rect key="frame" x="61" y="439" width="251" height="50"/>
                                 <color key="backgroundColor" red="0.61176470588235299" green="0.75686274509803919" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
                                 <state key="normal" title="REGISTER">
@@ -75,14 +75,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-Hw-7si">
-                                <rect key="frame" x="92" y="594.66666666666663" width="191" height="32"/>
+                                <rect key="frame" x="92" y="522" width="191" height="32"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <state key="normal" title="Forgot your Password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coda_text" translatesAutoresizingMaskIntoConstraints="NO" id="GDF-Ux-9Vr">
-                                <rect key="frame" x="68" y="72" width="239" height="131"/>
+                                <rect key="frame" x="68" y="48" width="239" height="44"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
