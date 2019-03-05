@@ -39,6 +39,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47w-93-CCl"/>
                                             <segue destination="Q5P-y2-Gi6" kind="show" id="R42-jJ-nqr"/>
                                         </connections>
                                     </button>
@@ -126,6 +127,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="goToRegistrationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YoO-o7-xTq"/>
                                             <segue destination="FZe-ir-ny0" kind="show" id="h4i-UY-yLJ"/>
                                         </connections>
                                     </button>
@@ -155,6 +157,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordLogin" destination="bg1-XJ-Saa" id="APV-cV-sRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,6 +189,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="FZe-ir-ny0" eventType="touchUpInside" id="CeX-Uo-ztf"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-G6-EzE">
                                         <rect key="frame" x="34" y="201" width="220" height="24"/>
@@ -287,6 +295,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="returnToLoginButtonPressed:" destination="FZe-ir-ny0" eventType="touchUpInside" id="E1F-ah-TXS"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="tcU-bM-uP2"/>
                                         </connections>
                                     </button>
@@ -324,6 +333,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kce-iW-zJM"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordConfrimRegister" destination="9nb-VE-ag1" id="WYe-If-x2C"/>
+                        <outlet property="passwordRegister" destination="FfP-G6-EzE" id="QNr-Vg-rrz"/>
+                        <outlet property="usernameLogin" destination="lfZ-k5-2FK" id="9rO-h4-oWX"/>
+                        <outlet property="usernameRegister" destination="lfZ-k5-2FK" id="8a0-tp-Flr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FE4-en-Tsi" sceneMemberID="firstResponder"/>
             </objects>
