@@ -2,6 +2,10 @@
 session_start();
 include "top.php";
 $_SESSION["login"] = false;
+$_SESSION["activeUser"] = "null";
+$_SESSION["hashedPass"] = "null";
+$_SESSION["activeUserEmail"] = "null";
+
 ?>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -32,10 +36,10 @@ $_SESSION["login"] = false;
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/cs275_CODA/login.php">Login</a>
+							<a class="nav-link" href="/cs295_CODA/Web/login.php">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/cs275_CODA/logout.php">Logout</a>
+							<a class="nav-link" href="/cs295_CODA/Web/logout.php">Logout</a>
 						</li>
 					</ul>
 					<form class="form-inline">
