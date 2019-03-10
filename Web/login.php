@@ -1,5 +1,7 @@
 <?php
 session_start();
+?>
+<?php
 include "top.php";
 $_SESSION["login"] = false;
 $_SESSION["activeUser"] = "null"
@@ -20,7 +22,7 @@ $_SESSION["activeUser"] = "null"
         <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/cs275_CODA/index.php">Home</a>
+              <a class="nav-link" href="/cs295_CODA/Web/index.php">Home</a>
             </li>
 
             <li class="nav-item active">
@@ -30,7 +32,7 @@ $_SESSION["activeUser"] = "null"
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="/cs275_CODA/logout.php">Logout</a>
+              <a class="nav-link" href="/cs295_CODA/Web/logout.php">Logout</a>
             </li>
           </ul>
           <form class="form-inline">
@@ -54,7 +56,7 @@ $_SESSION["activeUser"] = "null"
             <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
               <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Welcome to the CODA Site </h1>
               <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-              <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">The Coda project was designed and developed by a team of 3 medical students in coordination with 5 Computer Science majors. The project has initially been developed for a final project in CS 275 (Mobile Apps) during the Fall 2018 semester.
+              <h6 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">The Coda project was designed and developed by a team of 3 medical students in coordination with 5 Computer Science majors. The project has initially been developed for a final project in CS 275 & CS 295(Mobile Apps) during the Fall 2018 and Spring 2019 semesters.
 
               If you are new, please register on the right. If you are a returning user please locate the signin button.</h6>
             </div>
@@ -110,7 +112,7 @@ $_SESSION["activeUser"] = "null"
                     <h1> Password is valid! Logging in... you will be directed to the main page. Thank you!</h1>
                   <?php echo $loginUser ?>
                   <?php $_SESSION["login"] = true?>
-                   <a href="/cs275_CODA/privatePage1.php">Click here</a>
+                   <a href="/cs295_CODA/Web/privatePage1.php">Click here</a>
                    <?php $_SESSION["activeUser"] = $loginUser?>
 
 
