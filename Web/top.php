@@ -4,7 +4,7 @@ include "lib/constants.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CS 275 Coda: Web Platform</title>
+    <title>CODA Web Platform 2.0</title>
     <meta charset="utf-8">
     <meta name="author" content="Nicholas R. Lawrence">
     <meta name="description" content="CS 295 Final Project: CODA ('Another Way to Discharge') Web Platform">
@@ -44,11 +44,15 @@ include "lib/constants.php";
         $dbUserName = get_current_user() . '_writer';
         $whichPass = "w";
         $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
+
+        $dbUserName = get_current_user() . '_admin';
+        $whichPass = "a";
+        $thisDatabaseAdmin = new Database($dbUserName, $whichPass, $dbName);
         ?>	
 
     </head>
     <script src="http://code.jquery.com/jquery.js"></script>
-<script src="bootstrap-4/js/bootstrap.min.js"></script>
-<script src="bootstrap-4/js/bootstrap.js"></script>
+    <script src="bootstrap-4/js/bootstrap.min.js"></script>
+    <script src="bootstrap-4/js/bootstrap.js"></script>
 
     <!-- **********************     Body section      ********************** -->
