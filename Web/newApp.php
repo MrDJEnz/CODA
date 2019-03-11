@@ -44,33 +44,40 @@ include ('styleIndex.php')
  else{
  	?>
  	<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <strong>C.O.D.A</strong>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/cs295_CODA/Web/index.php">Home</a>
-        </li>
+ <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <strong>C.O.D.A</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
 
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Login
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="/cs295_CODA/Web/logout.php">Logout</a>
-        </li>
-      </ul>
-      <form class="form-inline">
-        <div class="md-form my-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <li class="nav-item active">
+            <a class="nav-link" href="privatePage1.php">View Discharge Papers
+            </a>
+              </li>
+              
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Appointments
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="viewApp.php">View Appointments</a>
+                  <a class="dropdown-item" href="newApp.php">Create a New Apppointment</a>
+                  <a class="dropdown-item" href="#">Edit an Existing Appointment</a>
+                </div>
+              </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/cs295_CODA/Web/logout.php">Logout</a>
+          </li>
+      </ul>  
         </div>
       </form>
     </div>
