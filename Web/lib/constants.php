@@ -1,8 +1,10 @@
 <?php
+$fistName = "";
+$lastName = "";
+$username = htmlentities($_SERVER["nrlawren"], ENT_QUOTES, "UTF-8");
+define("DATABASE_NAME", strtoupper(get_current_user()) . '_cs275_CODA');
 
-define("DATABASE_NAME", 'NRLAWREN_cs275_CODA');
-
-define("ADMIN_EMAIL", "nrlawren@uvm.edu");
+define("ADMIN_EMAIL", get_current_user() . "@uvm.edu");
 
 define("LINE_BREAK", "\n");
 
@@ -16,20 +18,20 @@ if (!empty($_GET)) {
 
 define("DEBUG", false);
 
-define("SERVER", htmlentities($_SERVER['SERVER_NAME'], ENT_QUOTES, "UTF-8"));
+define ("SERVER", htmlentities($_SERVER['SERVER_NAME'], ENT_QUOTES, "UTF-8"));
 
 define("DOMAIN", "//" . SERVER);
 
-define("PHP_SELF", htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8"));
+define ("PHP_SELF", htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8"));
 
 $PATH_PARTS = pathinfo(PHP_SELF);
 
-define("BASE_PATH", DOMAIN . $PATH_PARTS['dirname'] . "/");
+define ("BASE_PATH", DOMAIN . $PATH_PARTS['dirname'] . "/");
 
 // sometimes you want to know where www-root is located in relation to where you
 // are. Just count the / and then create the path
-$www_rootPath = "";
-for ($i = 1; $i < substr_count(PHP_SELF, '/'); $i++) {
+$www_rootPath="";
+for($i=1; $i<substr_count(PHP_SELF, '/'); $i++){
     $www_rootPath .= "../";
 }
 
@@ -46,15 +48,16 @@ define("BIN_PATH", $www_rootPath . "../bin");
 // define("LIB_PATH", $www_rootPath . "lib");
 define("LIB_PATH", "lib");
 
-if (DEBUG) {
-    print "<p>Domain: " . DOMAIN;
-    print "<p>php Self: " . PHP_SELF;
-    print "<p>Path Parts<pre>";
-    print_r($PATH_PARTS);
-    print "</pre></p>";
-    print "<p>BASE_PATH: " . BASE_PATH;
-    print "<p>WEB_ROOT_PATH: " . WEB_ROOT_PATH;
-    print "<p>BIN_PATH: " . BIN_PATH;
-    print "<p>LIB_PATH: " . LIB_PATH;
-}
-?>
+        if (DEBUG) {
+            print "<p>Domain: " . DOMAIN;
+            print "<p>php Self: " . PHP_SELF;
+            print "<p>Path Parts<pre>";
+            print_r($PATH_PARTS);
+            print "</pre></p>";
+            print "<p>BASE_PATH: " . BASE_PATH;
+            print "<p>WEB_ROOT_PATH: " . WEB_ROOT_PATH;
+            print "<p>BIN_PATH: " . BIN_PATH;
+            print "<p>LIB_PATH: " . LIB_PATH;
+        }
+
+ ?>
