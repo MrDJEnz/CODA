@@ -85,24 +85,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         ]
         if(usernameRegister.text == nil || (usernameRegister.text?.isEmpty)!) {
             //showAlertError("Username required", message: "")
+            let alertController = UIAlertController(title: "USERNAME NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
             print("Username needed!")
+            return
+        }
+        
+        if(emailRegister.text == nil || (emailRegister.text?.isEmpty)!) {
+            //showAlertError("Email Address required", message: "")
+            let alertController = UIAlertController(title: "EMAIL NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("Email needed!")
             return
         }
         
         if(passwordRegister.text == nil || (passwordRegister.text?.isEmpty)!) {
             //showAlertError("Password required", message: "")
+            let alertController = UIAlertController(title: "PASSWORD NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
             print("Password needed!")
-            return
-        }
-        if(emailRegister.text == nil || (emailRegister.text?.isEmpty)!) {
-            //showAlertError("Email Address required", message: "")
-            print("Email needed!")
             return
         }
         
         let params = ["username": usernameRegister.text!,
-                      "password": passwordRegister.text!,
-                      "email": emailRegister.text!] as [String : Any]
+                      "email": emailRegister.text!,
+                       "password": passwordRegister.text!,] as [String : Any]
         
         let apiMethod = URL_USER_REGISTER //<-Set your endpoint here
         
