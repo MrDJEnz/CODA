@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Alamofire
+import Alamofire
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -72,28 +72,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Initializing all items on reigster page
     @IBOutlet weak var usernameRegister: UITextField!
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     @IBOutlet weak var emailRegister: UITextField!
     @IBOutlet weak var passwordRegister: UITextField!
-=======
-    @IBOutlet weak var passwordRegister: UITextField!
-    @IBOutlet weak var passwordConfrimRegister: UITextField!
->>>>>>> parent of 33401ba... refractor register
-=======
-    @IBOutlet weak var passwordRegister: UITextField!
-    @IBOutlet weak var passwordConfrimRegister: UITextField!
->>>>>>> parent of 33401ba... refractor register
-=======
-    @IBOutlet weak var passwordRegister: UITextField!
-    @IBOutlet weak var passwordConfrimRegister: UITextField!
->>>>>>> parent of 33401ba... refractor register
-=======
-    @IBOutlet weak var passwordRegister: UITextField!
-    @IBOutlet weak var passwordConfrimRegister: UITextField!
->>>>>>> parent of 33401ba... refractor register
     
     @IBAction func registerButtonPressed(_ sender: Any) {
         //creating parameters for the post request

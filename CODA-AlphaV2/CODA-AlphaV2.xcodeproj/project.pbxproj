@@ -68,13 +68,6 @@
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
-		98719AD922455BB300BD7B3C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98719ABE22455AF300BD7B3C /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
 		AE113BE6222E42080001F3D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE113BC9222E42070001F3D8 /* Project object */;
@@ -88,6 +81,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = AE113BD0222E42070001F3D8;
 			remoteInfo = "CODA-AlphaV2";
+		};
+		AE1F9C06224A79F500F7476D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98719ABE22455AF300BD7B3C /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -229,7 +229,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				98719ADA22455BB300BD7B3C /* PBXTargetDependency */,
+				AE1F9C07224A79F500F7476D /* PBXTargetDependency */,
 			);
 			name = "CODA-AlphaV2";
 			productName = "CODA-AlphaV2";
@@ -429,11 +429,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		98719ADA22455BB300BD7B3C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = 98719AD922455BB300BD7B3C /* PBXContainerItemProxy */;
-		};
 		AE113BE7222E42080001F3D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AE113BD0222E42070001F3D8 /* CODA-AlphaV2 */;
@@ -443,6 +438,11 @@
 			isa = PBXTargetDependency;
 			target = AE113BD0222E42070001F3D8 /* CODA-AlphaV2 */;
 			targetProxy = AE113BF1222E42080001F3D8 /* PBXContainerItemProxy */;
+		};
+		AE1F9C07224A79F500F7476D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = AE1F9C06224A79F500F7476D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
