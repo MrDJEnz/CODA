@@ -72,8 +72,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Initializing all items on reigster page
     @IBOutlet weak var usernameRegister: UITextField!
+<<<<<<< HEAD
     @IBOutlet weak var emailRegister: UITextField!
     @IBOutlet weak var passwordRegister: UITextField!
+=======
+    @IBOutlet weak var passwordRegister: UITextField!
+    @IBOutlet weak var passwordConfrimRegister: UITextField!
+>>>>>>> parent of 33401ba... refractor register
     
     @IBAction func registerButtonPressed(_ sender: Any) {
         //creating parameters for the post request
