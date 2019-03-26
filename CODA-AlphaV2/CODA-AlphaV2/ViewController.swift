@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Password needed!")
             return
         }
-        else{self.performSegue(withIdentifier: "homePage", sender: self)}
+        
         
         
     
@@ -86,6 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
         }
+        self.performSegue(withIdentifier: "homePage", sender: self)
     }
     @IBAction func goToRegistrationButtonPressed(_ sender: Any) {
     
