@@ -135,42 +135,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
                       "email": emailRegister.text!,
                        "password": passwordRegister.text!,] as [String : Any]
         
-        let apiMethod = URL_USER_REGISTER //<-Set your endpoint here
-        
-        AF.request(apiMethod, method: .post, parameters: params, encoding: JSONEncoding.default).responseString { (response) in
+        AF.request(URL_USER_REGISTER, method: .post, parameters: params, encoding: JSONEncoding.default).responseString { (response) in
             
             print(response);
-            
-            let alertController = UIAlertController(title: "REGISTRATION SUCCESSFUL!", message: nil, preferredStyle: .alert);
-            
-            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
-            
-            
-            
-            self.present(alertController, animated: true, completion: nil)
-            
+            if ((response.result.value?.contains("true"))!) {
+                let alertController = UIAlertController(title: "Error!", message: "User already exists", preferredStyle: .alert);
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+                
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "REGISTRATION SUCCESSFUL!", message: nil, preferredStyle: .alert);
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
         
         
     }
-    
-    
-//        //Sending http post request
-//        AF.request(URL_USER_REGISTER, method: .get, parameters: parameters).responseJSON {
-//            response in
-//                //printing response
-//            print(response.result.value as Any)
-//
-//                //getting the json value from the server
-//                if let result = response.result.value {
-//
-//                    //converting it as NSDictionary
-//                    let jsonData = result as! NSDictionary
-//
-//                    //displaying the message in label
-//                    //self.labelMessage.text = jsonData.value(forKey: "message") as! String?
-//                }
-//        }
     
     @IBAction func returnToLoginButtonPressed(_ sender: Any) {
     }
