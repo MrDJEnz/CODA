@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+//import Alamofire
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -73,11 +73,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Initializing all items on reigster page
     @IBOutlet weak var usernameRegister: UITextField!
     @IBOutlet weak var emailRegister: UITextField!
-<<<<<<< HEAD
     @IBOutlet weak var passwordRegister: UITextField!
-=======
-    @IBOutlet weak var passwordegister: UITextField!
->>>>>>> 33401baa5c2c1f8438bede49b4d001f49783ebbb
     
     @IBAction func registerButtonPressed(_ sender: Any) {
         //creating parameters for the post request
