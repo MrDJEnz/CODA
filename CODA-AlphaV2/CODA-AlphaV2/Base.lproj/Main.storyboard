@@ -332,12 +332,17 @@
                     </view>
                     <connections>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <outlet property="emailRegister" destination="FfP-G6-EzE" id="QNr-Vg-rrz"/>
 <<<<<<< HEAD
                         <outlet property="passwordRegister" destination="9nb-VE-ag1" id="WYe-If-x2C"/>
 =======
                         <outlet property="passwordegister" destination="9nb-VE-ag1" id="WYe-If-x2C"/>
 >>>>>>> 33401baa5c2c1f8438bede49b4d001f49783ebbb
+=======
+                        <outlet property="passwordConfrimRegister" destination="9nb-VE-ag1" id="WYe-If-x2C"/>
+                        <outlet property="passwordRegister" destination="FfP-G6-EzE" id="QNr-Vg-rrz"/>
+>>>>>>> parent of 33401ba... refractor register
 =======
                         <outlet property="passwordConfrimRegister" destination="9nb-VE-ag1" id="WYe-If-x2C"/>
                         <outlet property="passwordRegister" destination="FfP-G6-EzE" id="QNr-Vg-rrz"/>

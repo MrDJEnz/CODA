@@ -73,8 +73,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Initializing all items on reigster page
     @IBOutlet weak var usernameRegister: UITextField!
 <<<<<<< HEAD
+<<<<<<< HEAD
     @IBOutlet weak var emailRegister: UITextField!
     @IBOutlet weak var passwordRegister: UITextField!
+=======
+    @IBOutlet weak var passwordRegister: UITextField!
+    @IBOutlet weak var passwordConfrimRegister: UITextField!
+>>>>>>> parent of 33401ba... refractor register
 =======
     @IBOutlet weak var passwordRegister: UITextField!
     @IBOutlet weak var passwordConfrimRegister: UITextField!
