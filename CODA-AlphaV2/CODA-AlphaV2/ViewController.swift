@@ -21,8 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Initializing all items on reigster page
     @IBOutlet weak var usernameRegister: UITextField!
-    @IBOutlet weak var passwordRegister: UITextField!
-    @IBOutlet weak var passwordConfrimRegister: UITextField!
+    @IBOutlet weak var emailRegister: UITextField!
+    @IBOutlet weak var passwordegister: UITextField!
     
     @IBAction func registerButtonPressed(_ sender: Any) {
     }
