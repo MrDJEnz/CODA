@@ -6,8 +6,8 @@ class DbOperation {
 
   // Constructor
   function __construct() {
-    require_once dirname(__FILE__) . '/constants.php';
-    require_once dirname(__FILE__) . '/DbConnect.php';
+    require_once 'constants.php';
+    require_once 'DbConnect.php';
 
     // open db connection
     $db = new DbConnect();
@@ -44,8 +44,8 @@ class DbOperation {
   public function createUser($username, $email, $pass) {
     if (!$this->isUserExist($username, $email)) {
       $password = md5($pass);
-      $stmt = $this->conn->prepare('INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)');
-      $stmt->bind_param('sss', $username, $email, $password);
+      $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)");
+      $stmt->bind_param("sss", $username, $email, $password);
       if ($stmt->execute()) {
         return USER_CREATED;
       } else {
@@ -57,8 +57,8 @@ class DbOperation {
   }
 
   private function isUserExist($username, $email) {
-    $stmt = $this->conn->prepare('SELECT fldUsername FROM tblUsers WHERE fldUsername = ? OR fldEmail = ?');
-    $stmt->bind_param('sss', $username, $email);
+    $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ? OR fldEmail = ?");
+    $stmt->bind_param("ss", $username, $email);
     $stmt->execute();
     $stmt->store_result();
     return $stmt->num_rows > 0;

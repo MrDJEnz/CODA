@@ -1,6 +1,6 @@
 <?php
 
-require_once '/DbOperation.php';
+require_once 'DbOperation.php';
 
 $response = array();
 

@@ -1,7 +1,7 @@
 <?php
 
 // getting requires
-require_once '/DbOperation.php';
+require_once 'DbOperation.php';
 
 $response = array();
 
@@ -53,4 +53,4 @@ function verifyRequiredParams($required_fields) {
   return false;
 }
 
-print json_encode($response);
+echo json_encode($response);
