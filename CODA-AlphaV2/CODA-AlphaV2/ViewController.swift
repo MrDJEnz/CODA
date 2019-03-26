@@ -97,6 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if(emailRegister.text == nil || (emailRegister.text?.isEmpty)!) {
             //showAlertError("Email Address required", message: "")
             print("Email needed!")
+            return
         }
         
         let params = ["username": usernameRegister.text!,
