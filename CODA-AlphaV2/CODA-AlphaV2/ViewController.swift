@@ -22,11 +22,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameLogin: UITextField!
     @IBOutlet weak var passwordLogin: UITextField!
     @IBAction func loginButtonPressed(_ sender: Any) {
+        
         //getting the username and password
         let parameters: Parameters=[
             "username":usernameLogin.text!,
             "password":passwordLogin.text!
         ]
+        
+        if(usernameLogin.text == nil || (usernameLogin.text?.isEmpty)!) {
+            //showAlertError("Username required", message: "")
+            let alertController = UIAlertController(title: "USERNAME NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("Username needed!")
+            return
+        }
+        if(passwordLogin.text == nil || (passwordLogin.text?.isEmpty)!) {
+            //showAlertError("Password required", message: "")
+            let alertController = UIAlertController(title: "PASSWORD NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("Password needed!")
+            return
+        }
+        else{self.performSegue(withIdentifier: "homePage", sender: self)}
+        
+        
     
         //making a post request
         AF.request(URL_USER_LOGIN, method: .post, parameters: parameters).responseJSON {
@@ -76,13 +99,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordRegister: UITextField!
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        //creating parameters for the post request
-        let parameters: Parameters=[
-            "username":usernameRegister.text!,
-            "email":emailRegister.text!,
-            "password":emailRegister.text!
-            
-        ]
+
         if(usernameRegister.text == nil || (usernameRegister.text?.isEmpty)!) {
             //showAlertError("Username required", message: "")
             let alertController = UIAlertController(title: "USERNAME NEEDED!", message: nil, preferredStyle: .alert);
@@ -112,7 +129,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Password needed!")
             return
         }
-        
+         //creating parameters for the post request
         let params = ["username": usernameRegister.text!,
                       "email": emailRegister.text!,
                        "password": passwordRegister.text!,] as [String : Any]

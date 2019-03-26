@@ -45,7 +45,7 @@ class DbOperation {
     if (!$this->isUserExist($username, $email)) {
       $password = md5($pass);
       $stmt = $this->conn->prepare('INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)');
-      $stmt->bind_param('sssss', $username, $email, $password);
+      $stmt->bind_param('sss', $username, $email, $password);
       if ($stmt->execute()) {
         return USER_CREATED;
       } else {
