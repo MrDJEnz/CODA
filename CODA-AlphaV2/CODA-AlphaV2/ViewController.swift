@@ -122,6 +122,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
+    
 //        //Sending http post request
 //        AF.request(URL_USER_REGISTER, method: .get, parameters: parameters).responseJSON {
 //            response in
