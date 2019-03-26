@@ -27,38 +27,36 @@ class ViewController: UIViewController, UITextFieldDelegate {
             "username":usernameLogin.text!,
             "password":passwordLogin.text!
         ]
-        
+    
         //making a post request
         AF.request(URL_USER_LOGIN, method: .post, parameters: parameters).responseJSON {
                 response in
                 //printing response
                 print(response)
-                
+
                 //getting the json value from the server
                 if let result = response.result.value {
                     let jsonData = result as! NSDictionary
-                    
+
                     //if there is no error
                     if(!(jsonData.value(forKey: "error") as! Bool)){
-                        
+
                         //getting the user from response
                         let user = jsonData.value(forKey: "user") as! NSDictionary
-                        
+
                         //getting user values
                         let userName = user.value(forKey: "username") as! String
-                        let userEmail = user.value(forKey: "email") as! String
                         let userPass = user.value(forKey: "password") as! String
-                        
+
                         //saving user values to defaults
                         self.defaultValues.set(userName, forKey: "username")
-                        self.defaultValues.set(userEmail, forKey: "email")
                         self.defaultValues.set(userPass, forKey: "password")
-                        
+
                         self.dismiss(animated: false, completion: nil)
                     } else {
                         //error message in case of invalid credential
                         let alert = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
-                        
+
                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                         self.present(alert, animated: true)
                         //self.labelMessage.text = "Invalid username or password"
@@ -67,6 +65,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     @IBAction func goToRegistrationButtonPressed(_ sender: Any) {
+    
+    
     }
     
     
@@ -79,27 +79,65 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //creating parameters for the post request
         let parameters: Parameters=[
             "username":usernameRegister.text!,
-            "password":emailRegister.text!,
-            //"email":textFieldEmail.text!
+            "email":emailRegister.text!,
+            "password":emailRegister.text!
+            
         ]
-        
-        //Sending http post request
-        AF.request(URL_USER_REGISTER, method: .post, parameters: parameters).responseJSON {
-                response in
-                //printing response
-                print(response)
-                
-                //getting the json value from the server
-                if let result = response.result.value {
-                    
-                    //converting it as NSDictionary
-                    let jsonData = result as! NSDictionary
-                    
-                    //displaying the message in label
-                    //self.labelMessage.text = jsonData.value(forKey: "message") as! String?
-                }
+        if(usernameRegister.text == nil || (usernameRegister.text?.isEmpty)!) {
+            //showAlertError("Username required", message: "")
+            print("Username needed!")
+            return
         }
+        
+        if(passwordRegister.text == nil || (passwordRegister.text?.isEmpty)!) {
+            //showAlertError("Password required", message: "")
+            print("Password needed!")
+            return
+        }
+        if(emailRegister.text == nil || (emailRegister.text?.isEmpty)!) {
+            //showAlertError("Email Address required", message: "")
+            print("Email needed!")
+        }
+        
+        let params = ["username": usernameRegister.text!,
+                      "password": passwordRegister.text!,
+                      "email": emailRegister.text!] as [String : Any]
+        
+        let apiMethod = URL_USER_REGISTER //<-Set your endpoint here
+        
+        AF.request(apiMethod, method: .post, parameters: params, encoding: JSONEncoding.default).responseString { (response) in
+            
+            print(response);
+            
+            let alertController = UIAlertController(title: "REGISTRATION SUCCESSFUL!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            
+            
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
+        
     }
+//        //Sending http post request
+//        AF.request(URL_USER_REGISTER, method: .get, parameters: parameters).responseJSON {
+//            response in
+//                //printing response
+//            print(response.result.value as Any)
+//
+//                //getting the json value from the server
+//                if let result = response.result.value {
+//
+//                    //converting it as NSDictionary
+//                    let jsonData = result as! NSDictionary
+//
+//                    //displaying the message in label
+//                    //self.labelMessage.text = jsonData.value(forKey: "message") as! String?
+//                }
+//        }
+    
     @IBAction func returnToLoginButtonPressed(_ sender: Any) {
     }
     
