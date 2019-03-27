@@ -13,7 +13,7 @@
         <!--Login Page-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login Page" id="BYZ-38-t0r" customClass="ViewController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" title="Login Page" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,6 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47w-93-CCl"/>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" identifier="homePage" id="2Rv-b4-mJd"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bg1-XJ-Saa">
@@ -160,11 +159,12 @@
                     <connections>
                         <outlet property="passwordLogin" destination="bg1-XJ-Saa" id="APV-cV-sRU"/>
                         <outlet property="usernameLogin" destination="LKf-FS-fXl" id="cGA-Dk-7Qq"/>
+                        <segue destination="Q5P-y2-Gi6" kind="show" identifier="homePage" id="fMC-P3-fcQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-532" y="45"/>
+            <point key="canvasLocation" x="-479" y="63"/>
         </scene>
         <!--Register Page-->
         <scene sceneID="Enn-is-lF3">
@@ -347,7 +347,7 @@
         <!--Home Page-->
         <scene sceneID="iUj-rz-DeS">
             <objects>
-                <viewController title="Home Page" id="Q5P-y2-Gi6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" title="Home Page" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q5P-y2-Gi6" customClass="HomeController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcc-27-n2w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,6 +361,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome: Long Username Field" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLg-kz-eO2">
                                         <rect key="frame" x="0.0" y="66" width="279.66666666666669" height="23"/>
+                                        <accessibility key="accessibilityConfiguration" label="bl"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -521,6 +522,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qKY-Hp-myi"/>
                     </view>
+                    <connections>
+                        <outlet property="usrnameLbl" destination="DLg-kz-eO2" id="21U-nm-Ry2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baA-L4-HHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1285,7 +1289,7 @@
         <image name="loginBGCard" width="322.33334350585938" height="431.66665649414062"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2Rv-b4-mJd"/>
+        <segue reference="fMC-P3-fcQ"/>
         <segue reference="Ll4-8w-T57"/>
     </inferredMetricsTieBreakers>
 </document>

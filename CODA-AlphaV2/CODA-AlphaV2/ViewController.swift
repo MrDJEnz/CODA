@@ -11,6 +11,11 @@ import Alamofire
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    // Change the username
+    
+    @IBOutlet weak var usrnameLbl: UILabel!
+    
+    
     // urls for both login and register
     let URL_USER_LOGIN = "http://snguon.w3.uvm.edu/cs295d/login.php"
     let URL_USER_REGISTER = "http://snguon.w3.uvm.edu/cs295d/register.php"
@@ -23,6 +28,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameLogin: UITextField!
     @IBOutlet weak var passwordLogin: UITextField!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //set usrname feild
+        //usrnameLbl.text = "Welcome:"
+        
+        
+        
+        // Create methods to move display around for keyboard use
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let homeController = segue.destination as? HomeController else { return }
+        homeController.userValue = usernameLogin.text
+    }
+    
+    
     // function that will login the user if the button is pressed
     @IBAction func loginButtonPressed(_ sender: Any) {
         
@@ -32,6 +59,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             "password":passwordLogin.text!
         ]
         
+        
+    
         // error checking if user filled in username and password correctly
         // show alerts accordingly if false
         if(usernameLogin.text == nil || (usernameLogin.text?.isEmpty)!) {
@@ -52,7 +81,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Password needed!")
             return
         }
-        
+        //print("USER: " + usernameForHome!)
+
         // making a post request
         // basically take in the parameters (username and password) we specify and
         // see if it compares to a username and password combo on the database
@@ -67,12 +97,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let alert = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert);
                 
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil));
-                self.dismiss(animated: true) {
-                   self.present(alert, animated: true, completion: nil);
-                }
-            } else {
-                self.performSegue(withIdentifier: "homePage", sender: self);
+                self.present(alert, animated: true, completion: nil);
+                
+            }else{
+                //seguePrep()
+                 //self.dismiss(animated: false, completion: nil)
+                 self.performSegue(withIdentifier: "homePage", sender: self);
+                
             }
+            
+        
 
 // MIGHT NEED THIS LATER BUT FOR NOW NO
 //                //getting the json value from the server
@@ -198,14 +232,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Create methods to move display around for keyboard use
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        // Do any additional setup after loading the view, typically from a nib.
-
-    }
+   
     
     // This will move our display up so we can edit the textfield easier
     @objc func keyboardWillShow(notification: NSNotification){
@@ -224,8 +251,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-   
-
+    
+    
     
 
 
