@@ -40,7 +40,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47w-93-CCl"/>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" identifier="homePage" id="R5O-jJ-4FZ"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="show" identifier="homePage" id="2Rv-b4-mJd"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bg1-XJ-Saa">
@@ -347,7 +347,7 @@
         <!--Home Page-->
         <scene sceneID="iUj-rz-DeS">
             <objects>
-                <viewController storyboardIdentifier="homePage" title="Home Page" id="Q5P-y2-Gi6" sceneMemberID="viewController">
+                <viewController title="Home Page" id="Q5P-y2-Gi6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcc-27-n2w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1285,7 +1285,7 @@
         <image name="loginBGCard" width="322.33334350585938" height="431.66665649414062"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R5O-jJ-4FZ"/>
+        <segue reference="2Rv-b4-mJd"/>
         <segue reference="Ll4-8w-T57"/>
     </inferredMetricsTieBreakers>
 </document>
