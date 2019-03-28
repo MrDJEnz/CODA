@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		98719AD722455BB300BD7B3C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98719ACA22455AF300BD7B3C /* Alamofire.framework */; };
 		98719AD822455BB300BD7B3C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98719ACA22455AF300BD7B3C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE02AFEF224C60A700F09B81 /* MedicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02AFEE224C60A700F09B81 /* MedicationController.swift */; };
-		AE02AFF8224C68A300F09B81 /* ProblemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02AFF7224C68A300F09B81 /* ProblemController.swift */; };
 		AE07D6B1224BF9F40035C432 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07D6B0224BF9F40035C432 /* HomeController.swift */; };
 		AE113BD5222E42070001F3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE113BD4222E42070001F3D8 /* AppDelegate.swift */; };
 		AE113BD7222E42070001F3D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE113BD6222E42070001F3D8 /* ViewController.swift */; };
@@ -19,11 +17,6 @@
 		AE113BDF222E42080001F3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE113BDD222E42080001F3D8 /* LaunchScreen.storyboard */; };
 		AE113BEA222E42080001F3D8 /* CODA_AlphaV2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE113BE9222E42080001F3D8 /* CODA_AlphaV2Tests.swift */; };
 		AE113BF5222E42080001F3D8 /* CODA_AlphaV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE113BF4222E42080001F3D8 /* CODA_AlphaV2UITests.swift */; };
-		AEBFEF35224C6EED00AE4097 /* AppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF34224C6EED00AE4097 /* AppointmentController.swift */; };
-		AEBFEF37224C700D00AE4097 /* CallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF36224C700D00AE4097 /* CallController.swift */; };
-		AEBFEF39224C702300AE4097 /* WatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF38224C702300AE4097 /* WatchController.swift */; };
-		AEBFEF3B224C703400AE4097 /* DischargeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF3A224C703400AE4097 /* DischargeController.swift */; };
-		AEBFEF3D224C706600AE4097 /* LogOutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF3C224C706600AE4097 /* LogOutController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,8 +108,6 @@
 
 /* Begin PBXFileReference section */
 		98719ABE22455AF300BD7B3C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		AE02AFEE224C60A700F09B81 /* MedicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationController.swift; sourceTree = "<group>"; };
-		AE02AFF7224C68A300F09B81 /* ProblemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemController.swift; sourceTree = "<group>"; };
 		AE07D6B0224BF9F40035C432 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AE113BD1222E42070001F3D8 /* CODA-AlphaV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CODA-AlphaV2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE113BD4222E42070001F3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,11 +122,6 @@
 		AE113BF0222E42080001F3D8 /* CODA-AlphaV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CODA-AlphaV2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE113BF4222E42080001F3D8 /* CODA_AlphaV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CODA_AlphaV2UITests.swift; sourceTree = "<group>"; };
 		AE113BF6222E42080001F3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEBFEF34224C6EED00AE4097 /* AppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentController.swift; sourceTree = "<group>"; };
-		AEBFEF36224C700D00AE4097 /* CallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallController.swift; sourceTree = "<group>"; };
-		AEBFEF38224C702300AE4097 /* WatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchController.swift; sourceTree = "<group>"; };
-		AEBFEF3A224C703400AE4097 /* DischargeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeController.swift; sourceTree = "<group>"; };
-		AEBFEF3C224C706600AE4097 /* LogOutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,13 +191,6 @@
 				AE113BD4222E42070001F3D8 /* AppDelegate.swift */,
 				AE113BD6222E42070001F3D8 /* ViewController.swift */,
 				AE07D6B0224BF9F40035C432 /* HomeController.swift */,
-				AE02AFEE224C60A700F09B81 /* MedicationController.swift */,
-				AE02AFF7224C68A300F09B81 /* ProblemController.swift */,
-				AEBFEF34224C6EED00AE4097 /* AppointmentController.swift */,
-				AEBFEF38224C702300AE4097 /* WatchController.swift */,
-				AEBFEF36224C700D00AE4097 /* CallController.swift */,
-				AEBFEF3A224C703400AE4097 /* DischargeController.swift */,
-				AEBFEF3C224C706600AE4097 /* LogOutController.swift */,
 				AE113BD8222E42070001F3D8 /* Main.storyboard */,
 				AE113BDB222E42080001F3D8 /* Assets.xcassets */,
 				AE113BDD222E42080001F3D8 /* LaunchScreen.storyboard */,
@@ -430,15 +409,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE113BD7222E42070001F3D8 /* ViewController.swift in Sources */,
-				AEBFEF3D224C706600AE4097 /* LogOutController.swift in Sources */,
-				AEBFEF35224C6EED00AE4097 /* AppointmentController.swift in Sources */,
-				AEBFEF37224C700D00AE4097 /* CallController.swift in Sources */,
-				AEBFEF39224C702300AE4097 /* WatchController.swift in Sources */,
 				AE113BD5222E42070001F3D8 /* AppDelegate.swift in Sources */,
-				AE02AFF8224C68A300F09B81 /* ProblemController.swift in Sources */,
-				AE02AFEF224C60A700F09B81 /* MedicationController.swift in Sources */,
 				AE07D6B1224BF9F40035C432 /* HomeController.swift in Sources */,
-				AEBFEF3B224C703400AE4097 /* DischargeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
