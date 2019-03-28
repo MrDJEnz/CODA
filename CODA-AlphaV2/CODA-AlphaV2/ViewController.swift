@@ -11,10 +11,7 @@ import Alamofire
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    // Change the username
-    
-    @IBOutlet weak var usrnameLbl: UILabel!
-    
+
     
     // urls for both login and register
     let URL_USER_LOGIN = "http://snguon.w3.uvm.edu/cs295d/login.php"
@@ -29,11 +26,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordLogin: UITextField!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //set usrname feild
         //usrnameLbl.text = "Welcome:"
-        
+        if passwordLogin != nil{
+            passwordLogin.isSecureTextEntry = true
+        }
+        if passwordRegister != nil{
+            passwordRegister.isSecureTextEntry = true
+        }
         
         
         // Create methods to move display around for keyboard use
@@ -45,9 +48,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let homeController = segue.destination as? HomeController else { return }
-        homeController.userValue = usernameLogin.text
+        if segue.identifier == "homePage" {
+            let vc = segue.destination as! HomeController
+            vc.userValue = usernameLogin.text
+        }
+        
     }
+   
     
     
     // function that will login the user if the button is pressed

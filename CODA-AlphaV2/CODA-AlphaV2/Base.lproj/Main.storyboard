@@ -391,7 +391,7 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="2YJ-O0-ECp" kind="show" id="Mmo-ca-NgR"/>
+                                            <action selector="logoutButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="POz-IK-iYL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -420,7 +420,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="llA-8q-0do" kind="show" id="ee4-Ma-gwK"/>
+                                                            <action selector="medButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="jHn-hp-1KU"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fk1-TY-4Ej">
@@ -431,7 +431,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Lcw-aK-8ir" kind="show" id="gaf-re-flO"/>
+                                                            <action selector="prbButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="lPc-Ax-G4z"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -447,7 +447,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Frl-7f-bmX" kind="show" id="djw-Zd-8mI"/>
+                                                            <action selector="aptButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="km5-rI-wR0"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-K3-utJ">
@@ -458,7 +458,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="YcT-rD-RxT" kind="show" id="2vO-zY-b1w"/>
+                                                            <action selector="wtchButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="k2r-zU-pEl"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -474,7 +474,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="TTH-9c-QZk" kind="show" id="hXV-pu-D9U"/>
+                                                            <action selector="callButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="C9G-Wp-hpF"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-qb-DLR">
@@ -485,7 +485,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="P7f-qM-FyT" kind="show" id="sUN-qI-akM"/>
+                                                            <action selector="dchrgButton:" destination="Q5P-y2-Gi6" eventType="touchUpInside" id="E1r-Vd-JKz"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -524,16 +524,23 @@
                     </view>
                     <connections>
                         <outlet property="usrnameLbl" destination="DLg-kz-eO2" id="21U-nm-Ry2"/>
+                        <segue destination="llA-8q-0do" kind="presentation" identifier="medSegue" id="WQS-Dn-ccg"/>
+                        <segue destination="Lcw-aK-8ir" kind="presentation" identifier="prbSegue" id="7BV-zo-S7V"/>
+                        <segue destination="TTH-9c-QZk" kind="presentation" identifier="callSegue" id="Dux-Ar-Uyk"/>
+                        <segue destination="Frl-7f-bmX" kind="presentation" identifier="aptSegue" id="XQO-MO-VZx"/>
+                        <segue destination="YcT-rD-RxT" kind="presentation" identifier="wtchSegue" id="pC9-uf-vLg"/>
+                        <segue destination="P7f-qM-FyT" kind="presentation" identifier="dchrgSegue" id="Xt3-Z8-BI7"/>
+                        <segue destination="2YJ-O0-ECp" kind="presentation" identifier="logoutSegue" id="GBw-e1-Lqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baA-L4-HHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275.625" y="125.70422535211267"/>
+            <point key="canvasLocation" x="292" y="97"/>
         </scene>
         <!--Medication Page-->
         <scene sceneID="P6Y-j6-Mc5">
             <objects>
-                <viewController title="Medication Page" id="llA-8q-0do" sceneMemberID="viewController">
+                <viewController title="Medication Page" id="llA-8q-0do" customClass="MedicationController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ey7-62-o3Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -576,7 +583,7 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="WxN-29-5np"/>
+                                            <action selector="goHomeButton:" destination="llA-8q-0do" eventType="touchUpInside" id="yX8-Q2-iSH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -631,15 +638,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jBh-sv-M9m"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="bkn-J5-g0k" id="Sk6-32-BxS"/>
+                        <segue destination="Q5P-y2-Gi6" kind="presentation" identifier="medHomeSegue" id="zZK-U8-5Si"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9L-lY-iay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="128"/>
+            <point key="canvasLocation" x="1116" y="97"/>
         </scene>
         <!--Problems Page-->
         <scene sceneID="NQ6-pi-p0P">
             <objects>
-                <viewController title="Problems Page" id="Lcw-aK-8ir" sceneMemberID="viewController">
+                <viewController title="Problems Page" id="Lcw-aK-8ir" customClass="ProblemController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kae-rG-Pf9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -682,7 +693,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="qyv-CG-MPf"/>
+                                            <action selector="goHomeButton:" destination="Lcw-aK-8ir" eventType="touchUpInside" id="uJw-wr-4LM"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="show" identifier="prbHomeSegue" id="qyv-CG-MPf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -733,6 +745,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YRX-ij-LRr"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="9R5-D2-gkd" id="cdv-fy-1Wq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6x-hm-AjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -741,7 +756,7 @@
         <!--Watch Page-->
         <scene sceneID="cP3-WJ-Z4o">
             <objects>
-                <viewController title="Watch Page" id="YcT-rD-RxT" sceneMemberID="viewController">
+                <viewController title="Watch Page" id="YcT-rD-RxT" customClass="WatchController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aBe-mO-auV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -784,7 +799,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="tya-x2-lau"/>
+                                            <action selector="goHome:" destination="YcT-rD-RxT" eventType="touchUpInside" id="g5S-7b-AeM"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="presentation" identifier="wtchHomeSegue" id="XIf-72-0IU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -835,6 +851,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MSF-gF-ZXq"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="3wA-g1-7Cc" id="jvu-7v-t8e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEa-Aw-ccQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -843,7 +862,7 @@
         <!--Appointment Page-->
         <scene sceneID="UIx-tM-eJk">
             <objects>
-                <viewController title="Appointment Page" id="Frl-7f-bmX" sceneMemberID="viewController">
+                <viewController title="Appointment Page" id="Frl-7f-bmX" customClass="AppointmentController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qqu-Eh-TsI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -886,7 +905,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="mba-pB-Gfd"/>
+                                            <action selector="goHome:" destination="Frl-7f-bmX" eventType="touchUpInside" id="dYu-Ic-9SS"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="presentation" identifier="aptHomeSegue" id="G2V-zp-gD8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -937,6 +957,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CQ6-yf-wgb"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="cbD-xG-ftV" id="mOb-2Z-6Ee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awt-UO-eSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -945,7 +968,7 @@
         <!--Discharge Page-->
         <scene sceneID="Jdi-Cd-nbI">
             <objects>
-                <viewController title="Discharge Page" id="P7f-qM-FyT" sceneMemberID="viewController">
+                <viewController title="Discharge Page" id="P7f-qM-FyT" customClass="DischargeController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5hm-g6-CGm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -988,7 +1011,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="8R8-WI-7se"/>
+                                            <action selector="goHome:" destination="P7f-qM-FyT" eventType="touchUpInside" id="9V6-t8-s6h"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="presentation" identifier="dchrgHomeSegue" id="dAw-UT-cEi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1039,15 +1063,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0m6-GD-99t"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="xBj-Sf-g2O" id="8mV-lA-qSB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zp-iJ-qiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-478" y="802"/>
+            <point key="canvasLocation" x="-479" y="802"/>
         </scene>
         <!--Call Page-->
         <scene sceneID="fEf-xe-e9B">
             <objects>
-                <viewController title="Call Page" id="TTH-9c-QZk" sceneMemberID="viewController">
+                <viewController title="Call Page" id="TTH-9c-QZk" customClass="CallController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="he2-6T-i9i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1090,7 +1117,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="e3L-Bc-txs"/>
+                                            <action selector="goHome:" destination="TTH-9c-QZk" eventType="touchUpInside" id="wlo-LS-aQx"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="presentation" identifier="callHomeSegue" id="twF-Xp-iYe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1141,6 +1169,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZDe-my-App"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="uKZ-QE-Q4I" id="coM-OP-Whi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZU-Td-QfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1149,7 +1180,7 @@
         <!--Logout Page-->
         <scene sceneID="Sb9-GE-nct">
             <objects>
-                <viewController title="Logout Page" id="2YJ-O0-ECp" sceneMemberID="viewController">
+                <viewController title="Logout Page" id="2YJ-O0-ECp" customClass="LogOutController" customModule="CODA_AlphaV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AmS-v6-MQb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1196,7 +1227,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q5P-y2-Gi6" kind="show" id="REu-4X-KzB"/>
+                                            <action selector="goHome:" destination="2YJ-O0-ECp" eventType="touchUpInside" id="trB-Hy-ojs"/>
+                                            <segue destination="Q5P-y2-Gi6" kind="show" identifier="logOutHomeSegue" id="REu-4X-KzB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niC-B9-IC8">
@@ -1212,7 +1244,8 @@
                                             <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="Ea8-eI-ue4"/>
+                                            <action selector="logOut:" destination="2YJ-O0-ECp" eventType="touchUpInside" id="BaH-p1-pmk"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="logOutSegue" id="Ea8-eI-ue4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1275,6 +1308,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o0A-Xn-xEL"/>
                     </view>
+                    <connections>
+                        <outlet property="userLbl" destination="bIJ-Ai-sbQ" id="kcu-hl-mfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIH-Bl-pHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1290,6 +1326,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fMC-P3-fcQ"/>
-        <segue reference="Ll4-8w-T57"/>
+        <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>
