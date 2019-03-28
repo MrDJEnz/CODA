@@ -21,13 +21,13 @@ class DbOperation {
   // and sees if the username exists by seeing if the statement
   // returns more than one row
   public function userLogin($username, $pass) {
-        $password = md5($pass);
-        $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ? AND fldPassword = ?");
-        $stmt->bind_param("ss", $username, $password);
-        $stmt->execute();
-        $stmt->store_result();
-        return $stmt->num_rows > 0;
-    }
+    $password = hash("sha256", $pass);
+    $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ? AND fldPassword = ?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $stmt->store_result();
+    return $stmt->num_rows > 0;
+  }
 
     /*
      * After the successful login we will call this method
@@ -55,7 +55,7 @@ class DbOperation {
   // lastly, if user existed in the first place, send the proper return message
   public function createUser($username, $email, $pass) {
     if (!$this->isUserExist($username, $email)) {
-      $password = md5($pass);
+      $password = hash("sha256", $pass);
       $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)");
       $stmt->bind_param("sss", $username, $email, $password);
       if ($stmt->execute()) {
