@@ -120,13 +120,10 @@
 																			<?php $newUserdata[] = $doc ?>
 																			<?php $newUserdata[] = $details ?>
 																			<?php $newUserdata[] = $_SESSION["idVal"]; ?>
-																			<?php if ($_SESSION["activeUserEmail"] != "" AND $_SESSION["hashedPass"] != ""){$records = $thisDatabaseWriter->testquery($query, $newUserdata, 1, 0, 0, 0, false, false)?>
+																			<?php if ($_SESSION["activeUserEmail"] != "" AND $_SESSION["hashedPass"] != ""){$records = $thisDatabaseWriter->testquery($query, $newUserdata, 1, 4, 0, 0, false, false)?>
 																				<h1>Appointment Edited!</h1>
 																				<?php header("Location: viewApp.php"); ?>
-																				<?php $id=$_REQUEST['id']; ?>
-																				<?php echo $_SESSION["idVal"]; ?>
-																				<?php echo $id ?>
-																				<?php echo "Test" ?>
+
 																			<?php }?>
 																		<?php }?>
 																	</a>
