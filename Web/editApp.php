@@ -110,23 +110,23 @@
 																			<?php $doc = htmlspecialchars($_POST['doc'])?>
 																			<?php $details = htmlspecialchars($_POST['details'])?>
 
-																			<?php $query = 'UPDATE tblUserAppointments SET '?>
-																			<?php $query .= 'flduserName = ?, '?>
-																			<?php $query .= 'fldhashedPass = ? , '?>
-																			<?php    $query .= 'flddate = ? ,'?>
-																			<?php    $query .= 'flddoctorName = ? ,'?>
-																			<?php    $query .= 'flddetails = ? , '?>
-																			<?php    $query .= 'WHERE pmkID = ?'?>
+
+																			<?php $query = 'UPDATE tblUserAppointments SET flduserName = ?  AND fldhashedPass = ? AND flddate = ? AND flddoctorName = ?
+																			AND flddoctorName = ? AND flddetails = ? WHERE pmkID = ?';?>
 
 																			<?php $newUserdata[] = $_SESSION["activeUserEmail"] ?>
 																			<?php $newUserdata[] = $_SESSION["hashedPass"] ?>
 																			<?php $newUserdata[] = $date ?>
 																			<?php $newUserdata[] = $doc ?>
 																			<?php $newUserdata[] = $details ?>
-																			<?php $newUserdata[] = $$_SESSION["idVal"]; ?>
+																			<?php $newUserdata[] = $_SESSION["idVal"]; ?>
 																			<?php if ($_SESSION["activeUserEmail"] != "" AND $_SESSION["hashedPass"] != ""){$records = $thisDatabaseWriter->testquery($query, $newUserdata, 1, 0, 0, 0, false, false)?>
 																				<h1>Appointment Edited!</h1>
 																				<?php header("Location: viewApp.php"); ?>
+																				<?php $id=$_REQUEST['id']; ?>
+																				<?php echo $_SESSION["idVal"]; ?>
+																				<?php echo $id ?>
+																				<?php echo "Test" ?>
 																			<?php }?>
 																		<?php }?>
 																	</a>
