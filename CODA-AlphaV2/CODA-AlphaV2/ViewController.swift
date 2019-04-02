@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // error checking if the PHP echoed back from the site has a true
             // error message, if so, then the username or password is incorrect
             // else, continue to the home page
-            if ((response.result.value?.contains("true"))!) {
+            if ((response.value?.contains("true"))!) {
                 let alert = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert);
                 
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil));
@@ -210,7 +210,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // error checking if user already exists
             // if so, show an alert stating so
             // otherwise tell the user the registration was succesful
-            if ((response.result.value?.contains("true"))!) {
+            if ((response.value?.contains("true"))!) {
                 let alertController = UIAlertController(title: "Error!", message: "User already exists", preferredStyle: .alert);
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
