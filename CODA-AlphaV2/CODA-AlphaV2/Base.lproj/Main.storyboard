@@ -1032,7 +1032,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9V-Vf-lkA" userLabel="Top View">
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9V-Vf-lkA" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coda_text" translatesAutoresizingMaskIntoConstraints="NO" id="1vx-iz-cNN">
@@ -1052,6 +1052,7 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="3"/>
                                 <constraints>
                                     <constraint firstItem="xBj-Sf-g2O" firstAttribute="bottom" secondItem="a9V-Vf-lkA" secondAttribute="bottomMargin" id="49p-bV-MYI"/>
                                     <constraint firstItem="Jyh-Dv-KqA" firstAttribute="centerY" secondItem="a9V-Vf-lkA" secondAttribute="centerY" id="6VV-M6-1dP"/>
@@ -1065,7 +1066,7 @@
                                     <constraint firstItem="1vx-iz-cNN" firstAttribute="leading" secondItem="a9V-Vf-lkA" secondAttribute="leading" id="tVu-YC-VUD"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGL-Me-pER" userLabel="Bottom View">
+                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGL-Me-pER" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="715" width="375" height="97"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZa-yG-5MO">
@@ -1406,7 +1407,7 @@
         <image name="loginBGCard" width="322.33334350585938" height="431.66665649414062"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zZK-U8-5Si"/>
+        <segue reference="dAw-UT-cEi"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>

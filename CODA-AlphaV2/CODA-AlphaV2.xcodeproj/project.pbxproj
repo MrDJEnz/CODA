@@ -19,6 +19,7 @@
 		AE113BDF222E42080001F3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE113BDD222E42080001F3D8 /* LaunchScreen.storyboard */; };
 		AE113BEA222E42080001F3D8 /* CODA_AlphaV2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE113BE9222E42080001F3D8 /* CODA_AlphaV2Tests.swift */; };
 		AE113BF5222E42080001F3D8 /* CODA_AlphaV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE113BF4222E42080001F3D8 /* CODA_AlphaV2UITests.swift */; };
+		AE27756F22543DBA0010F729 /* lorem-ipsum.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE27756722543DBA0010F729 /* lorem-ipsum.pdf */; };
 		AEBFEF35224C6EED00AE4097 /* AppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF34224C6EED00AE4097 /* AppointmentController.swift */; };
 		AEBFEF37224C700D00AE4097 /* CallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF36224C700D00AE4097 /* CallController.swift */; };
 		AEBFEF39224C702300AE4097 /* WatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBFEF38224C702300AE4097 /* WatchController.swift */; };
@@ -131,6 +132,7 @@
 		AE113BF0222E42080001F3D8 /* CODA-AlphaV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CODA-AlphaV2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE113BF4222E42080001F3D8 /* CODA_AlphaV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CODA_AlphaV2UITests.swift; sourceTree = "<group>"; };
 		AE113BF6222E42080001F3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE27756722543DBA0010F729 /* lorem-ipsum.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "lorem-ipsum.pdf"; sourceTree = "<group>"; };
 		AEBFEF34224C6EED00AE4097 /* AppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentController.swift; sourceTree = "<group>"; };
 		AEBFEF36224C700D00AE4097 /* CallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallController.swift; sourceTree = "<group>"; };
 		AEBFEF38224C702300AE4097 /* WatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		AE113BD3222E42070001F3D8 /* CODA-AlphaV2 */ = {
 			isa = PBXGroup;
 			children = (
+				AE27756722543DBA0010F729 /* lorem-ipsum.pdf */,
 				AE113BD4222E42070001F3D8 /* AppDelegate.swift */,
 				AE113BD6222E42070001F3D8 /* ViewController.swift */,
 				AE07D6B0224BF9F40035C432 /* HomeController.swift */,
@@ -403,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE113BDF222E42080001F3D8 /* LaunchScreen.storyboard in Resources */,
+				AE27756F22543DBA0010F729 /* lorem-ipsum.pdf in Resources */,
 				AE113BDC222E42080001F3D8 /* Assets.xcassets in Resources */,
 				AE113BDA222E42070001F3D8 /* Main.storyboard in Resources */,
 			);
