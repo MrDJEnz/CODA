@@ -1091,7 +1091,7 @@
                                     <constraint firstItem="RZa-yG-5MO" firstAttribute="top" secondItem="bGL-Me-pER" secondAttribute="top" constant="12" id="lZB-ND-ZN4"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsN-Q6-F5G" userLabel="Middle View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsN-Q6-F5G" userLabel="Middle View" customClass="PDFView">
                                 <rect key="frame" x="0.0" y="97" width="375" height="618"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discharge Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrw-vs-ybg">
@@ -1134,6 +1134,7 @@
                         <viewLayoutGuide key="safeArea" id="0m6-GD-99t"/>
                     </view>
                     <connections>
+                        <outlet property="pdfView" destination="YsN-Q6-F5G" id="6Us-Xu-taZ"/>
                         <outlet property="userLbl" destination="xBj-Sf-g2O" id="8mV-lA-qSB"/>
                     </connections>
                 </viewController>
