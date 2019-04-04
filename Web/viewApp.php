@@ -123,7 +123,7 @@ else{
 	</td>
 	<td align="center">
 <!-- 			<td align="center"><?php echo $id; ?></td>
--->			<a href="deleteApp.php?id=<?php echo $record["pmkID"]; ?>">Edit</a></td>
+-->			<a href="editApp.php?id=<?php echo $record["pmkID"]; ?>">Edit</a></td>
 
 </td>
 <td align="center">
