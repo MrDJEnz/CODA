@@ -8,9 +8,9 @@
 									//echo $_SESSION["activeUserEmail"];
 
 									?>
-									<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+									<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 									<?php
-									// include ('styleIndex.php')
+									include ('styleIndex.php')
 									?>
 									<?php
 									
@@ -117,9 +117,9 @@
 																				<?php $query = 'UPDATE tblUserAppointments SET '?>
 																				<?php $query .= 'flduserName = ?, '?>
 																				<?php $query .= 'fldhashedPass = ?, '?>
-																				<?php    $query .= 'flddate = ?,'?>
+																				<?php    $query .= 'flddate = ? ,'?>
 																				<?php    $query .= 'flddoctorName = ?, '?>
-																				<?php    $query .= 'flddetails = ?, '?>
+																				<?php    $query .= 'flddetails = ? '?>
 																				<?php    $query .= 'WHERE pmkID = ?'?>
 
 																				<?php $newUserdata[] = $_SESSION["activeUserEmail"] ?>
