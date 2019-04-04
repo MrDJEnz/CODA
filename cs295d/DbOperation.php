@@ -68,7 +68,7 @@ class DbOperation {
     }
   }
 
-  // function that chekcs if the user existed already
+  // function that checks if the user existed already
   // SQL statement checks the table of users to see if the given username and email
   // combo returns anything, if this number is greater than 0, then there
   // was a user with inputted username already existing up in the database
@@ -78,6 +78,17 @@ class DbOperation {
     $stmt->execute();
     $stmt->store_result();
     return $stmt->num_rows > 0;
+  }
+
+  // function that will get the correct PDF based on the username
+  // SQL statement checks the table of PDFS if the given username
+  // matches a username from the table of users and if so, pulls
+  // the respective PDF
+  public function getPDF($username) {
+    $stmt = $this->conn->prepare("SELECT fldPDF FROM tblPDFs JOIN fldUsername ON tblUsers WHERE tblPDFs.fldUsername = tblUsers.fldUsername and tblPDFs.fldUsername = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->fetch();
   }
 }
 ?>
