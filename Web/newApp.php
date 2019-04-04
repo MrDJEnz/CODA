@@ -71,7 +71,7 @@ include ('styleIndex.php')
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="viewApp.php">View Appointments</a>
                   <a class="dropdown-item" href="newApp.php">Create a New Apppointment</a>
-                  <a class="dropdown-item" href="#">Edit an Existing Appointment</a>
+                  <a class="dropdown-item" href="viewApp.php">Edit an Existing Appointment</a>
                 </div>
               </li>
             <li class="nav-item">
