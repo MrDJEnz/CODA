@@ -13,6 +13,7 @@ class DischargeController: UIViewController {
     
     //@IBOutlet weak var userLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
+    @IBOutlet var pdfView: PDFView!
     
     
     @IBDesignable class DesignableView: UIView
@@ -89,18 +90,30 @@ class DischargeController: UIViewController {
 //        if let document = PDFDocument(url: path) {
 //            pdfView.document = document
 //        }
+        
+        
+        if let path = Bundle.main.path(forResource: "lorem-ipsum", ofType: "pdf") {
+            print(path)
+            if let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
+                pdfView.displayMode = .singlePageContinuous
+                pdfView.autoScales = true
+                pdfView.displayDirection = .vertical
+                //pdfView.document = PDFDocument(url: path)
+                pdfView.document = pdfDocument
+            }
+        }
 
-        // Add PDFView to view controller.
-        let pdfView = PDFView(frame: self.view.bounds)
-        pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(pdfView)
-        
-        // Fit content in PDFView.
-        pdfView.autoScales = true
-        
-        // Load Sample.pdf file from app bundle.
-        let fileURL = Bundle.main.url(forResource: "lorem-ipsum", withExtension: "pdf")
-        pdfView.document = PDFDocument(url: fileURL!)
+//        // Add PDFView to view controller.
+//        let pdfView = PDFView(frame: self.view.bounds)
+//        pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        self.view.addSubview(pdfView)
+//
+//        // Fit content in PDFView.
+//        pdfView.autoScales = true
+//
+//        // Load Sample.pdf file from app bundle.
+//        let fileURL = Bundle.main.url(forResource: "lorem-ipsum", withExtension: "pdf")
+//        pdfView.document = PDFDocument(url: fileURL!)
         
         //        let range1 = finalUsername.characters.index(finalUsername.startIndex, offsetBy: 9)..<finalUsername.endIndex
         //        finalUsername = String(finalUsername[range1])
