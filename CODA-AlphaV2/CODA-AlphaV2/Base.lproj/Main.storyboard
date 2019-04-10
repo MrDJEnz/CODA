@@ -1134,6 +1134,7 @@
                         <viewLayoutGuide key="safeArea" id="0m6-GD-99t"/>
                     </view>
                     <connections>
+                        <outlet property="errorMessage" destination="Mrw-vs-ybg" id="POP-YU-nSp"/>
                         <outlet property="pdfView" destination="YsN-Q6-F5G" id="6Us-Xu-taZ"/>
                         <outlet property="userLbl" destination="xBj-Sf-g2O" id="8mV-lA-qSB"/>
                     </connections>
@@ -1408,7 +1409,7 @@
         <image name="loginBGCard" width="322.33334350585938" height="431.66665649414062"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dAw-UT-cEi"/>
+        <segue reference="fMC-P3-fcQ"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>
