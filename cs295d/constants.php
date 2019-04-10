@@ -10,4 +10,8 @@ define('DB_NAME', 'NRLAWREN_cs275_CODA');
 define('USER_CREATED', 0);
 define('USER_ALREADY_EXIST', 1);
 define('USER_NOT_CREATED', 2);
+
+// constants for finding PDFs
+define('PDF_FOUND', 3);
+define('NO_PDF', 4);
 ?>

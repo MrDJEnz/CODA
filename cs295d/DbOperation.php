@@ -15,7 +15,7 @@ class DbOperation {
   }
 
   // function for user login
-  // using md5 hashing to verify password user entered
+  // using sha256 hashing to verify password user entered
   // matches the encrypted password on the database
   // SQL statement checks the username on the table of users
   // and sees if the username exists by seeing if the statement
@@ -78,6 +78,36 @@ class DbOperation {
     $stmt->execute();
     $stmt->store_result();
     return $stmt->num_rows > 0;
+  }
+
+  // function that will get the correct PDF based on the username
+  // SQL statement checks the table of PDFS if the given username
+  // matches a username from the table of users and if so, pulls
+  // the respective PDF
+  public function getPDF($username) {
+    try {
+      $stmt = $this->conn->prepare("SELECT fldPDF FROM tblPDFs JOIN tblUsers ON tblPDFs.fldUsername = tblUsers.fldUsername WHERE tblPDFs.fldUsername = ?");
+      $stmt->bind_param("s", $username);
+      if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+          // do something with $row
+          replace_extension($row, '.pdf');
+
+          // Display PDF
+        }
+        return PDF_FOUND;
+      } else {
+        return NO_PDF;
+      }
+    } catch(Exception $e) {
+      echo "caught exception: ", $e->getMessage(), "\n";
+    }
+  }
+
+  function replace_extension($filename, $new_extension) {
+    $info = pathinfo($filename);
+    return $info['filename'] . '.' . $new_extension;
   }
 }
 ?>
