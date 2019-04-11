@@ -23,6 +23,10 @@ class DischargeController: UIViewController {
     let fileName = "discharge"
     let fontName = "Arial"
     var textfield = ""
+    var ProblemText = ""
+    var MedicattionText = ""
+    var AppointmentText = ""
+    var WatchForText = ""
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
