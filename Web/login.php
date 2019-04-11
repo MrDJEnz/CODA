@@ -100,7 +100,7 @@ include ('styleIndex.php')
                         <?php $emailValue = htmlspecialchars($_POST['emailField'])?>
                         <?php $passValueNEW = htmlspecialchars($_POST['passwordField'])?>
 
-                        <?php $newpassHashed = password_hash($passValueNEW,PASSWORD_DEFAULT) ?>
+                        <?php $newpassHashed = hash('sha256',$passValueNEW) ?>
                         <?php $verifyTest =  password_verify ($passValue, $passHashed)?>
                         <?php $enteredUserdata[] = $emailValue ?>
                         <?php if ($emailValue != "" AND $emailValue != ""){$records = $thisDatabaseReader->select($query, $enteredUserdata, $whereCount, $conditionscount, $quotescount, $symbolcount, false, false);?>
@@ -109,7 +109,7 @@ include ('styleIndex.php')
                             $loginUser = ((string)$record['fldUsername']);}?>
 
                             
-                            <?php if (password_verify($passValueNEW,$dbHash)) {
+                            <?php if (password_verify($newpassHashed,$dbHash)) {
                               ?>
                               <h1> Password is valid! Logging in... you will be directed to the main page. Thank you!</h1>
                               <!-- ?php echo $loginUser ?> -->
