@@ -13,9 +13,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrllView: UIScrollView!
     var page = 1
-    let fileName = "Kurt the Cat"
+    let fileName = "discharge"
     let fontName = "Arial"
-    var text = ""
+    var textfield = ""
     
     @IBAction func nxtPge(_ sender: Any) {
         page += 1
@@ -42,13 +42,13 @@ class ViewController: UIViewController {
         print(documentIndexer.pageIndexes[page]!.allLinesDescription())
         showPage(pageIndex: documentIndexer.pageIndexes[page]!)
         print("GATHERED TEXT:\n")
-        print(text)
+        print(textfield)
     }
 
     func showPage(pageIndex: SimpleDocumentIndexer.PageIndex) {
-        for (_, l) in pageIndex.lines {
-            showLine(l)
-        }
+//        for (_, l) in pageIndex.lines {
+//            showLine(l)
+//        }
  
         for var b in pageIndex.textBlocks {
             showBlock(&b)
@@ -72,8 +72,8 @@ class ViewController: UIViewController {
         self.scrllView.clipsToBounds = true
         labl.backgroundColor = UIColor.clear
         labl.lineBreakMode = .byClipping
+        textfield += textBlock.chars
         labl.text = textBlock.chars
-        text += textBlock.chars
         labl.textColor = UIColor.black
         
         //self.scrllView.autoresizesSubviews = true
