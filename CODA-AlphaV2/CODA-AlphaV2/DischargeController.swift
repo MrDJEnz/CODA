@@ -17,7 +17,20 @@ class DischargeController: UIViewController {
     @IBOutlet var pdfView: PDFView!
     @IBOutlet weak var errorMessage: UILabel!
     
+    var documentIndexer = SimpleDocumentIndexer()
+    
+    var page = 1
+    let fileName = "discharge"
+    let fontName = "Arial"
+    var textfield = ""
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! HomeController
+        
+        vc.userValue = self.finalUsername
+    }
+    
     
     @IBDesignable class DesignableView: UIView
     {
@@ -78,6 +91,22 @@ class DischargeController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 1)
         
         
+        // Do any additional setup after loading the view, typically from a nib.
+        let documentPath = Bundle.main.path(forResource:fileName , ofType: "pdf", inDirectory: nil, forLocalization: nil)
+        
+        let parser = try! Parser(documentURL: URL(fileURLWithPath: documentPath!), delegate:self, indexer: documentIndexer)
+        parser.parse()
+        
+        print( "Raw dump : \n")
+        print(documentIndexer.pageIndexes[page]!.textBlocks)
+        
+        print( "\nLines : \n")
+        print(documentIndexer.pageIndexes[page]!.allLinesDescription())
+        showPage(pageIndex: documentIndexer.pageIndexes[page]!)
+        print("GATHERED TEXT:\n")
+        print(textfield)
+        
+        
         //let pdfView = PDFView()
 
 //        pdfView.translatesAutoresizingMaskIntoConstraints = false
@@ -124,7 +153,8 @@ class DischargeController: UIViewController {
 //            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
 //            self.present(alertController, animated: true, completion: nil)
 //        }
-
+        
+        
         // FOR LOCAL PDF
         guard let path = Bundle.main.url(forResource: "discharge", withExtension: "pdf")
             else {
@@ -177,11 +207,60 @@ class DischargeController: UIViewController {
     @IBAction func goHome(_ sender: Any) {
     performSegue(withIdentifier: "dchrgHomeSegue", sender: self)
 }
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let vc = segue.destination as! HomeController
     
-    vc.userValue = self.finalUsername
+    
+    
+    func showPage(pageIndex: SimpleDocumentIndexer.PageIndex) {
+        //        for (_, l) in pageIndex.lines {
+        //            showLine(l)
+        //        }
+        
+        for var b in pageIndex.textBlocks {
+            showBlock(&b)
+        }
+    }
+    
+    
+    func showLine(_ line: SimpleDocumentIndexer.LineTextBlock) {
+        for var b in line.blocks {
+            showBlock(&b)
+        }
+    }
+    
+    func showBlock(_  textBlock: inout TextBlock) {
+        //let labl = UILabel(frame: textBlock.frame.insetBy(dx: 0, dy: -textBlock.renderingState.deviceSpaceFontSize * 2))
+        //            if let fontDescr =  UIFont(name: fontName, size: textBlock.renderingState.deviceSpaceFontSize)?.fontDescriptor.withSymbolicTraits(textBlock.attributes.fontTraits)  {
+        //                labl.font = UIFont(descriptor: fontDescr, size: textBlock.renderingState.deviceSpaceFontSize)
+        //            }
+        
+        //            self.scrllView.addSubview(labl)
+        //            self.scrllView.clipsToBounds = true
+        //            labl.backgroundColor = UIColor.clear
+        //            labl.lineBreakMode = .byClipping
+        textfield += textBlock.chars
+        //            labl.text = textBlock.chars
+        //            labl.textColor = UIColor.black
+        
+        //self.scrllView.autoresizesSubviews = true
+        
+        //view.layer.rasterizationScale = view.window.screen.scale;
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }
+
+extension DischargeController: ParserDelegate {
+    func parser(p: Parser, didCompleteWithError error: Error?) {
+        if let error = error {
+            print(error)
+        }
+    }
+
 
 
 /*
