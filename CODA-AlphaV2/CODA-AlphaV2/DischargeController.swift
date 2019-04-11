@@ -18,8 +18,7 @@ class DischargeController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     
     var documentIndexer = SimpleDocumentIndexer()
-    
-    var page = 1
+    var page = 0
     let fileName = "discharge"
     let fontName = "Arial"
     var textfield = ""
@@ -100,17 +99,21 @@ class DischargeController: UIViewController {
         
         let parser = try! Parser(documentURL: URL(fileURLWithPath: documentPath!), delegate:self, indexer: documentIndexer)
         parser.parse()
-        
-        print( "Raw dump : \n")
-        print(documentIndexer.pageIndexes[page]!.textBlocks)
-        
-        print( "\nLines : \n")
-        print(documentIndexer.pageIndexes[page]!.allLinesDescription())
-        showPage(pageIndex: documentIndexer.pageIndexes[page]!)
+        guard let path2 = Bundle.main.url(forResource: "discharge", withExtension: "pdf")
+            else {return}
+        if let pdfDocument = PDFDocument(url: path2) {
+            //documentContent should contain the pdf as attributed text (with font size/color/etc)
+            let pageCount = pdfDocument.pageCount
+            for i in 1 ..< pageCount {
+                showPage(pageIndex: documentIndexer.pageIndexes[i]!)
+            }
+            print("PAGES COUNT: \(pageCount)")
+        }
         print("GATHERED TEXT:\n")
         print(textfield)
+       
         
-        
+        // Online PDF
         //let pdfView = PDFView()
 
 //        pdfView.translatesAutoresizingMaskIntoConstraints = false
@@ -182,16 +185,12 @@ class DischargeController: UIViewController {
                         //documentContent should contain the pdf as attributed text (with font size/color/etc)
                         let pageCount = pdfDocument.pageCount
                         let documentContent = NSMutableAttributedString()
-            
                         for i in 1 ..< pageCount {
                             guard let page = pdfDocument.page(at: i) else { continue }
                             guard let pageContent = page.attributedString else { continue }
                             documentContent.append(pageContent)
                         }
-            
-            
                     }
-        
         let pdf = PDFDocument(url: URL(fileURLWithPath: "discharge.pdf"))
         
         guard let contents = pdf?.string else {
@@ -200,19 +199,14 @@ class DischargeController: UIViewController {
         }
         
         let footNote = contents.components(separatedBy: "FOOT NOTE: ")[1] // get all the text after the first foot note
-        
         print(footNote.components(separatedBy: "\n")[0]) // print the first line of that text
-        
         // Output: "The operating system being written in C resulted in a more portable software."
-            
     }
     
     //@IBAction func goHome(_ sender: Any) {
     @IBAction func goHome(_ sender: Any) {
     performSegue(withIdentifier: "dchrgHomeSegue", sender: self)
 }
-    
-    
     
     func showPage(pageIndex: SimpleDocumentIndexer.PageIndex) {
         //        for (_, l) in pageIndex.lines {
