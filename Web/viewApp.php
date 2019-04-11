@@ -129,6 +129,8 @@ else{
 <td align="center">
 <!-- 			<td align="center"><?php echo $id; ?></td>
 -->			<a href="deleteApp.php?id=<?php echo $record["pmkID"]; ?>">Delete</a></td>
+			<?php $_SESSION["idVal"] = $record["pmkID"];?> 
+			
 
 </td>
 </tr>

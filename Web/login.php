@@ -8,9 +8,9 @@ $_SESSION["activeUser"] = "null";
 $_SESSION["hashedPass"] = "null";
 $_SESSION["activeUserEmail"] = "null";
 ?>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 <?php
-include ('styleIndex.php')
+ include ('styleIndex.php')
 ?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -100,16 +100,15 @@ include ('styleIndex.php')
                         <?php $emailValue = htmlspecialchars($_POST['emailField'])?>
                         <?php $passValueNEW = htmlspecialchars($_POST['passwordField'])?>
 
-                        <?php $newpassHashed = password_hash($passValueNEW,PASSWORD_DEFAULT) ?>
+                        <?php $newpassHashed = hash('sha256',$passValueNEW) ?>
                         <?php $verifyTest =  password_verify ($passValue, $passHashed)?>
                         <?php $enteredUserdata[] = $emailValue ?>
                         <?php if ($emailValue != "" AND $emailValue != ""){$records = $thisDatabaseReader->select($query, $enteredUserdata, $whereCount, $conditionscount, $quotescount, $symbolcount, false, false);?>
                           <?php foreach ($records as $record) {
                             $dbHash = ((string)$record['fldPassword']);
                             $loginUser = ((string)$record['fldUsername']);}?>
-
                             
-                            <?php if (password_verify($passValueNEW,$dbHash)) {
+                            <?php if ($newpassHashed == $dbHash) {
                               ?>
                               <h1> Password is valid! Logging in... you will be directed to the main page. Thank you!</h1>
                               <!-- ?php echo $loginUser ?> -->
