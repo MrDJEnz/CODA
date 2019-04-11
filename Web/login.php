@@ -8,9 +8,9 @@ $_SESSION["activeUser"] = "null";
 $_SESSION["hashedPass"] = "null";
 $_SESSION["activeUserEmail"] = "null";
 ?>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 <?php
-include ('styleIndex.php')
+ include ('styleIndex.php')
 ?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -107,9 +107,8 @@ include ('styleIndex.php')
                           <?php foreach ($records as $record) {
                             $dbHash = ((string)$record['fldPassword']);
                             $loginUser = ((string)$record['fldUsername']);}?>
-
                             
-                            <?php if (password_verify($newpassHashed,$dbHash)) {
+                            <?php if ($newpassHashed == $dbHash) {
                               ?>
                               <h1> Password is valid! Logging in... you will be directed to the main page. Thank you!</h1>
                               <!-- ?php echo $loginUser ?> -->

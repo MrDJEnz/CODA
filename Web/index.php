@@ -120,7 +120,7 @@ $_SESSION["activeUserEmail"] = "null";
 															<?php $emailValue = strtolower($emailValue) ?>
 															<?php $passValue = htmlspecialchars($_POST['passwordField'])?>
 
-															<?php $passHashed = password_hash($passValue,PASSWORD_DEFAULT) ?>
+															<?php $passHashed = hash('sha256',$passValue) ?>
 
 															<?php $query = 'INSERT INTO tblUsers SET '?>
 															<?php $query .= 'fldUsername = ?, '?>

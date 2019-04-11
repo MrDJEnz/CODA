@@ -2,7 +2,7 @@
 include "top.php";
 ?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<title>Register</title>
+<title>Login</title>
 <div class="col-md-6 col-xl-5 mb-4">
   <form id = "Register" method= "post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <!--Form-->
@@ -55,7 +55,8 @@ include "top.php";
                <?php $emailValue = strtolower($emailValue) ?>
                <?php $passValue = htmlspecialchars($_POST['passwordField'])?>
 
-               <?php $passHashed = hash('sha256', $passValue) ?>
+               <?php $passHashed = password_hash($passValue,PASSWORD_DEFAULT) ?>
+
                <?php $query = 'INSERT INTO tblUsers SET '?>
                <?php $query .= 'fldUsername = ?, '?>
                <?php $query .= 'fldEmail = ?, '?>
