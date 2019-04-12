@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CODA-AlphaV2/DischargeController.swift"
+            timestampString = "576801278.222842"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CODA_AlphaV2.DischargeController.passback.getter : Swift.String"
+                  moduleName = "CODA-AlphaV2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duncan/Desktop/CODA/CODA-AlphaV2/CODA-AlphaV2/DischargeController.swift"
+                  timestampString = "576800915.044246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CODA_AlphaV2.DischargeController.passback.setter : Swift.String"
+                  moduleName = "CODA-AlphaV2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duncan/Desktop/CODA/CODA-AlphaV2/CODA-AlphaV2/DischargeController.swift"
+                  timestampString = "576800915.0487109"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CODA_AlphaV2.DischargeController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; CODA_AlphaV2.DischargeController"
+                  moduleName = "CODA-AlphaV2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duncan/Desktop/CODA/CODA-AlphaV2/CODA-AlphaV2/DischargeController.swift"
+                  timestampString = "576800915.0508831"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1296">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CODA_AlphaV2.DischargeController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CODA_AlphaV2.DischargeController&gt;"
+                  moduleName = "CODA-AlphaV2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duncan/Desktop/CODA/CODA-AlphaV2/CODA-AlphaV2/DischargeController.swift"
+                  timestampString = "576800915.052737"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

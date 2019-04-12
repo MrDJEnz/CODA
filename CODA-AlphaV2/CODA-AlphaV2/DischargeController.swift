@@ -17,11 +17,9 @@ class DischargeController: UIViewController {
     @IBOutlet var pdfView: PDFView!
     @IBOutlet weak var errorMessage: UILabel!
     
-    var documentIndexer = SimpleDocumentIndexer()
     let fileName = "discharge"
     let fontName = "Arial"
-    var pdfText = ""
-    var textfield = "" //the entire pdf
+    var pdfText = "" // the entire pdf
     var WatchForText = "" //Symptoms to Call Your Doctor About:" to "Appointments:"
     var AppointmentText = "" //text from "Appointments:" to "What can I expect from having a ureteral stent"
     var ProblemText = "" //text from "What can I expect from having a ureteral stent?" to "How long will the stent remain in my body?"
@@ -92,29 +90,6 @@ class DischargeController: UIViewController {
         gradientLayer.frame = view.bounds
         //view.layer.addSublayer(gradientLayer)
         self.view.layer.insertSublayer(gradientLayer, at: 1)
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        let documentPath = Bundle.main.path(forResource: fileName , ofType: "pdf", inDirectory: nil, forLocalization: nil)
-        
-        let parser = try! Parser(documentURL: URL(fileURLWithPath: documentPath!), delegate:self, indexer: documentIndexer)
-        parser.parse()
-        guard let path2 = Bundle.main.url(forResource: fileName, withExtension: "pdf")
-            else {return}
-        if let pdfDocument = PDFDocument(url: path2) {
-            //documentContent should contain the pdf as attributed text (with font size/color/etc)
-            let pageCount = pdfDocument.pageCount
-            for i in 1 ..< pageCount {
-                //print(documentIndexer.pageIndexes[i]!.allLinesDescription())
-                showPage(pageIndex: documentIndexer.pageIndexes[i]!)
-            }
-            print("PAGES COUNT: \(pageCount)")
-        }
-        print("GATHERED TEXT:\n")
-        print(textfield)
-        
-        
-       
         
         // Online PDF
         //let pdfView = PDFView()
@@ -188,58 +163,53 @@ class DischargeController: UIViewController {
                         //documentContent should contain the pdf as attributed text (with font size/color/etc)
                         let pageCount = pdfDocument.pageCount
                         let documentContent = NSMutableAttributedString()
-                        for i in 1 ..< pageCount {
+                        for i in 0 ..< pageCount {
                             guard let page = pdfDocument.page(at: i) else { continue }
                             guard let pageContent = page.attributedString else { continue }
                             documentContent.append(pageContent)
                         }
+                        self.pdfText = documentContent.string
+            
                     }
+        print("GATHERED TEXT:\n")
+        print(self.pdfText)
+        
+        // Change the text for the following
+//        WatchForText
+        watchforTextCreator()
+//        AppointmentText
+        AppointmentTextCreator()
+//        ProblemText
+        ProblemTextCreator()
+//        MedicationText
+        MedicationTextCreator()
+        print("\n\nwatchFor Section: \(self.WatchForText), Appointment Section: \(self.AppointmentText), Problems list: \(self.ProblemText), Medication List: \(self.MedicationText)")
+        
     }
+    
+    func watchforTextCreator(){
+        self.WatchForText = "Hello"
+    }
+    
+    func AppointmentTextCreator(){
+        self.AppointmentText = "Change"
+    }
+    
+    func ProblemTextCreator(){
+        self.ProblemText = "Me"
+    }
+    
+    func MedicationTextCreator(){
+        self.MedicationText = "Please"
+    }
+    
     
     //@IBAction func goHome(_ sender: Any) {
     @IBAction func goHome(_ sender: Any) {
     performSegue(withIdentifier: "dchrgHomeSegue", sender: self)
 }
     
-    func showPage(pageIndex: SimpleDocumentIndexer.PageIndex) {
-//        for (_, l) in pageIndex.lines {
-//            showLine(l)
-//        }
-        
-        for var b in pageIndex.textBlocks {
-            showBlock(&b)
-        }
-    }
-    
-    
-//    func showLine(_ line: SimpleDocumentIndexer.LineTextBlock) {
-//        for var b in line.blocks {
-//            showBlock(&b)
-//        }
-//    }
-    
-    func showBlock(_  textBlock: inout TextBlock) {
-        let labl = UILabel(frame: textBlock.frame.insetBy(dx: 0, dy: -textBlock.renderingState.deviceSpaceFontSize * 2))
-//        if let fontDescr =  UIFont(name: fontName, size: textBlock.renderingState.deviceSpaceFontSize)?.fontDescriptor.withSymbolicTraits(textBlock.attributes.fontTraits)  {
-//            labl.font = UIFont(descriptor: fontDescr, size: textBlock.renderingState.deviceSpaceFontSize)
-//        }
-//
-//        self.pdfView.addSubview(labl)
-//        self.pdfView.clipsToBounds = true
-//        labl.backgroundColor = UIColor.clear
-//        labl.lineBreakMode = .byClipping
-        //textfield += textBlock.chars
-        labl.text = textBlock.chars
-        //print(labl.text as Any)
-        self.pdfText = self.pdfText + labl.text!
-        print(pdfText as Any)
-//        labl.textColor = UIColor.black
-        
-        //self.pdfView.autoresizesSubviews = true
-        
-        //view.layer.rasterizationScale = view.window.screen.scale;
-        
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -248,23 +218,4 @@ class DischargeController: UIViewController {
     
 }
 
-extension DischargeController: ParserDelegate {
-    func parser(p: Parser, didCompleteWithError error: Error?) {
-        if let error = error {
-            print(error)
-        }
-    }
 
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
-}

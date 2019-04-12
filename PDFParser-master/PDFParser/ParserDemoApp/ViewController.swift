@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrllView: UIScrollView!
     var page = 1
-    let fileName = "discharge"
+    let fileName = "Kurt the Cat"
     let fontName = "Arial"
     var textfield = ""
     
@@ -69,7 +69,6 @@ class ViewController: UIViewController {
         }
         
         self.scrllView.addSubview(labl)
-        self.scrllView.clipsToBounds = true
         labl.backgroundColor = UIColor.clear
         labl.lineBreakMode = .byClipping
         textfield += textBlock.chars
