@@ -89,6 +89,7 @@ public class SimpleDocumentIndexer {
                     previous.renderingState.deviceSpaceFontSize == next.renderingState.deviceSpaceFontSize &&
                     blockSpacing < spaceWidth {
                 print ("coalesce \(previous.chars) [\(previous.frame)] with \(next.chars) [\(next.frame)]\n")
+                //print("\(next.chars)")
 
                 var res = previous
                 res.chars.append(next.chars)

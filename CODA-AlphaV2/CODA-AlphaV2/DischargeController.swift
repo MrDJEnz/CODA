@@ -18,9 +18,9 @@ class DischargeController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     
     var documentIndexer = SimpleDocumentIndexer()
-    var page = 0
     let fileName = "discharge"
     let fontName = "Arial"
+    var pdfText = ""
     var textfield = ""
     var ProblemText = ""
     var MedicattionText = ""
@@ -95,16 +95,17 @@ class DischargeController: UIViewController {
         
         
         // Do any additional setup after loading the view, typically from a nib.
-        let documentPath = Bundle.main.path(forResource:fileName , ofType: "pdf", inDirectory: nil, forLocalization: nil)
+        let documentPath = Bundle.main.path(forResource: fileName , ofType: "pdf", inDirectory: nil, forLocalization: nil)
         
         let parser = try! Parser(documentURL: URL(fileURLWithPath: documentPath!), delegate:self, indexer: documentIndexer)
         parser.parse()
-        guard let path2 = Bundle.main.url(forResource: "discharge", withExtension: "pdf")
+        guard let path2 = Bundle.main.url(forResource: fileName, withExtension: "pdf")
             else {return}
         if let pdfDocument = PDFDocument(url: path2) {
             //documentContent should contain the pdf as attributed text (with font size/color/etc)
             let pageCount = pdfDocument.pageCount
             for i in 1 ..< pageCount {
+                //print(documentIndexer.pageIndexes[i]!.allLinesDescription())
                 showPage(pageIndex: documentIndexer.pageIndexes[i]!)
             }
             print("PAGES COUNT: \(pageCount)")
@@ -163,7 +164,7 @@ class DischargeController: UIViewController {
         
         
         // FOR LOCAL PDF
-        guard let path = Bundle.main.url(forResource: "discharge", withExtension: "pdf")
+        guard let path = Bundle.main.url(forResource: fileName, withExtension: "pdf")
             else {
                 errorMessage.text = "Error retreiving file"
             
@@ -191,16 +192,6 @@ class DischargeController: UIViewController {
                             documentContent.append(pageContent)
                         }
                     }
-        let pdf = PDFDocument(url: URL(fileURLWithPath: "discharge.pdf"))
-        
-        guard let contents = pdf?.string else {
-            print("could not get string from pdf: \(String(describing: pdf))")
-            return
-        }
-        
-        let footNote = contents.components(separatedBy: "FOOT NOTE: ")[1] // get all the text after the first foot note
-        print(footNote.components(separatedBy: "\n")[0]) // print the first line of that text
-        // Output: "The operating system being written in C resulted in a more portable software."
     }
     
     //@IBAction func goHome(_ sender: Any) {
@@ -209,9 +200,9 @@ class DischargeController: UIViewController {
 }
     
     func showPage(pageIndex: SimpleDocumentIndexer.PageIndex) {
-        //        for (_, l) in pageIndex.lines {
-        //            showLine(l)
-        //        }
+//        for (_, l) in pageIndex.lines {
+//            showLine(l)
+//        }
         
         for var b in pageIndex.textBlocks {
             showBlock(&b)
@@ -219,27 +210,30 @@ class DischargeController: UIViewController {
     }
     
     
-    func showLine(_ line: SimpleDocumentIndexer.LineTextBlock) {
-        for var b in line.blocks {
-            showBlock(&b)
-        }
-    }
+//    func showLine(_ line: SimpleDocumentIndexer.LineTextBlock) {
+//        for var b in line.blocks {
+//            showBlock(&b)
+//        }
+//    }
     
     func showBlock(_  textBlock: inout TextBlock) {
-        //let labl = UILabel(frame: textBlock.frame.insetBy(dx: 0, dy: -textBlock.renderingState.deviceSpaceFontSize * 2))
-        //            if let fontDescr =  UIFont(name: fontName, size: textBlock.renderingState.deviceSpaceFontSize)?.fontDescriptor.withSymbolicTraits(textBlock.attributes.fontTraits)  {
-        //                labl.font = UIFont(descriptor: fontDescr, size: textBlock.renderingState.deviceSpaceFontSize)
-        //            }
+        let labl = UILabel(frame: textBlock.frame.insetBy(dx: 0, dy: -textBlock.renderingState.deviceSpaceFontSize * 2))
+//        if let fontDescr =  UIFont(name: fontName, size: textBlock.renderingState.deviceSpaceFontSize)?.fontDescriptor.withSymbolicTraits(textBlock.attributes.fontTraits)  {
+//            labl.font = UIFont(descriptor: fontDescr, size: textBlock.renderingState.deviceSpaceFontSize)
+//        }
+//
+//        self.pdfView.addSubview(labl)
+//        self.pdfView.clipsToBounds = true
+//        labl.backgroundColor = UIColor.clear
+//        labl.lineBreakMode = .byClipping
+        //textfield += textBlock.chars
+        labl.text = textBlock.chars
+        //print(labl.text as Any)
+        self.pdfText = self.pdfText + labl.text!
+        print(pdfText as Any)
+//        labl.textColor = UIColor.black
         
-        //            self.scrllView.addSubview(labl)
-        //            self.scrllView.clipsToBounds = true
-        //            labl.backgroundColor = UIColor.clear
-        //            labl.lineBreakMode = .byClipping
-        textfield += textBlock.chars
-        //            labl.text = textBlock.chars
-        //            labl.textColor = UIColor.black
-        
-        //self.scrllView.autoresizesSubviews = true
+        //self.pdfView.autoresizesSubviews = true
         
         //view.layer.rasterizationScale = view.window.screen.scale;
         
