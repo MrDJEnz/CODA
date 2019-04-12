@@ -21,12 +21,12 @@ class DischargeController: UIViewController {
     let fileName = "discharge"
     let fontName = "Arial"
     var pdfText = ""
-    var textfield = ""
-    var ProblemText = ""
-    var MedicattionText = ""
-    var AppointmentText = ""
-    var WatchForText = ""
-
+    var textfield = "" //the entire pdf
+    var WatchForText = "" //Symptoms to Call Your Doctor About:" to "Appointments:"
+    var AppointmentText = "" //text from "Appointments:" to "What can I expect from having a ureteral stent"
+    var ProblemText = "" //text from "What can I expect from having a ureteral stent?" to "How long will the stent remain in my body?"
+    var MedicationText = "" //text from "PAIN CONTROL:" to "BATHING:"
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! HomeController
@@ -112,6 +112,8 @@ class DischargeController: UIViewController {
         }
         print("GATHERED TEXT:\n")
         print(textfield)
+        
+        
        
         
         // Online PDF
