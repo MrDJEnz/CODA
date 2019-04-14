@@ -1,8 +1,10 @@
 <?php
+session_start();
 
 class DbOperation {
 
   private $conn;
+  // $pdf = "";
 
   // Constructor
   function __construct() {
@@ -86,15 +88,26 @@ class DbOperation {
   // the respective PDF
   public function getPDF($username) {
     try {
-      $stmt = $this->conn->prepare("SELECT fldPDF FROM tblPDFs JOIN tblUsers ON tblPDFs.fldUsername = tblUsers.fldUsername WHERE tblPDFs.fldUsername = ?");
+      $stmt = $this->conn->prepare("SELECT fldPDFName, fldPDF FROM tblPDFs JOIN tblUsers ON tblPDFs.fldUsername = tblUsers.fldUsername WHERE tblPDFs.fldUsername = ?");
       $stmt->bind_param("s", $username);
       if ($stmt->execute()) {
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
           // do something with $row
-          replace_extension($row, '.pdf');
+          // echo $row['fldPDFName'];
+          // global $pdf;
+          // ob_clean();
+          // flush();
+          $pdfname = $row['fldPDFName'];
+          $_SESSION["pdfname"] = $pdfname;
+          $pdf = $row['fldPDF'];
+          // $pdf = base64_encode($row['fldPDF']);
+          $_SESSION["pdf"] = $pdf;
+          // echo $_SESSION["pdf"];
+          // echo $pdf;
 
-          // Display PDF
+        //
+        //   // Display PDF
         }
         return PDF_FOUND;
       } else {
@@ -105,9 +118,16 @@ class DbOperation {
     }
   }
 
-  function replace_extension($filename, $new_extension) {
-    $info = pathinfo($filename);
-    return $info['filename'] . '.' . $new_extension;
-  }
+  // public function displayPDF() {
+  //   echo '<html>';
+  //   echo '<head>'
+  //   echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
+  //   echo '<title>Embeded PDF</title>';
+  //   echo '</head>';
+  //   echo '<body>';
+  //   echo '<iframe data="data:application/pdf;base64,' . $pdf . '" type="application/pdf" style="height:200px;width:60%"></iframe>';
+  //   echo '</body>';
+  //   echo '</html>';
+  // }
 }
 ?>

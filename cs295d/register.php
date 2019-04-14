@@ -54,3 +54,4 @@ function verifyRequiredParams($required_fields) {
 }
 
 echo json_encode($response);
+?>

@@ -1,9 +1,9 @@
 <?php
+session_start();
 
 require_once 'DbOperation.php';
 
 $response = array();
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!verifyRequiredParams(array('username'))) {
     // getting values
@@ -19,6 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result == PDF_FOUND) {
       $response['error'] = false;
       $response['message'] = 'PDF found';
+      header('Cache-Control: public');
+      header('Content-type: application/pdf');
+      header('Content-Disposition: attachment; filename='.$_SESSION["pdfname"].'');
+      echo '<!DOCTYPE html>';
+      echo '<html>';
+      echo '<head>';
+      echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
+      echo '<title>Embeded PDF</title>';
+      echo '</head>';
+      echo '<body>';
+      echo '<iframe data="data:application/pdf;base64,' . $_SESSION["pdf"] . '" type="application/pdf" style="height:1200px;width:100%"></iframe>';
+      echo '</body>';
+      echo '</html>';
     } elseif ($result == NO_PDF) {
       $response['error'] = true;
       $response['message'] = 'No PDF for this username';
@@ -48,3 +61,4 @@ function verifyRequiredParams($required_fields) {
 }
 
 echo json_encode($response);
+?>
