@@ -26,12 +26,6 @@ class DischargeController: UIViewController {
     var MedicationText = "" //text from "PAIN CONTROL:" to "BATHING:"
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! HomeController
-        
-        vc.userValue = self.finalUsername
-    }
-    
     
     @IBDesignable class DesignableView: UIView
     {
@@ -154,28 +148,35 @@ class DischargeController: UIViewController {
         }
         
         if let pdfDocument = PDFDocument(url: path) {
-                        pdfView.displayMode = .singlePageContinuous
-                        pdfView.autoScales = true
-                        pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
-                        pdfView.displayDirection = .vertical
-                        pdfView.document = pdfDocument
+            //documentContent should contain the pdf as attributed text (with font size/color/etc)
+            let pageCount = pdfDocument.pageCount
+            let documentContent = NSMutableAttributedString()
+            for i in 0 ..< pageCount {
+                guard let page = pdfDocument.page(at: i) else { continue }
+                guard let pageContent = page.attributedString else { continue }
+                documentContent.append(pageContent)
+            }
+            self.pdfText = documentContent.string
+
+            // Auto resize for the different devices.
+            pdfView.autoresizesSubviews = true
+            pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin]
+            pdfView.displayDirection = .vertical
+            // Set the orientation and the document it self
+            pdfView.autoScales = true
+            pdfView.displayMode = .singlePageContinuous
+            pdfView.displaysPageBreaks = true
+            pdfView.document = pdfDocument
+            // Set the scaling of the pdf view
+            pdfView.maxScaleFactor = 4.0
+            pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
             
-                        //documentContent should contain the pdf as attributed text (with font size/color/etc)
-                        let pageCount = pdfDocument.pageCount
-                        let documentContent = NSMutableAttributedString()
-                        for i in 0 ..< pageCount {
-                            guard let page = pdfDocument.page(at: i) else { continue }
-                            guard let pageContent = page.attributedString else { continue }
-                            documentContent.append(pageContent)
-                        }
-                        self.pdfText = documentContent.string
-            
-                    }
+        }
         print("GATHERED TEXT:\n")
         print(self.pdfText)
         
         // Change the text for the following
-//        WatchForText
+// WatchForText
         watchforTextCreator()
 //        AppointmentText
         AppointmentTextCreator()
@@ -206,8 +207,55 @@ class DischargeController: UIViewController {
     
     //@IBAction func goHome(_ sender: Any) {
     @IBAction func goHome(_ sender: Any) {
-    performSegue(withIdentifier: "dchrgHomeSegue", sender: self)
+    
 }
+    @IBAction func goHomeButton(_ sender: Any) {
+        performSegue(withIdentifier: "dchHomeSegue", sender: self)
+    }
+    
+    @IBAction func goMedButton(_ sender: Any) {
+        performSegue(withIdentifier: "dchMedSegue", sender: self)
+    }
+    @IBAction func goProblemButton(_ sender: Any) {
+        performSegue(withIdentifier: "dchProblemSegue", sender: self)
+    }
+    @IBAction func goAppointmentButton(_ sender: Any) {
+        performSegue(withIdentifier: "dchAppointmentSegue", sender: self)
+    }
+    @IBAction func goWatchButton(_ sender: Any) {
+        performSegue(withIdentifier: "dchWatchSegue", sender: self)
+    }
+    @IBAction func goCallButton(_ sender: Any) {
+        performSegue(withIdentifier: "dchCallSegue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "dchHomeSegue" {
+            let vc = segue.destination as! HomeController
+            vc.userValue = self.finalUsername
+        } else if segue.identifier == "dchProblemSegue" {
+            let vc = segue.destination as! ProblemController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "dchAppointmentSegue" {
+            let vc = segue.destination as! AppointmentController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "dchWatchSegue" {
+            let vc = segue.destination as! WatchController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "dchCallSegue" {
+            let vc = segue.destination as! CallController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "dchMedSegue" {
+            let vc = segue.destination as! MedicationController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        //        let vc = segue.destination as! HomeController
+        //
+        //        vc.userValue = self.finalUsername
+    }
     
 
     

@@ -13,11 +13,64 @@ class HomeController: UIViewController, UITextFieldDelegate {
     
     // Change the username
     @IBOutlet weak var usrnameLbl: UILabel!
+    
+    
+    @IBDesignable class DesignableView: UIView
+    {
+        @IBInspectable var gradientColor1: UIColor = UIColor.white {
+            didSet{
+                self.setGradient()
+            }
+        }
+        
+        @IBInspectable var gradientColor2: UIColor = UIColor.white {
+            didSet{
+                self.setGradient()
+            }
+        }
+        
+        @IBInspectable var gradientStartPoint: CGPoint = .zero {
+            didSet{
+                self.setGradient()
+            }
+        }
+        
+        @IBInspectable var gradientEndPoint: CGPoint = CGPoint(x: 0, y: 1) {
+            didSet{
+                self.setGradient()
+            }
+        }
+        
+        private func setGradient()
+        {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [self.gradientColor1.cgColor, self.gradientColor2.cgColor]
+            gradientLayer.startPoint = self.gradientStartPoint
+            gradientLayer.endPoint = self.gradientEndPoint
+            gradientLayer.frame = self.bounds
+            if let topLayer = self.layer.sublayers?.first, topLayer is CAGradientLayer
+            {
+                topLayer.removeFromSuperlayer()
+            }
+            self.layer.addSublayer(gradientLayer)
+        }
+    }
+    
+    
     var userValue: String!
     var returnValue: String!
     var usernameText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.cyan]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.frame = view.bounds
+        //view.layer.addSublayer(gradientLayer)
+        self.view.layer.insertSublayer(gradientLayer, at: 1)
+        
         //set usrname feild
 //        let user = ""
 //        let controller = ViewController()

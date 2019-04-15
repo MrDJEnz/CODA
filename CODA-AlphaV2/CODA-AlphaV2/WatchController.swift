@@ -79,14 +79,53 @@ class WatchController: UIViewController {
     }
     
     //@IBAction func goHome(_ sender: Any) {
-    @IBAction func goHome(_ sender: Any) {
-    performSegue(withIdentifier: "wtchHomeSegue", sender: self)
-}
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let vc = segue.destination as! HomeController
     
-    vc.userValue = self.finalUsername
-}
+    @IBAction func goHome(_ sender: Any) {
+        performSegue(withIdentifier: "wtchHomeSegue", sender: self)
+    }
+    @IBAction func goMedicationButton(_ sender: Any) {
+        performSegue(withIdentifier: "wtchMedSegue", sender: self)
+    }
+    @IBAction func goProblemButton(_ sender: Any) {
+        performSegue(withIdentifier: "wtchProblemSegue", sender: self)
+    }
+    @IBAction func goAppointmentButton(_ sender: Any) {
+        performSegue(withIdentifier: "wtchAppointmentSegue", sender: self)
+    }
+    @IBAction func goCallButton(_ sender: Any) {
+        performSegue(withIdentifier: "wtchCallSegue", sender: self)
+    }
+    @IBAction func goDischargeButton(_ sender: Any) {
+        performSegue(withIdentifier: "wtchDischargeSegue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "wtchHomeSegue" {
+            let vc = segue.destination as! HomeController
+            vc.userValue = self.finalUsername
+        } else if segue.identifier == "wtchProblemSegue" {
+            let vc = segue.destination as! ProblemController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "wtchAppointmentSegue" {
+            let vc = segue.destination as! AppointmentController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "wtchMedSegue" {
+            let vc = segue.destination as! MedicationController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "wtchCallSegue" {
+            let vc = segue.destination as! CallController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "wtchDischargeSegue" {
+            let vc = segue.destination as! DischargeController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        //        let vc = segue.destination as! HomeController
+        //
+        //        vc.userValue = self.finalUsername
+    }
 
 
 /*

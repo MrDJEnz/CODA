@@ -56,11 +56,13 @@ class ProblemController: UIViewController {
     
     
     var finalUsername = ""
+    var userValue = ""
     var passback = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         userLbl.text = finalUsername
         finalUsername = String(finalUsername.dropFirst(9))
+        
         
         
         let gradientLayer = CAGradientLayer()
@@ -77,13 +79,50 @@ class ProblemController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+  
     @IBAction func goHomeButton(_ sender: Any) {
         performSegue(withIdentifier: "prbHomeSegue", sender: self)
     }
+    @IBAction func goMedButton(_ sender: Any) {
+        performSegue(withIdentifier: "prbMedSegue", sender: self)
+    }
+    @IBAction func goAppointmentButton(_ sender: Any) {
+        performSegue(withIdentifier: "prbAppointmentSegue", sender: self)
+    }
+    @IBAction func goWatchButton(_ sender: Any) {
+        performSegue(withIdentifier: "prbWatchSegue", sender: self)
+    }
+    @IBAction func goCallButton(_ sender: Any) {
+        performSegue(withIdentifier: "prbCallSegue", sender: self)
+    }
+    @IBAction func goDischargeButton(_ sender: Any) {
+        performSegue(withIdentifier: "prbDischargeSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! HomeController
-        
-        vc.userValue = self.finalUsername
+        if segue.identifier == "prbHomeSegue" {
+            let vc = segue.destination as! HomeController
+            vc.userValue = self.finalUsername
+        } else if segue.identifier == "prbMedSegue" {
+            let vc = segue.destination as! MedicationController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "prbAppointmentSegue" {
+            let vc = segue.destination as! AppointmentController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "prbWatchSegue" {
+            let vc = segue.destination as! WatchController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "prbCallSegue" {
+            let vc = segue.destination as! CallController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "prbDischargeSegue" {
+            let vc = segue.destination as! DischargeController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
     }
     
 

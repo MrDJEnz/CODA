@@ -79,14 +79,53 @@ class CallController: UIViewController {
     }
     
     //@IBAction func goHome(_ sender: Any) {
-    @IBAction func goHome(_ sender: Any) {
-    performSegue(withIdentifier: "callHomeSegue", sender: self)
-}
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let vc = segue.destination as! HomeController
-    
-    vc.userValue = self.finalUsername
-}
+    @IBAction func goHomeButton(_ sender: Any) {
+        performSegue(withIdentifier: "callHomeSegue", sender: self)
+    }
+   
+    @IBAction func goMedButton(_ sender: Any) {
+         performSegue(withIdentifier: "callMedSegue", sender: self)
+    }
+    @IBAction func goProblemButton(_ sender: Any) {
+         performSegue(withIdentifier: "callProblemSegue", sender: self)
+    }
+    @IBAction func goAppointmentButton(_ sender: Any) {
+         performSegue(withIdentifier: "callAppointmentSegue", sender: self)
+    }
+    @IBAction func goWatchButton(_ sender: Any) {
+         performSegue(withIdentifier: "callWatchSegue", sender: self)
+    }
+    @IBAction func goDischargeButton(_ sender: Any) {
+         performSegue(withIdentifier: "callDischargeSegue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "callHomeSegue" {
+            let vc = segue.destination as! HomeController
+            vc.userValue = self.finalUsername
+        } else if segue.identifier == "callProblemSegue" {
+            let vc = segue.destination as! ProblemController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "callAppointmentSegue" {
+            let vc = segue.destination as! AppointmentController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "callWatchSegue" {
+            let vc = segue.destination as! WatchController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "callMedSegue" {
+            let vc = segue.destination as! MedicationController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "callDischargeSegue" {
+            let vc = segue.destination as! DischargeController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        //        let vc = segue.destination as! HomeController
+        //
+        //        vc.userValue = self.finalUsername
+    }
 
 
 /*

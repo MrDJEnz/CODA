@@ -77,14 +77,57 @@ class AppointmentController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func goHome(_ sender: Any) {
-    performSegue(withIdentifier: "aptHomeSegue", sender: self)
-}
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let vc = segue.destination as! HomeController
-    
-    vc.userValue = self.finalUsername
-}
+    @IBAction func goHomeButton(_ sender: Any) {
+        performSegue(withIdentifier: "aptHomeSegue", sender: self)
+    }
+    @IBAction func goMedButton(_ sender: Any) {
+        performSegue(withIdentifier: "aptMedSegue", sender: self)
+
+    }
+    @IBAction func goProblemButton(_ sender: Any) {
+        performSegue(withIdentifier: "aptProblemSegue", sender: self)
+
+    }
+    @IBAction func goWatchButton(_ sender: Any) {
+        performSegue(withIdentifier: "aptWatchSegue", sender: self)
+
+    }
+    @IBAction func goCallButton(_ sender: Any) {
+        performSegue(withIdentifier: "aptCallSegue", sender: self)
+
+    }
+    @IBAction func goDischargeButton(_ sender: Any) {
+        performSegue(withIdentifier: "aptDischargeSegue", sender: self)
+
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "aptHomeSegue" {
+            let vc = segue.destination as! HomeController
+            vc.userValue = self.finalUsername
+        } else if segue.identifier == "aptProblemSegue" {
+            let vc = segue.destination as! ProblemController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "aptMedSegue" {
+            let vc = segue.destination as! MedicationController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "aptWatchSegue" {
+            let vc = segue.destination as! WatchController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "aptCallSegue" {
+            let vc = segue.destination as! CallController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        else if segue.identifier == "aptDischargeSegue" {
+            let vc = segue.destination as! DischargeController
+            vc.finalUsername = "Welcome: " + self.finalUsername
+        }
+        //        let vc = segue.destination as! HomeController
+        //
+        //        vc.userValue = self.finalUsername
+    }
     
 
     /*
