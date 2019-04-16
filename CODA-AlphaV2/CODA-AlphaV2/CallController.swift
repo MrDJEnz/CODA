@@ -55,6 +55,13 @@ class CallController: UIViewController {
         }
     }
     
+    func makeAPhoneCall()  {
+        //Sams number
+        //PDF SCRAPER THE NUMBER OR FROM DB
+        let url: NSURL = URL(string: "TEL://8028472284")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
+    
     
     var finalUsername = ""
     var passback = ""
@@ -78,6 +85,11 @@ class CallController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func callTeam(_ sender: Any) {
+    
+        self.makeAPhoneCall()
+    
+    }
     //@IBAction func goHome(_ sender: Any) {
     @IBAction func goHomeButton(_ sender: Any) {
         performSegue(withIdentifier: "callHomeSegue", sender: self)
