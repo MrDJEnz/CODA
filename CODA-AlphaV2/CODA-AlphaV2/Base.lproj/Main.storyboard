@@ -420,7 +420,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fNe-4B-lrc">
                                                         <rect key="frame" x="0.0" y="0.0" width="165.5" height="145.5"/>
                                                         <color key="backgroundColor" red="0.66338917200000003" green="0.25946315800000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" backgroundImage="medication">
+                                                        <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="75" minY="0.0" maxX="0.0" maxY="75"/>
+                                                        <state key="normal" image="medication">
                                                             <attributedString key="attributedTitle">
                                                                 <fragment content="Medications">
                                                                     <attributes>
@@ -438,7 +440,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fk1-TY-4Ej">
                                                         <rect key="frame" x="180.5" y="0.0" width="165.5" height="145.5"/>
                                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Problem List" backgroundImage="important-1">
+                                                        <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="75" minY="0.0" maxX="0.0" maxY="75"/>
+                                                        <state key="normal" title="Problem List" image="important-1">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -453,8 +457,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqr-tO-d0u">
                                                         <rect key="frame" x="0.0" y="0.0" width="165.5" height="146"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                                        <state key="normal" title="Appointment Schedule" backgroundImage="Calendar">
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                                                        <inset key="titleEdgeInsets" minX="-15" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="75"/>
+                                                        <state key="normal" title="Appointment Schedule" image="Calendar">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -464,7 +470,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-K3-utJ">
                                                         <rect key="frame" x="180.5" y="0.0" width="165.5" height="146"/>
                                                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="What to Watch For" backgroundImage="watch">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="65" minY="0.0" maxX="0.0" maxY="75"/>
+                                                        <state key="normal" title="What to Watch For" image="watch">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -480,7 +489,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="165.5" height="145.5"/>
                                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.59064640410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="Contact On-Call Team" backgroundImage="Phone-1">
+                                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="75" minY="0.0" maxX="0.0" maxY="75"/>
+                                                        <state key="normal" title="Contact On-Call Team" image="Phone-1">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -491,7 +502,9 @@
                                                         <rect key="frame" x="180.5" y="0.0" width="165.5" height="145.5"/>
                                                         <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="Discharge Summary" backgroundImage="discharge">
+                                                        <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="75" minY="0.0" maxX="0.0" maxY="75"/>
+                                                        <state key="normal" title="Discharge Summary" image="discharge">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -2008,12 +2021,12 @@
         <image name="watch" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uBC-Tr-Tza"/>
-        <segue reference="jsn-e4-g6c"/>
-        <segue reference="Ufq-16-ac4"/>
-        <segue reference="eZM-ZI-59G"/>
-        <segue reference="sff-vY-Cz3"/>
-        <segue reference="LI3-Dc-GmT"/>
+        <segue reference="Dux-Ar-Uyk"/>
+        <segue reference="Xt3-Z8-BI7"/>
+        <segue reference="XQO-MO-VZx"/>
+        <segue reference="pC9-uf-vLg"/>
+        <segue reference="7BV-zo-S7V"/>
+        <segue reference="WQS-Dn-ccg"/>
         <segue reference="fMC-P3-fcQ"/>
         <segue reference="Ll4-8w-T57"/>
     </inferredMetricsTieBreakers>
