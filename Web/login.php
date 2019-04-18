@@ -4,14 +4,14 @@ session_start();
 <?php
 include "top.php";
 $_SESSION["login"] = false;
-$_SESSION["activeUser"] = "null";
+// $_SESSION["activeUser"] = "null";
 $_SESSION["hashedPass"] = "null";
 $_SESSION["activeUserEmail"] = "null";
 ?>
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
-<?php
+<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  -->
+<!-- <?php
  include ('styleIndex.php')
-?>
+?> -->
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
   <div class="container">
