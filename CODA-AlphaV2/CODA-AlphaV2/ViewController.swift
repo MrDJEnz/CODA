@@ -113,7 +113,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // making a post request
         // basically take in the parameters (username and password) we specify and
         // see if it compares to a username and password combo on the database
-        AF.request(URL_USER_LOGIN, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseString {
+        AF.request(URL_USER_LOGIN, method: .post, parameters: parameters, encoding: URLEncoding.default).responseString {
                 (response) in
                 // printing response for testing purposes
             print(response);

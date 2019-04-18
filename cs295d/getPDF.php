@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $response['message'] = 'PDF found';
       header('Cache-Control: public');
       header('Content-type: application/pdf');
-      header('Content-Disposition: attachment; filename='.$_SESSION["pdfname"].'');
+      header('Content-Disposition: inline; filename='.$_SESSION["pdfname"].'');
       echo '<!DOCTYPE html>';
       echo '<html>';
       echo '<head>';
