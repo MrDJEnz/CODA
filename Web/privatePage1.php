@@ -28,7 +28,7 @@ include ('styleIndex.php')
       <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/cs275_CODA/index.php">Home</a>
+            <a class="nav-link" href="/cs295_CODA/Web/index.php">Home</a>
           </li>
 
           <li class="nav-item active">
