@@ -268,6 +268,7 @@ class DischargeController: UIViewController {
         else if segue.identifier == "dchMedSegue" {
             let vc = segue.destination as! MedicationController
             vc.finalUsername = "Welcome: " + self.finalUsername
+            vc.pdfGathered = self.MedicationText
         }
         //        let vc = segue.destination as! HomeController
         //
