@@ -176,35 +176,52 @@ class DischargeController: UIViewController {
         print(self.pdfText)
         
         // Change the text for the following
-// WatchForText
-        watchforTextCreator()
-//        AppointmentText
-        AppointmentTextCreator()
-//        ProblemText
-        ProblemTextCreator()
-//        MedicationText
-        MedicationTextCreator()
-        print("\n\nwatchFor Section: \(self.WatchForText), Appointment Section: \(self.AppointmentText), Problems list: \(self.ProblemText), Medication List: \(self.MedicationText)")
+//        WatchForText
+        self.WatchForText = searchPdfText(from: "Symptoms to Call Your Doctor About:", to: "Appointments:")
         
+//        AppointmentText
+        self.AppointmentText = searchPdfText(from: "Appointments:", to: "What can I expect from having a ureteral stent?")
+        
+//        ProblemText
+        self.ProblemText = searchPdfText(from: "What can I expect from having a ureteral stent?", to: "How long will the stent remain in my body?")
+        
+//        MedicationText
+        self.MedicationText = searchPdfText(from: "PAIN CONTROL:", to: "BATHING:")
+        
+        print("\n\nwatchFor Section: \(self.WatchForText), Appointment Section: \(self.AppointmentText), Problems list: \(self.ProblemText), Medication List: \(self.MedicationText)")
     }
     
-    func watchforTextCreator(){
-        self.WatchForText = "Hello"
+    func searchPdfText(from queryOne: String, to queryTwo: String) -> String {
+        //these ifs are just error checking
+        if self.pdfText.contains(queryOne) {
+            if self.pdfText.contains(queryTwo) {
+                //get locations of the two queries as sub-ranges
+                let range1 = self.pdfText.range(of:queryOne)
+                let range2 = self.pdfText.range(of:queryTwo)
+                
+                //convert the sub-ranges to just be their lower bounds
+                let startPos = range1!.lowerBound.samePosition(in: self.pdfText)
+                let endPos = range2!.lowerBound.samePosition(in: self.pdfText)
+                
+                //make a super range out of the two sub-ranges
+                let range = startPos!..<endPos!
+                
+                //make a substring out of the pdf using the range
+                let subStr = self.pdfText[range]
+                
+                //convert substring to string
+                var rtnStr = ""
+                rtnStr.append(String(subStr))
+                
+                return rtnStr
+            } else {
+                return "ERROR: Query 2 not found in pdf"
+            }
+        } else {
+            return "ERROR: Query 1 not found in pdf"
+        }
     }
-    
-    func AppointmentTextCreator(){
-        self.AppointmentText = "Change"
-    }
-    
-    func ProblemTextCreator(){
-        self.ProblemText = "Me"
-    }
-    
-    func MedicationTextCreator(){
-        self.MedicationText = "Please"
-    }
-    
-    
+
     //@IBAction func goHome(_ sender: Any) {
     @IBAction func goHome(_ sender: Any) {
     

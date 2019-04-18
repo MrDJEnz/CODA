@@ -56,6 +56,12 @@ class HomeController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBOutlet weak var medButtonAtt: UIButton!
+    @IBOutlet weak var prbButtonAtt: UIButton!
+    @IBOutlet weak var apptButtonAtt: UIButton!
+    @IBOutlet weak var wtchButtonAtt: UIButton!
+    @IBOutlet weak var callButtonAtt: UIButton!
+    @IBOutlet weak var dchButtonAtt: UIButton!
     
     var userValue: String!
     var returnValue: String!
@@ -83,8 +89,26 @@ class HomeController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        medButtonAtt.layer.cornerRadius = 30
+        medButtonAtt.clipsToBounds = true
+        
+        prbButtonAtt.layer.cornerRadius = 30
+        prbButtonAtt.clipsToBounds = true
+        
+        apptButtonAtt.layer.cornerRadius = 30
+        apptButtonAtt.clipsToBounds = true
+        
+        wtchButtonAtt.layer.cornerRadius = 30
+        wtchButtonAtt.clipsToBounds = true
+        
+        callButtonAtt.layer.cornerRadius = 30
+        callButtonAtt.clipsToBounds = true
+        
+        dchButtonAtt.layer.cornerRadius = 30
+        dchButtonAtt.clipsToBounds = true
         
     }
+    
     
     @IBAction func medButton(_ sender: Any) {
         usernameText = usrnameLbl.text!

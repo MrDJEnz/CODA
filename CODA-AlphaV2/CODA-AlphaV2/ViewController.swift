@@ -25,10 +25,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameLogin: UITextField!
     @IBOutlet weak var passwordLogin: UITextField!
     
+    @IBOutlet weak var lgButtonAtt: UIButton!
+    @IBOutlet weak var rgButtonAtt: UIButton!
+    
+    @IBOutlet weak var rgRgButtonAtt: UIButton!
+    @IBOutlet weak var lgRgButtonAtt: UIButton!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if lgButtonAtt != nil{
+        lgButtonAtt.layer.cornerRadius = 10
+        lgButtonAtt.clipsToBounds = true
+        
+        rgButtonAtt.layer.cornerRadius = 10
+        rgButtonAtt.clipsToBounds = true
+        }
+        if rgRgButtonAtt != nil{
+        rgRgButtonAtt.layer.cornerRadius = 10
+        rgRgButtonAtt.clipsToBounds = true
+        
+        lgRgButtonAtt.layer.cornerRadius = 10
+        lgRgButtonAtt.clipsToBounds = true
+        }
         //set usrname feild
         //usrnameLbl.text = "Welcome:"
         if passwordLogin != nil{
