@@ -222,7 +222,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // making a post request
         // basically take in the parameters (username, email and password) we specify and
         // see if will create a new user if the username and email aren't already in use
-        AF.request(URL_USER_REGISTER, method: .post, parameters: params, encoding: JSONEncoding.default).responseString { (response) in
+        AF.request(URL_USER_REGISTER, method: .post, parameters: params, encoding: URLEncoding.default).responseString { (response) in
             
             // printing response for testing purposes
             print(response);
