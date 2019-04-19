@@ -13,6 +13,7 @@ class ProblemController: UIViewController {
     @IBOutlet weak var userLbl: UILabel!
     
     
+    @IBOutlet weak var pdfFieldPrb: UITextView!
     @IBDesignable class DesignableView: UIView
     {
         @IBInspectable var gradientColor1: UIColor = UIColor.white {
@@ -55,11 +56,35 @@ class ProblemController: UIViewController {
     }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        let userDefault = UserDefaults.standard
+        userDefault.set(pdfGatheredProblem, forKey: "savingPDFStringProblem")
+    }
+    
     var finalUsername = ""
     var userValue = ""
     var passback = ""
+    var pdfGatheredProblem = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefault = UserDefaults.standard
+        userDefault.value(forKey: "savingPDFStringProblem")
+        
+        pdfFieldPrb.text = userDefault.value(forKey: "savingPDFStringProblem") as? String
+        
+        if pdfFieldPrb.text == ""{
+            pdfFieldPrb.text = pdfGatheredProblem
+            //            print("EMPTY!")
+        }else{
+            pdfFieldPrb.text = pdfFieldPrb.text
+            pdfGatheredProblem = pdfFieldPrb.text
+            //            print("FILLED")
+        }
+        
+        
+        
+        
         userLbl.text = finalUsername
         finalUsername = String(finalUsername.dropFirst(9))
         

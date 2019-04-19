@@ -12,6 +12,7 @@ class AppointmentController: UIViewController {
 
     @IBOutlet weak var userLbl: UILabel!
     
+    @IBOutlet weak var pdfFieldApt: UITextView!
     
     @IBDesignable class DesignableView: UIView
     {
@@ -54,11 +55,31 @@ class AppointmentController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        let userDefault = UserDefaults.standard
+        userDefault.set(pdfGatheredAppointment, forKey: "savingPDFStringAppointment")
+    }
     
     var finalUsername = ""
     var passback = ""
+    var pdfGatheredAppointment = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefault = UserDefaults.standard
+        userDefault.value(forKey: "savingPDFStringAppointment")
+        
+        pdfFieldApt.text = userDefault.value(forKey: "savingPDFStringAppointment") as? String
+        
+        if pdfFieldApt.text == ""{
+            pdfFieldApt.text = pdfGatheredAppointment
+            //            print("EMPTY!")
+        }else{
+            pdfFieldApt.text = pdfFieldApt.text
+            pdfGatheredAppointment = pdfFieldApt.text
+            //            print("FILLED")
+        }
+        
         userLbl.text = finalUsername
         finalUsername = String(finalUsername.dropFirst(9))
         

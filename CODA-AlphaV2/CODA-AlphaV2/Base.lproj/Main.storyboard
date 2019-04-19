@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -821,7 +821,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d85-jy-rae">
                                         <rect key="frame" x="19" y="82" width="336" height="391"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">INSERT ALL THE INFORMATION FROM THE PDF SCRAPER HERE FOR PROBLEMS LIST!!!! Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -976,6 +975,7 @@
                         <viewLayoutGuide key="safeArea" id="YRX-ij-LRr"/>
                     </view>
                     <connections>
+                        <outlet property="pdfFieldPrb" destination="d85-jy-rae" id="HkX-ZM-bBY"/>
                         <outlet property="userLbl" destination="9R5-D2-gkd" id="cdv-fy-1Wq"/>
                     </connections>
                 </viewController>
@@ -1374,7 +1374,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PYl-KM-ymo">
                                         <rect key="frame" x="19" y="64" width="336" height="409"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">INSERT ALL THE INFORMATION FROM THE PDF SCRAPER HERE FOR APPOINTMENTS!!!! Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -1416,6 +1415,7 @@
                         <viewLayoutGuide key="safeArea" id="CQ6-yf-wgb"/>
                     </view>
                     <connections>
+                        <outlet property="pdfFieldApt" destination="PYl-KM-ymo" id="y3Q-IO-hdI"/>
                         <outlet property="userLbl" destination="cbD-xG-ftV" id="mOb-2Z-6Ee"/>
                     </connections>
                 </viewController>
@@ -2025,13 +2025,13 @@
         <image name="watch" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bB7-8h-I8w"/>
-        <segue reference="9r5-4c-7V8"/>
+        <segue reference="AJe-LK-g2q"/>
+        <segue reference="jsn-e4-g6c"/>
         <segue reference="5my-Ym-g6s"/>
-        <segue reference="AHB-n8-e6j"/>
-        <segue reference="wUF-TF-4pZ"/>
-        <segue reference="oOi-Tg-F4n"/>
-        <segue reference="pNq-MR-l74"/>
+        <segue reference="YmE-al-bKu"/>
+        <segue reference="qgm-ma-BrZ"/>
+        <segue reference="K1L-wl-28z"/>
+        <segue reference="oLx-TR-JRb"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>
