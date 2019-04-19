@@ -23,12 +23,27 @@ class DbOperation {
   // and sees if the username exists by seeing if the statement
   // returns more than one row
   public function userLogin($username, $pass) {
-    $password = hash("sha256", $pass);
-    $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ? AND fldPassword = ?");
+    $sql = $this->conn->prepare("SELECT fldCurrentTime FROM tblUsers WHERE fldUsername = ?");
+    $sql->bind_param("s", $username);
+    if($sql->execute()) {
+      $result = $sql->get_result();
+      while ($row = $result->fetch_assoc()) {
+        $currentTime = $row['fldCurrentTime'];
+      }
+    }
+    $combinedPassword = $username + $pass + $currentTime;
+    $password = hash("sha256", $combinedPassword);
+    $stmt = $this->conn->prepare("SELECT fldFirstName FROM tblUsers WHERE fldUsername = ? AND fldPassword = ?");
     $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $stmt->store_result();
-    return $stmt->num_rows > 0;
+    if($stmt->execute()) {
+      $res = $stmt->get_result();
+      while ($row2 = $res->fetch_assoc()) {
+        $firstName = $row2['fldFirstName'];
+      }
+    }
+    // $stmt->store_result();
+    // return $stmt->num_rows > 0;
+    return $firstName;
   }
 
     /*
@@ -55,16 +70,16 @@ class DbOperation {
   // if this was successful, then send proper return message
   // if not, then send proper return message
   // lastly, if user existed in the first place, send the proper return message
-  public function createUser($username, $email, $pass) {
-    if (!$this->isEmailExist($email)) {
-      //$currentTime = $_SERVER['REQUEST_TIME'];
-      //$combinedPassword = $username + $pass + $currentTime;
-      //$password = hash("sha256", $combinedPassword);
-      $password = hash("sha256", $pass)
-      //$stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword, fldCurrentTime) VALUES (?, ?, ?, ?)");
-      $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)");
-      //$stmt->bind_param("ssss", $username, $email, $password, $currentTime);
-      $stmt->bind_param("sss", $username, $email, $password);
+  public function createUser($username, $firstname, $lastname, $email, $pass) {
+    if (!$this->isUserExist($username)) {
+      $currentTime = $_SERVER['REQUEST_TIME'];
+      $combinedPassword = $username + $pass + $currentTime;
+      $password = hash("sha256", $combinedPassword);
+      //$password = hash("sha256", $pass);
+      $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldFirstName, fldLastName, fldEmail, fldPassword, fldCurrentTime) VALUES (?, ?, ?, ?, ?, ?)");
+      //$stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)");
+      $stmt->bind_param("ssssss", $username, $firstname, $lastname, $email, $password, $currentTime);
+      //$stmt->bind_param("sss", $username, $email, $password);
       if ($stmt->execute()) {
         return USER_CREATED;
       } else {
@@ -75,13 +90,13 @@ class DbOperation {
     }
   }
 
-  // function that checks if the email existed already
+  // function that checks if the username existed already
   // SQL statement checks the table of users to see if the given email
   // combo returns anything, if this number is greater than 0, then there
-  // was an email with inputted email already existing up in the database
-  private function isEmailExist($email) {
-    $stmt = $this->conn->prepare("SELECT fldEmail FROM tblUsers WHERE fldEmail = ?");
-    $stmt->bind_param("s", $email);
+  // was an username with inputted username already existing up in the database
+  private function isUserExist($username) {
+    $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
     return $stmt->num_rows > 0;
