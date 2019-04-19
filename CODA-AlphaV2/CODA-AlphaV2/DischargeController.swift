@@ -292,63 +292,38 @@ class DischargeController: UIViewController {
     }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let userDefault = UserDefaults.standard
         if segue.identifier == "dchHomeSegue" {
             let vc = segue.destination as! HomeController
             vc.userValue = self.finalUsername
-            userDefault.set(self.MedicationText, forKey:"savingPDFString")
-            userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
-             userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
-             userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
             
             
         } else if segue.identifier == "dchProblemSegue" {
             let vc = segue.destination as! ProblemController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGatheredProblem = self.ProblemText
-            userDefault.set(self.MedicationText, forKey:"savingPDFString")
-            userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
-            userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
-            userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
+           
         }
         else if segue.identifier == "dchAppointmentSegue" {
             let vc = segue.destination as! AppointmentController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGatheredAppointment = self.AppointmentText
-            userDefault.set(self.MedicationText, forKey:"savingPDFString")
-            userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
-            userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
-            userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
-            
-            
-            
         }
         else if segue.identifier == "dchWatchSegue" {
             let vc = segue.destination as! WatchController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGatheredWatch = self.WatchForText
-            userDefault.set(self.MedicationText, forKey:"savingPDFString")
-            userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
-            userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
-            userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
             
         }
         else if segue.identifier == "dchCallSegue" {
             let vc = segue.destination as! CallController
             vc.finalUsername = "Welcome: " + self.finalUsername
-            userDefault.set(self.MedicationText, forKey:"savingPDFString")
-            userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
-            userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
-            userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
+           
         }
         else if segue.identifier == "dchMedSegue" {
             let vc = segue.destination as! MedicationController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGathered = self.MedicationText
-            userDefault.set(self.MedicationText, forKey:"savingPDFString")
-            userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
-            userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
-            userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
+            
         }
         //        let vc = segue.destination as! HomeController
         //
