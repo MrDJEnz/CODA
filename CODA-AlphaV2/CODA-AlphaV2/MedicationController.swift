@@ -11,7 +11,7 @@ import UIKit
 class MedicationController: UIViewController {
 
     @IBOutlet weak var userLbl: UILabel!
-    @IBOutlet weak var pdfField: UITextView!
+    @IBOutlet weak var pdfFieldMed: UITextView!
     
     @IBDesignable class DesignableView: UIView
     {
@@ -71,18 +71,16 @@ class MedicationController: UIViewController {
         let userDefault = UserDefaults.standard
         userDefault.value(forKey: "savingPDFString")
         
-        pdfField.text = userDefault.value(forKey: "savingPDFString") as? String
+        pdfFieldMed.text = userDefault.value(forKey: "savingPDFString") as? String
         
-        if pdfField.text == ""{
-            pdfField.text = pdfGathered
+        if pdfFieldMed.text == ""{
+            pdfFieldMed.text = pdfGathered
 //            print("EMPTY!")
         }else{
-            pdfField.text = pdfField.text
-            pdfGathered = pdfField.text
+            pdfFieldMed.text = pdfFieldMed.text
+            pdfGathered = pdfFieldMed.text
 //            print("FILLED")
         }
-        
-        
         
         
         userLbl.text = finalUsername

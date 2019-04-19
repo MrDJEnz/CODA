@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-iy-SfY">
-                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-nr-r7Z" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-Pf-opA">
-                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsV-YA-vN7" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -755,7 +755,7 @@
                         <viewLayoutGuide key="safeArea" id="jBh-sv-M9m"/>
                     </view>
                     <connections>
-                        <outlet property="pdfField" destination="Oax-tB-22k" id="99a-NG-nd6"/>
+                        <outlet property="pdfFieldMed" destination="Oax-tB-22k" id="99a-NG-nd6"/>
                         <outlet property="userLbl" destination="bkn-J5-g0k" id="Sk6-32-BxS"/>
                         <segue destination="Q5P-y2-Gi6" kind="presentation" identifier="medHomeSegue" id="zZK-U8-5Si"/>
                     </connections>
@@ -1195,7 +1195,7 @@
                         <viewLayoutGuide key="safeArea" id="MSF-gF-ZXq"/>
                     </view>
                     <connections>
-                        <outlet property="pdftext" destination="fHy-Ih-OHq" id="pgP-jo-tav"/>
+                        <outlet property="pdfFieldWtch" destination="fHy-Ih-OHq" id="pgP-jo-tav"/>
                         <outlet property="userLbl" destination="3wA-g1-7Cc" id="jvu-7v-t8e"/>
                     </connections>
                 </viewController>
@@ -1873,7 +1873,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZU-Td-QfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="1360"/>
+            <point key="canvasLocation" x="290" y="799"/>
         </scene>
         <!--Logout Page-->
         <scene sceneID="Sb9-GE-nct">
@@ -2026,12 +2026,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bB7-8h-I8w"/>
-        <segue reference="29e-wn-cK1"/>
-        <segue reference="GMj-Xh-Saa"/>
+        <segue reference="9r5-4c-7V8"/>
+        <segue reference="5my-Ym-g6s"/>
         <segue reference="AHB-n8-e6j"/>
-        <segue reference="0IT-eH-crX"/>
-        <segue reference="Ko0-YD-jqy"/>
-        <segue reference="Gta-sy-Dj4"/>
+        <segue reference="wUF-TF-4pZ"/>
+        <segue reference="oOi-Tg-F4n"/>
+        <segue reference="pNq-MR-l74"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>

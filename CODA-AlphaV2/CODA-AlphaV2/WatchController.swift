@@ -12,8 +12,7 @@ class WatchController: UIViewController {
     
     //@IBOutlet weak var userLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
-    
-    @IBOutlet weak var pdftext: UITextView!
+    @IBOutlet weak var pdfFieldWtch: UITextView!
     
     @IBDesignable class DesignableView: UIView
     {
@@ -72,14 +71,14 @@ class WatchController: UIViewController {
         let userDefault = UserDefaults.standard
         userDefault.value(forKey: "savingPDFStringWatch")
         
-        pdftext.text = userDefault.value(forKey: "savingPDFStringWatch") as? String
+        pdfFieldWtch.text = userDefault.value(forKey: "savingPDFStringWatch") as? String
         
-        if pdftext.text == ""{
-            pdftext.text = pdfGatheredWatch
+        if pdfFieldWtch.text == ""{
+            pdfFieldWtch.text = pdfGatheredWatch
             //            print("EMPTY!")
         }else{
-            pdftext.text = pdftext.text
-            pdfGatheredWatch = pdftext.text
+            pdfFieldWtch.text = pdfFieldWtch.text
+            pdfGatheredWatch = pdfFieldWtch.text
             //            print("FILLED")
         }
         
