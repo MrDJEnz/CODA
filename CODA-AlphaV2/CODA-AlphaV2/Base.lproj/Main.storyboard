@@ -1040,7 +1040,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Ih-OHq">
                                         <rect key="frame" x="19" y="64" width="336" height="409"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">INSERT ALL THE INFORMATION FROM THE PDF SCRAPER HERE FOR WATCH FOR!!!! Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -1196,6 +1195,7 @@
                         <viewLayoutGuide key="safeArea" id="MSF-gF-ZXq"/>
                     </view>
                     <connections>
+                        <outlet property="pdftext" destination="fHy-Ih-OHq" id="pgP-jo-tav"/>
                         <outlet property="userLbl" destination="3wA-g1-7Cc" id="jvu-7v-t8e"/>
                     </connections>
                 </viewController>
@@ -2026,13 +2026,13 @@
         <image name="watch" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dBQ-ue-6rz"/>
-        <segue reference="spF-Ai-fEk"/>
-        <segue reference="sZP-Of-vVQ"/>
-        <segue reference="DLw-k7-mmI"/>
-        <segue reference="CxA-oq-daB"/>
-        <segue reference="WQS-Dn-ccg"/>
-        <segue reference="zZK-U8-5Si"/>
+        <segue reference="bB7-8h-I8w"/>
+        <segue reference="9r5-4c-7V8"/>
+        <segue reference="5my-Ym-g6s"/>
+        <segue reference="YmE-al-bKu"/>
+        <segue reference="wUF-TF-4pZ"/>
+        <segue reference="oOi-Tg-F4n"/>
+        <segue reference="pNq-MR-l74"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -241,6 +241,7 @@ class DischargeController: UIViewController {
     }
     @IBAction func goWatchButton(_ sender: Any) {
         performSegue(withIdentifier: "dchWatchSegue", sender: self)
+        
     }
     @IBAction func goCallButton(_ sender: Any) {
         performSegue(withIdentifier: "dchCallSegue", sender: self)
@@ -260,6 +261,8 @@ class DischargeController: UIViewController {
         else if segue.identifier == "dchWatchSegue" {
             let vc = segue.destination as! WatchController
             vc.finalUsername = "Welcome: " + self.finalUsername
+            vc.pdfGatheredWatch = self.WatchForText
+            
         }
         else if segue.identifier == "dchCallSegue" {
             let vc = segue.destination as! CallController

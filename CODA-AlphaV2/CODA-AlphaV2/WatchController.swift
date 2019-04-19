@@ -13,6 +13,7 @@ class WatchController: UIViewController {
     //@IBOutlet weak var userLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
     
+    @IBOutlet weak var pdftext: UITextView!
     
     @IBDesignable class DesignableView: UIView
     {
@@ -56,10 +57,35 @@ class WatchController: UIViewController {
     }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        let userDefault = UserDefaults.standard
+        userDefault.set(pdfGatheredWatch, forKey: "savingPDFStringWatch")
+    }
+    
+    
     var finalUsername = ""
     var passback = ""
+    var pdfGatheredWatch = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefault = UserDefaults.standard
+        userDefault.value(forKey: "savingPDFStringWatch")
+        
+        pdftext.text = userDefault.value(forKey: "savingPDFStringWatch") as? String
+        
+        if pdftext.text == ""{
+            pdftext.text = pdfGatheredWatch
+            //            print("EMPTY!")
+        }else{
+            pdftext.text = pdftext.text
+            pdfGatheredWatch = pdftext.text
+            //            print("FILLED")
+        }
+        
+        
+        
+        
         userLbl.text = finalUsername
         finalUsername = String(finalUsername.dropFirst(9))
         
