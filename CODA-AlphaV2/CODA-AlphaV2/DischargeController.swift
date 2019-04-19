@@ -253,10 +253,12 @@ class DischargeController: UIViewController {
         } else if segue.identifier == "dchProblemSegue" {
             let vc = segue.destination as! ProblemController
             vc.finalUsername = "Welcome: " + self.finalUsername
+            vc.pdfGatheredProblem = self.ProblemText
         }
         else if segue.identifier == "dchAppointmentSegue" {
             let vc = segue.destination as! AppointmentController
             vc.finalUsername = "Welcome: " + self.finalUsername
+            vc.pdfGatheredAppointment = self.AppointmentText
         }
         else if segue.identifier == "dchWatchSegue" {
             let vc = segue.destination as! WatchController
