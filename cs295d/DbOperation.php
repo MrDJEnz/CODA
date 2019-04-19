@@ -48,7 +48,7 @@ class DbOperation {
     }
 
   // Create user function
-  // first checks if the user exists or not
+  // first checks if the email exists or not
   // if not, hash the user's password and
   // insert username, email and hashed password
   // into the database
@@ -56,9 +56,14 @@ class DbOperation {
   // if not, then send proper return message
   // lastly, if user existed in the first place, send the proper return message
   public function createUser($username, $email, $pass) {
-    if (!$this->isUserExist($username, $email)) {
-      $password = hash("sha256", $pass);
+    if (!$this->isEmailExist($email)) {
+      //$currentTime = $_SERVER['REQUEST_TIME'];
+      //$combinedPassword = $username + $pass + $currentTime;
+      //$password = hash("sha256", $combinedPassword);
+      $password = hash("sha256", $pass)
+      //$stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword, fldCurrentTime) VALUES (?, ?, ?, ?)");
       $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)");
+      //$stmt->bind_param("ssss", $username, $email, $password, $currentTime);
       $stmt->bind_param("sss", $username, $email, $password);
       if ($stmt->execute()) {
         return USER_CREATED;
@@ -70,13 +75,13 @@ class DbOperation {
     }
   }
 
-  // function that chekcs if the user existed already
-  // SQL statement checks the table of users to see if the given username and email
+  // function that checks if the email existed already
+  // SQL statement checks the table of users to see if the given email
   // combo returns anything, if this number is greater than 0, then there
-  // was a user with inputted username already existing up in the database
-  private function isUserExist($username, $email) {
-    $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ? OR fldEmail = ?");
-    $stmt->bind_param("ss", $username, $email);
+  // was an email with inputted email already existing up in the database
+  private function isEmailExist($email) {
+    $stmt = $this->conn->prepare("SELECT fldEmail FROM tblUsers WHERE fldEmail = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
     return $stmt->num_rows > 0;
@@ -117,17 +122,5 @@ class DbOperation {
       echo "caught exception: ", $e->getMessage(), "\n";
     }
   }
-
-  // public function displayPDF() {
-  //   echo '<html>';
-  //   echo '<head>'
-  //   echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-  //   echo '<title>Embeded PDF</title>';
-  //   echo '</head>';
-  //   echo '<body>';
-  //   echo '<iframe data="data:application/pdf;base64,' . $pdf . '" type="application/pdf" style="height:200px;width:60%"></iframe>';
-  //   echo '</body>';
-  //   echo '</html>';
-  // }
 }
 ?>
