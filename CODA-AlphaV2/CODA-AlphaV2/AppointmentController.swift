@@ -66,6 +66,8 @@ class AppointmentController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pdfFieldApt.isUserInteractionEnabled = false
+        
         let userDefault = UserDefaults.standard
         userDefault.value(forKey: "savingPDFStringAppointment")
         
