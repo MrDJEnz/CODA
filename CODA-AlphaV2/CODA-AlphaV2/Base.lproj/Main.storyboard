@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-iy-SfY">
-                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-nr-r7Z" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-Pf-opA">
-                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsV-YA-vN7" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -2024,12 +2024,12 @@
         <image name="watch" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dux-Ar-Uyk"/>
-        <segue reference="Xt3-Z8-BI7"/>
-        <segue reference="XQO-MO-VZx"/>
-        <segue reference="pC9-uf-vLg"/>
-        <segue reference="7BV-zo-S7V"/>
-        <segue reference="WQS-Dn-ccg"/>
+        <segue reference="AJe-LK-g2q"/>
+        <segue reference="29e-wn-cK1"/>
+        <segue reference="GMj-Xh-Saa"/>
+        <segue reference="AHB-n8-e6j"/>
+        <segue reference="0IT-eH-crX"/>
+        <segue reference="Ko0-YD-jqy"/>
         <segue reference="Gta-sy-Dj4"/>
         <segue reference="Ll4-8w-T57"/>
     </inferredMetricsTieBreakers>
