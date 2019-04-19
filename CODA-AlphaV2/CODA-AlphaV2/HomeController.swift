@@ -82,6 +82,9 @@ class HomeController: UIViewController, UITextFieldDelegate {
 //        let controller = ViewController()
 //        let usrname = controller.getUsername()
         //print(usrname)
+        DischargeController().populateFields()
+        
+        
         
         usrnameLbl.text = "Welcome: " + userValue
         

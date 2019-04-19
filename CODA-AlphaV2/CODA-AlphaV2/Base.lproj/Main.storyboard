@@ -629,7 +629,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Oax-tB-22k" userLabel="pdfTextView">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please go to Discharge Summary to download the PDF first." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Oax-tB-22k" userLabel="pdfTextView">
                                         <rect key="frame" x="20" y="80" width="336" height="393"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -818,7 +818,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d85-jy-rae">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please go to Discharge Summary to download the PDF first." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d85-jy-rae">
                                         <rect key="frame" x="19" y="82" width="336" height="391"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1037,7 +1037,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Ih-OHq">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please go to Discharge Summary to download the PDF first." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Ih-OHq">
                                         <rect key="frame" x="19" y="64" width="336" height="409"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1371,7 +1371,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PYl-KM-ymo">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please go to Discharge Summary to download the PDF first." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PYl-KM-ymo">
                                         <rect key="frame" x="19" y="64" width="336" height="409"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2026,12 +2026,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AJe-LK-g2q"/>
-        <segue reference="jsn-e4-g6c"/>
-        <segue reference="5my-Ym-g6s"/>
-        <segue reference="YmE-al-bKu"/>
-        <segue reference="qgm-ma-BrZ"/>
-        <segue reference="K1L-wl-28z"/>
-        <segue reference="oLx-TR-JRb"/>
+        <segue reference="29e-wn-cK1"/>
+        <segue reference="GMj-Xh-Saa"/>
+        <segue reference="AHB-n8-e6j"/>
+        <segue reference="0IT-eH-crX"/>
+        <segue reference="Ko0-YD-jqy"/>
+        <segue reference="Gta-sy-Dj4"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>

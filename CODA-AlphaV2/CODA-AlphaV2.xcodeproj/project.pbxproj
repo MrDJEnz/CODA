@@ -188,7 +188,6 @@
 				AE113BD3222E42070001F3D8 /* CODA-AlphaV2 */,
 				AE113BE8222E42080001F3D8 /* CODA-AlphaV2Tests */,
 				AE113BF3222E42080001F3D8 /* CODA-AlphaV2UITests */,
-				AE113BD2222E42070001F3D8 /* Products */,
 				987ED5ED2268C03400CC61E8 /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -201,6 +200,7 @@
 				AE113BF0222E42080001F3D8 /* CODA-AlphaV2UITests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		AE113BD3222E42070001F3D8 /* CODA-AlphaV2 */ = {
@@ -239,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				AE113BF4222E42080001F3D8 /* CODA_AlphaV2UITests.swift */,
+				AE113BD2222E42070001F3D8 /* Products */,
 				AE113BF6222E42080001F3D8 /* Info.plist */,
 			);
 			path = "CODA-AlphaV2UITests";
