@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-iy-SfY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-nr-r7Z" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-Pf-opA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsV-YA-vN7" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -1740,7 +1740,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="goAppointment:" destination="TTH-9c-QZk" eventType="touchUpInside" id="bFU-eq-l9u"/>
                                             <action selector="goAppointmentButton:" destination="TTH-9c-QZk" eventType="touchUpInside" id="LKV-oF-fdx"/>
                                             <segue destination="Frl-7f-bmX" kind="presentation" identifier="callAppointmentSegue" id="GMj-Xh-Saa"/>
                                         </connections>
@@ -1874,7 +1873,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZU-Td-QfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="799.50738916256159"/>
+            <point key="canvasLocation" x="310" y="1360"/>
         </scene>
         <!--Logout Page-->
         <scene sceneID="Sb9-GE-nct">
@@ -2027,12 +2026,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bB7-8h-I8w"/>
-        <segue reference="9r5-4c-7V8"/>
-        <segue reference="5my-Ym-g6s"/>
-        <segue reference="YmE-al-bKu"/>
-        <segue reference="wUF-TF-4pZ"/>
-        <segue reference="oOi-Tg-F4n"/>
-        <segue reference="pNq-MR-l74"/>
+        <segue reference="29e-wn-cK1"/>
+        <segue reference="GMj-Xh-Saa"/>
+        <segue reference="AHB-n8-e6j"/>
+        <segue reference="0IT-eH-crX"/>
+        <segue reference="Ko0-YD-jqy"/>
+        <segue reference="Gta-sy-Dj4"/>
         <segue reference="Ea8-eI-ue4"/>
     </inferredMetricsTieBreakers>
 </document>
