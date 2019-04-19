@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="nVb-iy-SfY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-nr-r7Z" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-Pf-opA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000006" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsV-YA-vN7" userLabel="Middle View">
                                 <rect key="frame" x="43.5" y="146.5" width="288" height="374"/>
@@ -235,7 +235,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5Gb-LC-UoW" firstAttribute="top" secondItem="9nb-VE-ag1" secondAttribute="bottom" constant="24" id="1Bx-Ag-SGa"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lfZ-k5-2FK" secondAttribute="trailing" symbolic="YES" id="23n-lQ-bWo"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lfZ-k5-2FK" secondAttribute="trailing" constant="20" symbolic="YES" id="23n-lQ-bWo"/>
                                     <constraint firstAttribute="trailing" secondItem="5Gb-LC-UoW" secondAttribute="trailing" constant="24" id="98H-wt-AWa"/>
                                     <constraint firstAttribute="width" constant="288" id="CNl-V9-Oz7"/>
                                     <constraint firstItem="azU-kd-KmC" firstAttribute="leading" secondItem="zsV-YA-vN7" secondAttribute="leading" constant="102" id="ElD-H5-VOi"/>
@@ -2032,6 +2032,6 @@
         <segue reference="0IT-eH-crX"/>
         <segue reference="Ko0-YD-jqy"/>
         <segue reference="Gta-sy-Dj4"/>
-        <segue reference="Ea8-eI-ue4"/>
+        <segue reference="Ll4-8w-T57"/>
     </inferredMetricsTieBreakers>
 </document>
