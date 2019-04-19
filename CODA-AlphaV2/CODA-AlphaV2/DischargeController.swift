@@ -85,62 +85,68 @@ class DischargeController: UIViewController {
         //view.layer.addSublayer(gradientLayer)
         self.view.layer.insertSublayer(gradientLayer, at: 1)
         
+        getThePdf()
+        
+    }
+    
+    
+    func getThePdf(){
         // Online PDF
         //let pdfView = PDFView()
-
-//        pdfView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(pdfView)
-//
-//        pdfView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-//        pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-//        pdfView.topAnchor.constraint(equalTo: view.viewWithTag(3)!.topAnchor).isActive = true
-//        pdfView.bottomAnchor.constraint(equalTo: view.viewWithTag(4)!.bottomAnchor).isActive = true
-//
-//        guard let path = Bundle.main.url(forResource: "discharge", withExtension: "pdf") else { return }
-//
-//        if let document = PDFDocument(url: path) {
-//            pdfView.document = document
-//        }
-//
-//        let website = "http://www.sanface.com/pdf/test.pdf"
-//        let reqURL =  NSURL(string: website)
-//
-//        if let pdfDocument = PDFDocument(url: reqURL! as URL) {
-////            pdfView.displayMode = .singlePageContinuous
-////            pdfView.autoScales = true
-////            pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
-////            pdfView.displayDirection = .vertical
-////            //pdfView.document = PDFDocument(url: path)
-////            pdfView.document = pdfDocument
-//
-//            //documentContent should contain the pdf as attributed text (with font size/color/etc)
-//            let pageCount = pdfDocument.pageCount
-//            let documentContent = NSMutableAttributedString()
-//
-//            for i in 1 ..< pageCount {
-//                guard let page = pdfDocument.page(at: i) else { continue }
-//                guard let pageContent = page.attributedString else { continue }
-//                documentContent.append(pageContent)
-//            }
-//
-//
-//        } else {
-//            errorMessage.text = "Error retreiving file"
-//
-//            let alertController = UIAlertController(title: "ERROR!", message: "Cannot connect to internet or invalid pdf file. Please contact your System Administrator for any questions: CODA.Dev.UVM@gmail.com", preferredStyle: .alert);
-//
-//            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
-//            self.present(alertController, animated: true, completion: nil)
-//        }
+        
+        //        pdfView.translatesAutoresizingMaskIntoConstraints = false
+        //        view.addSubview(pdfView)
+        //
+        //        pdfView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        //        pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        //        pdfView.topAnchor.constraint(equalTo: view.viewWithTag(3)!.topAnchor).isActive = true
+        //        pdfView.bottomAnchor.constraint(equalTo: view.viewWithTag(4)!.bottomAnchor).isActive = true
+        //
+        //        guard let path = Bundle.main.url(forResource: "discharge", withExtension: "pdf") else { return }
+        //
+        //        if let document = PDFDocument(url: path) {
+        //            pdfView.document = document
+        //        }
+        //
+        //        let website = "http://www.sanface.com/pdf/test.pdf"
+        //        let reqURL =  NSURL(string: website)
+        //
+        //        if let pdfDocument = PDFDocument(url: reqURL! as URL) {
+        ////            pdfView.displayMode = .singlePageContinuous
+        ////            pdfView.autoScales = true
+        ////            pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
+        ////            pdfView.displayDirection = .vertical
+        ////            //pdfView.document = PDFDocument(url: path)
+        ////            pdfView.document = pdfDocument
+        //
+        //            //documentContent should contain the pdf as attributed text (with font size/color/etc)
+        //            let pageCount = pdfDocument.pageCount
+        //            let documentContent = NSMutableAttributedString()
+        //
+        //            for i in 1 ..< pageCount {
+        //                guard let page = pdfDocument.page(at: i) else { continue }
+        //                guard let pageContent = page.attributedString else { continue }
+        //                documentContent.append(pageContent)
+        //            }
+        //
+        //
+        //        } else {
+        //            errorMessage.text = "Error retreiving file"
+        //
+        //            let alertController = UIAlertController(title: "ERROR!", message: "Cannot connect to internet or invalid pdf file. Please contact your System Administrator for any questions: CODA.Dev.UVM@gmail.com", preferredStyle: .alert);
+        //
+        //            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+        //            self.present(alertController, animated: true, completion: nil)
+        //        }
         
         
         // FOR LOCAL PDF
         guard let path = Bundle.main.url(forResource: fileName, withExtension: "pdf")
             else {
                 errorMessage.text = "Error retreiving file"
-            
+                
                 let alertController = UIAlertController(title: "ERROR!", message: "Cannot connect to internet or invalid pdf file. Please contact your System Administrator for any questions: CODA.Dev.UVM@gmail.com", preferredStyle: .alert);
-            
+                
                 alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
                 self.present(alertController, animated: true, completion: nil)
                 return
@@ -157,7 +163,7 @@ class DischargeController: UIViewController {
                 documentContent.append(pageContent)
             }
             self.pdfText = documentContent.string
-
+            
             // Auto resize for the different devices.
             pdfView.autoresizesSubviews = true
             pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin]
@@ -172,24 +178,25 @@ class DischargeController: UIViewController {
             pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
             
         }
-        print("GATHERED TEXT:\n")
-        print(self.pdfText)
+        //        print("GATHERED TEXT:\n")
+        //        print(self.pdfText)
         
         // Change the text for the following
-//        WatchForText
+        //        WatchForText
         self.WatchForText = searchPdfText(from: "Symptoms to Call Your Doctor About:", to: "Appointments:")
         
-//        AppointmentText
+        //        AppointmentText
         self.AppointmentText = searchPdfText(from: "Appointments:", to: "What can I expect from having a ureteral stent?")
         
-//        ProblemText
+        //        ProblemText
         self.ProblemText = searchPdfText(from: "What can I expect from having a ureteral stent?", to: "How long will the stent remain in my body?")
         
-//        MedicationText
+        //        MedicationText
         self.MedicationText = searchPdfText(from: "PAIN CONTROL:", to: "BATHING:")
         
-        print("\n\nwatchFor Section: \(self.WatchForText), Appointment Section: \(self.AppointmentText), Problems list: \(self.ProblemText), Medication List: \(self.MedicationText)")
+        //        print("\n\nwatchFor Section: \(self.WatchForText), Appointment Section: \(self.AppointmentText), Problems list: \(self.ProblemText), Medication List: \(self.MedicationText)")
     }
+    
     
     func searchPdfText(from queryOne: String, to queryTwo: String) -> String {
         //these ifs are just error checking
