@@ -177,8 +177,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // Initializing all items on register page
     @IBOutlet weak var usernameRegister: UITextField!
+    @IBOutlet weak var fNameRegister: UITextField!
+    @IBOutlet weak var lNameRegister: UITextField!
     @IBOutlet weak var emailRegister: UITextField!
     @IBOutlet weak var passwordRegister: UITextField!
+    @IBOutlet weak var confirmPasswordRegister: UITextField!
+    
     
     // function that will register a user if the button is pressed
     @IBAction func registerButtonPressed(_ sender: Any) {
@@ -192,6 +196,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
             alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
             self.present(alertController, animated: true, completion: nil)
             print("Username needed!")
+            return
+        }
+        if(fNameRegister.text == nil || (fNameRegister.text?.isEmpty)!) {
+            //showAlertError("Username required", message: "")
+            let alertController = UIAlertController(title: "FIRSTNAME NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("First Name needed!")
+            return
+        }
+        
+        if(lNameRegister.text == nil || (lNameRegister.text?.isEmpty)!) {
+            //showAlertError("Username required", message: "")
+            let alertController = UIAlertController(title: "LASTNAME NEEDED!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("Last Name needed!")
             return
         }
         
@@ -214,10 +237,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Password needed!")
             return
         }
+        
+        if(confirmPasswordRegister.text == nil || (confirmPasswordRegister.text?.isEmpty)!) {
+            //showAlertError("Password required", message: "")
+            let alertController = UIAlertController(title: "CONFIRM YOUR PASSWORD!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("Confirm your password!")
+            return
+        }
         // creating parameters for the post request
         let params = ["username": usernameRegister.text!,
+                      "firstname" : fNameRegister.text!,
+                      "lastname" : lNameRegister.text!,
                       "email": emailRegister.text!,
-                       "password": passwordRegister.text!,] as [String : Any]
+                      "password": passwordRegister.text!,
+                      "confirmpass":confirmPasswordRegister.text!
+            ] as [String : Any]
         
         // making a post request
         // basically take in the parameters (username, email and password) we specify and
