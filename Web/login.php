@@ -3,7 +3,7 @@ session_start();
 ?>
 <?php
 include "top.php";
-$_SESSION["login"] = false;
+//$_SESSION["login"] = false;
 // $_SESSION["activeUser"] = "null";
 $_SESSION["hashedPass"] = "null";
 $_SESSION["activeUserEmail"] = "null";

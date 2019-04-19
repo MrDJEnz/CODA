@@ -1,23 +1,23 @@
 <?php
 session_start();
 include "top.php";
-$_SESSION["login"] = false;
+//$_SESSION["login"] = false;
 //$_SESSION["activeUser"] = "null";
 $_SESSION["hashedPass"] = "null";
 $_SESSION["activeUserEmail"] = "null";
 
 ?>
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 
 <title>Hello, world!</title>
 <body>
 	<script>
 
 	</script>
-	<?php
+<!-- 	<?php
 	include ('styleIndex.php')
-	?>
+	?> -->
 	<header>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
@@ -69,6 +69,7 @@ $_SESSION["activeUserEmail"] = "null";
 							If you are new, please register on the right. If you are a returning user please locate the signin button.</h6>
 						</div>
 						<?php
+						echo ($_SESSION["activeUser"]);
 						if ($_SESSION["activeUser"] == "null"){
 							?>
 							<!--Grid column-->
@@ -136,7 +137,7 @@ $_SESSION["activeUserEmail"] = "null";
 																<?php $newUserdata[] = $passHashed ?>
 																<?php if ($nameValue != "" AND $emailValue != "" AND $emailValue != ""){$records = $thisDatabaseWriter->insert($query, $newUserdata, 0, 0, 0, 0, false, false)?>
 																	<h1>Congrats, your registration has been confirmed! Thank you!!</h1>
-																	
+
 																<?php }?>
 															<?php }?>
 
