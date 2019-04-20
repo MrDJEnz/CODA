@@ -6,9 +6,11 @@ require_once 'DbOperation.php';
 $response = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (!verifyRequiredParams(array('username', 'email', 'password'))) {
+  if (!verifyRequiredParams(array('username', 'firstname', 'lastname', 'email', 'password'))) {
     // getting values
     $username = $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -16,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new DbOperation();
 
     // add user to database
-    $result = $db->createUser($username, $email, $password);
+    $result = $db->createUser($username, $firstname, $lastname, $email, $password);
 
     // making response accordingly
     if ($result == USER_CREATED) {
