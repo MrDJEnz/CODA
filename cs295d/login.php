@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // making response accordingly
         if ($db->userLogin($_POST['username'], $_POST['password'])) {
             $response['error'] = false;
-            $response['user'] = $db->getUserByUsername($_POST['username']);
+            $response['user'] = $db->getFirstNameByUsername($_POST['username']);
         } else {
             $response['error'] = true;
             $response['message'] = 'Invalid username or password';

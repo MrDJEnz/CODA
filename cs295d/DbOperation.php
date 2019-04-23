@@ -32,7 +32,8 @@ class DbOperation {
       }
     }
     //$combinedPassword = $username + $pass;
-    $combinedPassword = $username + $pass + $currentTime;
+    $username = strtolower($username);
+    $combinedPassword = $username . $pass . $currentTime;
     $password = hash("sha256", $combinedPassword);
     $stmt = $this->conn->prepare("SELECT fldFirstName FROM tblUsers WHERE fldUsername = ? AND fldPassword = ?");
     $stmt->bind_param("ss", $username, $password);
@@ -52,18 +53,19 @@ class DbOperation {
      * this method will return the user data in an array
      * */
     public function getFirstNameByUsername($username) {
-        $stmt = $this->conn->prepare("SELECT fldFirstName FROM tblUsers WHERE fldUsername = ?");
-        $stmt->bind_param("s", $username);
-        if($stmt->execute()) {
-          $res = $stmt->get_result();
-          while ($row = $res->fetch_assoc()) {
-            $firstName = $row['fldFirstName'];
-          }
+      $username = strtolower($username);
+      $stmt = $this->conn->prepare("SELECT fldFirstName FROM tblUsers WHERE fldUsername = ?");
+      $stmt->bind_param("s", $username);
+      if($stmt->execute()) {
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc()) {
+          $firstName = $row['fldFirstName'];
         }
-        $stmt->fetch();
-        $user = array();
-        $user['firstName'] = $firstName;
-        return $user;
+      }
+      $stmt->fetch();
+      $user = array();
+      $user['firstName'] = $firstName;
+      return $user;
     }
 
   // Create user function
@@ -75,6 +77,7 @@ class DbOperation {
   // if not, then send proper return message
   // lastly, if user existed in the first place, send the proper return message
   public function createUser($username, $firstname, $lastname, $email, $pass) {
+    $username = strtolower($username);
     if (!$this->isUserExist($username)) {
         //$combinedPassword = $username + $pass;
       $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldFirstName, fldLastName, fldEmail) VALUES (?, ?, ?, ?)");
@@ -88,7 +91,7 @@ class DbOperation {
             $currentTime = $row['fldCurrentTime'];
           }
         }
-          $combinedPassword = $username.$pass.$currentTime;
+        $combinedPassword = $username . $pass . $currentTime;
         $password = hash("sha256", $combinedPassword);
         $sql2 = $this->conn->prepare("UPDATE tblUsers SET fldPassword = BINARY '$password' WHERE fldUsername = ?");
         $sql2->bind_param("s", $username);
@@ -107,6 +110,7 @@ class DbOperation {
   // combo returns anything, if this number is greater than 0, then there
   // was an username with inputted username already existing up in the database
   private function isUserExist($username) {
+    $username = strtolower($username);
     $stmt = $this->conn->prepare("SELECT fldUsername FROM tblUsers WHERE fldUsername = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
