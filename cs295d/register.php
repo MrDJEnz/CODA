@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $response['message'] = 'User already exists';
     } elseif ($result == USER_NOT_CREATED) {
       $response['error'] = true;
-      $response['message'] = 'Error occurred';
+      $response['message'] = 'BLEH';
     }
   } else {
     $response['error'] = true;

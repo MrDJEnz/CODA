@@ -31,6 +31,7 @@ class DbOperation {
         $currentTime = $row['fldCurrentTime'];
       }
     }
+    //$combinedPassword = $username + $pass;
     $combinedPassword = $username + $pass + $currentTime;
     $password = hash("sha256", $combinedPassword);
     $stmt = $this->conn->prepare("SELECT fldFirstName FROM tblUsers WHERE fldUsername = ? AND fldPassword = ?");
@@ -50,15 +51,18 @@ class DbOperation {
      * After the successful login we will call this method
      * this method will return the user data in an array
      * */
-    public function getUserByUsername($username) {
-        $stmt = $this->conn->prepare("SELECT fldUsername, fldEmail FROM tblUsers WHERE fldUsername = ?");
+    public function getFirstNameByUsername($username) {
+        $stmt = $this->conn->prepare("SELECT fldFirstName FROM tblUsers WHERE fldUsername = ?");
         $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->bind_result($uname, $email);
+        if($stmt->execute()) {
+          $res = $stmt->get_result();
+          while ($row = $res->fetch_assoc()) {
+            $firstName = $row['fldFirstName'];
+          }
+        }
         $stmt->fetch();
         $user = array();
-        $user['username'] = $uname;
-        $user['email'] = $email;
+        $user['firstName'] = $firstName;
         return $user;
     }
 
@@ -71,16 +75,24 @@ class DbOperation {
   // if not, then send proper return message
   // lastly, if user existed in the first place, send the proper return message
   public function createUser($username, $firstname, $lastname, $email, $pass) {
+    $combinedPassword = $username + $pass;
     if (!$this->isUserExist($username)) {
-      $currentTime = $_SERVER['REQUEST_TIME'];
-      $combinedPassword = $username + $pass + $currentTime;
-      $password = hash("sha256", $combinedPassword);
-      //$password = hash("sha256", $pass);
-      $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldFirstName, fldLastName, fldEmail, fldPassword, fldCurrentTime) VALUES (?, ?, ?, ?, ?, ?)");
-      //$stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldEmail, fldPassword) VALUES (?, ?, ?)");
-      $stmt->bind_param("ssssss", $username, $firstname, $lastname, $email, $password, $currentTime);
-      //$stmt->bind_param("sss", $username, $email, $password);
+      $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldFirstName, fldLastName, fldEmail) VALUES (?, ?, ?, ?)");
+      $stmt->bind_param("ssss", $username, $firstname, $lastname, $email);
       if ($stmt->execute()) {
+        $sql = $this->conn->prepare("SELECT fldCurrentTime FROM tblUsers WHERE fldUsername = ?");
+        $sql->bind_param("s", $username);
+        if($sql->execute()) {
+          $res = $sql->get_result();
+          while ($row = $res->fetch_assoc()) {
+            $currentTime = $row['fldCurrentTime'];
+          }
+        }
+        //$combinedPassword = $username + $pass; //+ $currentTime;
+        $password = hash("sha256", $combinedPassword);
+        $sql2 = $this->conn->prepare("UPDATE tblUsers SET fldPassword = BINARY '$combinedPassword' WHERE fldUsername = ?");
+        $sql2->bind_param("s", $username);
+        $sql2->execute();
         return USER_CREATED;
       } else {
         return USER_NOT_CREATED;
