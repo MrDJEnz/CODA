@@ -136,39 +136,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             }
             
-        
-
-// MIGHT NEED THIS LATER BUT FOR NOW NO
-//                //getting the json value from the server
-//                if let result = response.result.value {
-//                    let jsonData = result as! NSDictionary
-//
-//                    //if there is no error
-//                    if(!(jsonData.value(forKey: "error") as! Bool)){
-//
-//                        //getting the user from response
-//                        let user = jsonData.value(forKey: "user") as! NSDictionary
-//
-//                        //getting user values
-//                        let userName = user.value(forKey: "username") as! String
-//                        let userPass = user.value(forKey: "password") as! String
-//
-//                        //saving user values to defaults
-//                        self.defaultValues.set(userName, forKey: "username")
-//                        self.defaultValues.set(userPass, forKey: "password")
-//
-//                        self.dismiss(animated: false, completion: nil)
-//                    } else {
-//                        //error message in case of invalid credential
-//                        let alert = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
-//
-//                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//                        self.present(alert, animated: true)
-//                        //self.labelMessage.text = "Invalid username or password"
-//                    }
-//                }
         }
-        // self.performSegue(withIdentifier: "homePage", sender: self)
     }
     
     // Segue back to the register screen
@@ -250,6 +218,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Confirm your password!")
             return
         }
+        
+        if passwordRegister.text != confirmPasswordRegister.text{
+            let alertController = UIAlertController(title: "PASSWORDS DO NOT MATCH!", message: nil, preferredStyle: .alert);
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
+            self.present(alertController, animated: true, completion: nil)
+            print("Enter matching passwords!")
+            return
+        }
         // creating parameters for the post request
         let params = ["username": usernameRegister.text!,
                       "firstname" : fNameRegister.text!,
@@ -266,12 +243,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             // printing response for testing purposes
             print(response);
-            
+           
             // error checking if user already exists
             // if so, show an alert stating so
             // otherwise tell the user the registration was succesful
             if ((response.value?.contains("true"))!) {
-                let alertController = UIAlertController(title: "Error!", message: "User already exists", preferredStyle: .alert);
+                
+                var errmsg = response.description
+                errmsg = String(errmsg.dropFirst(43))
+                errmsg = String(errmsg.dropLast(2))
+               
+                let alertController = UIAlertController(title: "Error!", message: errmsg, preferredStyle: .alert);
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil));
                 
