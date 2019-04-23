@@ -73,7 +73,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homePage" {
             let vc = segue.destination as! HomeController
-            vc.userValue = usernameLogin.text
+            let userDefault = UserDefaults.standard
+            vc.userValue = userDefault.value(forKey: "firstName") as? String
         }
         
     }
@@ -120,6 +121,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 (response) in
                 // printing response for testing purposes
             print(response);
+            
             // error checking if the PHP echoed back from the site has a true
             // error message, if so, then the username or password is incorrect
             // else, continue to the home page
@@ -132,7 +134,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }else{
                 //seguePrep()
                  //self.dismiss(animated: false, completion: nil)
-                 self.performSegue(withIdentifier: "homePage", sender: self);
+                var fname = response.description
+                fname = String(fname.dropFirst(54))
+                fname = String(fname.dropLast(3))
+                print("Firstname: "+fname+"\n")
+                let userDefault = UserDefaults.standard
+                userDefault.set(fname, forKey:"firstName")
+                self.performSegue(withIdentifier: "homePage", sender: self);
                 
             }
             
