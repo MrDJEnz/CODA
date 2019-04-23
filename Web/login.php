@@ -7,11 +7,12 @@ include "top.php";
 // $_SESSION["activeUser"] = "null";
 $_SESSION["hashedPass"] = "null";
 $_SESSION["activeUserEmail"] = "null";
+echo $_SESSION["registered"];
 ?>
-<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  -->
-<!-- <?php
- include ('styleIndex.php')
-?> -->
+ <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+ <?php
+ // include ('styleIndex.php')
+?> 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
   <div class="container">
@@ -77,12 +78,12 @@ $_SESSION["activeUserEmail"] = "null";
                   <!--Body-->
                   <div class="md-form">
                     <i class="fa fa-envelope prefix white-text active"></i>
-                    <input type="email" id="emailField" name = "emailField" class="white-text form-control">
+                    <input type="email" id="emailField" name = "emailField" <?php if ($_SESSION["registered"] == TRUE) { ?> value="<?php echo $_SESSION["registeredemail"];?>"<?php } ?> class="white-text form-control">
                     <label for="emailField" class="active">Your email</label>
                   </div>
                   <div class="md-form">
                     <i class="fa fa-lock prefix white-text active"></i>
-                    <input type="password" name = "passwordField" id="passwordField" class="white-text form-control">
+                    <input type="password" name = "passwordField" id="passwordField" <?php if ($_SESSION["registered"] == TRUE) { ?> value="<?php echo $_SESSION["registeredpass"];?>" <?php } ?> class="white-text form-control">
                     <label for="passwordField">Your password</label>
                   </div>
                   <div class="text-center mt-4">
@@ -112,7 +113,7 @@ $_SESSION["activeUserEmail"] = "null";
                               ?>
                               <h1> Password is valid! Logging in... you will be directed to the main page. Thank you!</h1>
                               <!-- ?php echo $loginUser ?> -->
-                              <?php $_SESSION["login"] = true ?>
+                              <?php $_SESSION["login"] = TRUE ?>
                               <a href="/cs295_CODA/Web/privatePage1.php">Click here</a>
                               <?php $_SESSION["activeUser"] = $loginUser?>
                               <?php $_SESSION["hashedPass"] = $dbHash?>
