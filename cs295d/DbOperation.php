@@ -75,8 +75,8 @@ class DbOperation {
   // if not, then send proper return message
   // lastly, if user existed in the first place, send the proper return message
   public function createUser($username, $firstname, $lastname, $email, $pass) {
-    $combinedPassword = $username + $pass;
     if (!$this->isUserExist($username)) {
+        //$combinedPassword = $username + $pass;
       $stmt = $this->conn->prepare("INSERT INTO tblUsers (fldUsername, fldFirstName, fldLastName, fldEmail) VALUES (?, ?, ?, ?)");
       $stmt->bind_param("ssss", $username, $firstname, $lastname, $email);
       if ($stmt->execute()) {
@@ -88,9 +88,9 @@ class DbOperation {
             $currentTime = $row['fldCurrentTime'];
           }
         }
-        //$combinedPassword = $username + $pass; //+ $currentTime;
+          $combinedPassword = $username.$pass.$currentTime;
         $password = hash("sha256", $combinedPassword);
-        $sql2 = $this->conn->prepare("UPDATE tblUsers SET fldPassword = BINARY '$combinedPassword' WHERE fldUsername = ?");
+        $sql2 = $this->conn->prepare("UPDATE tblUsers SET fldPassword = BINARY '$password' WHERE fldUsername = ?");
         $sql2->bind_param("s", $username);
         $sql2->execute();
         return USER_CREATED;
