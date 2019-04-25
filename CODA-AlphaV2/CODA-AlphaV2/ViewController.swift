@@ -30,8 +30,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var rgRgButtonAtt: UIButton!
     @IBOutlet weak var lgRgButtonAtt: UIButton!
+    @IBOutlet weak var touchIDButton: UIButton!
     
-    
+    // Biometrics
+    let touchMe = BiometricIDAuth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        touchIDButton.isHidden = !touchMe.canEvaluatePolicy()
         
+        switch touchMe.biometricType() {
+        case .faceID:
+            touchIDButton.setImage(UIImage(named: "FaceIcon"),  for: .normal)
+        default:
+            touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let touchBool = touchMe.canEvaluatePolicy()
+        if touchBool {
+            touchIDLoginAction()
+        }
     }
     
     
@@ -276,6 +293,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         
+    }
+    
+    @IBAction func touchIDLoginAction() {
+        touchMe.authenticateUser() { [weak self] message in
+            if let message = message {
+                // if the completion is not nil show an alert
+                let alertView = UIAlertController(title: "Error",
+                                                  message: message,
+                                                  preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Darn!", style: .default)
+                alertView.addAction(okAction)
+                self?.present(alertView, animated: true)
+            } else {
+                self?.performSegue(withIdentifier: "homePage", sender: self)
+            }
+        }
     }
     
     // Segue back to the login screen

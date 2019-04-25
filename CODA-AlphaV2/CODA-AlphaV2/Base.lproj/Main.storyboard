@@ -69,28 +69,43 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHH-fg-8Kl">
+                                        <rect key="frame" x="225" y="180" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="B51-wa-BEZ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="Xys-ws-K0u"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Touch-icon-lg"/>
+                                        <connections>
+                                            <action selector="touchIDLoginAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="rkd-07-8hu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bg1-XJ-Saa" secondAttribute="trailing" symbolic="YES" id="0Xh-9I-AEs"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bg1-XJ-Saa" secondAttribute="trailing" constant="20" symbolic="YES" id="0Xh-9I-AEs"/>
                                     <constraint firstAttribute="width" constant="288" id="56m-1R-xJg"/>
                                     <constraint firstItem="LKf-FS-fXl" firstAttribute="leading" secondItem="vgR-nr-r7Z" secondAttribute="leading" constant="34" id="57b-Ab-w0u"/>
+                                    <constraint firstItem="uHH-fg-8Kl" firstAttribute="leading" secondItem="vgR-nr-r7Z" secondAttribute="leading" constant="225" id="8UQ-EK-CPY"/>
                                     <constraint firstItem="LKf-FS-fXl" firstAttribute="top" secondItem="aNw-pv-azK" secondAttribute="bottom" constant="23" id="93o-SE-KUM"/>
                                     <constraint firstAttribute="trailing" secondItem="QzU-si-Idm" secondAttribute="trailing" constant="24" id="9Xg-N6-B0k"/>
                                     <constraint firstItem="aNw-pv-azK" firstAttribute="leading" secondItem="vgR-nr-r7Z" secondAttribute="leading" constant="102" id="BBR-Qr-EyL"/>
                                     <constraint firstAttribute="trailing" secondItem="aNw-pv-azK" secondAttribute="trailing" constant="103" id="CFY-ha-Dm4"/>
                                     <constraint firstItem="dCN-rv-Dyz" firstAttribute="leading" secondItem="vgR-nr-r7Z" secondAttribute="leading" id="Dpi-Kx-eaj"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LKf-FS-fXl" secondAttribute="trailing" symbolic="YES" id="MHY-EI-rte"/>
+                                    <constraint firstItem="bg1-XJ-Saa" firstAttribute="top" secondItem="uHH-fg-8Kl" secondAttribute="bottom" constant="29" id="KOH-b8-KIT"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LKf-FS-fXl" secondAttribute="trailing" constant="20" symbolic="YES" id="MHY-EI-rte"/>
                                     <constraint firstItem="dCN-rv-Dyz" firstAttribute="top" secondItem="vgR-nr-r7Z" secondAttribute="top" id="OF9-LC-4y7"/>
                                     <constraint firstItem="LKf-FS-fXl" firstAttribute="top" secondItem="aNw-pv-azK" secondAttribute="bottom" constant="23" id="Pgz-tQ-bcS"/>
                                     <constraint firstItem="bg1-XJ-Saa" firstAttribute="leading" secondItem="vgR-nr-r7Z" secondAttribute="leading" constant="34" id="QTf-L3-ROQ"/>
                                     <constraint firstAttribute="trailing" secondItem="dCN-rv-Dyz" secondAttribute="trailing" id="UQT-A7-puP"/>
                                     <constraint firstItem="aNw-pv-azK" firstAttribute="top" secondItem="vgR-nr-r7Z" secondAttribute="top" constant="48" id="cNl-fZ-BM9"/>
                                     <constraint firstAttribute="bottom" secondItem="QzU-si-Idm" secondAttribute="bottom" constant="16" id="f8P-pg-L4S"/>
+                                    <constraint firstAttribute="trailing" secondItem="uHH-fg-8Kl" secondAttribute="trailing" constant="39" id="jPO-RA-1Nb"/>
                                     <constraint firstItem="bg1-XJ-Saa" firstAttribute="top" secondItem="LKf-FS-fXl" secondAttribute="bottom" constant="29" id="lGh-10-3UP"/>
                                     <constraint firstItem="QzU-si-Idm" firstAttribute="top" secondItem="bg1-XJ-Saa" secondAttribute="bottom" constant="41" id="lMO-0U-7Wx"/>
                                     <constraint firstAttribute="bottom" secondItem="dCN-rv-Dyz" secondAttribute="bottom" id="njz-4b-M34"/>
                                     <constraint firstItem="QzU-si-Idm" firstAttribute="top" secondItem="bg1-XJ-Saa" secondAttribute="bottom" constant="41" id="qdV-PG-ysX"/>
                                     <constraint firstItem="QzU-si-Idm" firstAttribute="leading" secondItem="vgR-nr-r7Z" secondAttribute="leading" constant="24" id="rd7-T4-zAD"/>
+                                    <constraint firstItem="uHH-fg-8Kl" firstAttribute="top" secondItem="vgR-nr-r7Z" secondAttribute="top" constant="180" id="u6Y-c5-piy"/>
                                     <constraint firstItem="bg1-XJ-Saa" firstAttribute="top" secondItem="LKf-FS-fXl" secondAttribute="bottom" constant="29" id="yBW-Ro-2sr"/>
                                     <constraint firstAttribute="height" constant="374" id="yKx-OR-Tw4"/>
                                 </constraints>
@@ -158,13 +173,14 @@
                         <outlet property="lgButtonAtt" destination="QzU-si-Idm" id="Ygr-C5-NeP"/>
                         <outlet property="passwordLogin" destination="bg1-XJ-Saa" id="APV-cV-sRU"/>
                         <outlet property="rgButtonAtt" destination="e24-Bb-8Jy" id="7JB-xG-rlb"/>
+                        <outlet property="touchIDButton" destination="uHH-fg-8Kl" id="NQU-DG-jXy"/>
                         <outlet property="usernameLogin" destination="LKf-FS-fXl" id="cGA-Dk-7Qq"/>
                         <segue destination="Q5P-y2-Gi6" kind="show" identifier="homePage" id="fMC-P3-fcQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479" y="97"/>
+            <point key="canvasLocation" x="-479.19999999999999" y="96.7016491754123"/>
         </scene>
         <!--Register Page-->
         <scene sceneID="Enn-is-lF3">
@@ -2013,6 +2029,7 @@
         <image name="Background" width="347" height="660"/>
         <image name="Calendar" width="33" height="33"/>
         <image name="Phone-1" width="33" height="33"/>
+        <image name="Touch-icon-lg" width="138" height="137.5"/>
         <image name="coda_symbol" width="169.5" height="205.5"/>
         <image name="coda_symbol_white" width="140" height="215"/>
         <image name="coda_text" width="256.5" height="117"/>
@@ -2030,7 +2047,7 @@
         <segue reference="YmE-al-bKu"/>
         <segue reference="wUF-TF-4pZ"/>
         <segue reference="oOi-Tg-F4n"/>
-        <segue reference="pNq-MR-l74"/>
+        <segue reference="fMC-P3-fcQ"/>
         <segue reference="Ll4-8w-T57"/>
     </inferredMetricsTieBreakers>
 </document>

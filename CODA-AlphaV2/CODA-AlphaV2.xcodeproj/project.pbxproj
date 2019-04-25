@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98157DED2272044100160312 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98157DEC2272044100160312 /* TouchIDAuthentication.swift */; };
 		987ED6062268C09600CC61E8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987ED5F92268C03400CC61E8 /* Alamofire.framework */; };
 		987ED6072268C09600CC61E8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 987ED5F92268C03400CC61E8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE02AFEF224C60A700F09B81 /* MedicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02AFEE224C60A700F09B81 /* MedicationController.swift */; };
@@ -116,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		98157DEC2272044100160312 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
 		987ED5ED2268C03400CC61E8 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		AE02AFEE224C60A700F09B81 /* MedicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationController.swift; sourceTree = "<group>"; };
 		AE02AFF7224C68A300F09B81 /* ProblemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				AE113BDB222E42080001F3D8 /* Assets.xcassets */,
 				AE113BDD222E42080001F3D8 /* LaunchScreen.storyboard */,
 				AE113BE0222E42080001F3D8 /* Info.plist */,
+				98157DEC2272044100160312 /* TouchIDAuthentication.swift */,
 			);
 			path = "CODA-AlphaV2";
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				AE113BD5222E42070001F3D8 /* AppDelegate.swift in Sources */,
 				AE02AFF8224C68A300F09B81 /* ProblemController.swift in Sources */,
 				AE02AFEF224C60A700F09B81 /* MedicationController.swift in Sources */,
+				98157DED2272044100160312 /* TouchIDAuthentication.swift in Sources */,
 				AE07D6B1224BF9F40035C432 /* HomeController.swift in Sources */,
 				AEBFEF3B224C703400AE4097 /* DischargeController.swift in Sources */,
 			);
