@@ -68,7 +68,7 @@ class ProblemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       pdfFieldPrb.isUserInteractionEnabled = false
+       pdfFieldPrb.isUserInteractionEnabled = true
         
         let userDefault = UserDefaults.standard
         userDefault.value(forKey: "savingPDFStringProblem")

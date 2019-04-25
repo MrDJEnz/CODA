@@ -68,7 +68,7 @@ class WatchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pdfFieldWtch.isUserInteractionEnabled = false
+        pdfFieldWtch.isUserInteractionEnabled = true
         
         let userDefault = UserDefaults.standard
         userDefault.value(forKey: "savingPDFStringWatch")

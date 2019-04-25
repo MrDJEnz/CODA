@@ -67,7 +67,7 @@ class MedicationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pdfFieldMed.isUserInteractionEnabled = false
+        pdfFieldMed.isUserInteractionEnabled = true
        
         let userDefault = UserDefaults.standard
         userDefault.value(forKey: "savingPDFString")

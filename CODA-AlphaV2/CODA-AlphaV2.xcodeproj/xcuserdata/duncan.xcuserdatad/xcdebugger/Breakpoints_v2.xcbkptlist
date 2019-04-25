@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CODA-AlphaV2/DischargeController.swift"
-            timestampString = "577395362.334865"
+            timestampString = "577893882.9505171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -77,6 +77,54 @@
                   startingLineNumber = "81"
                   endingLineNumber = "81"
                   offsetFromSymbolStart = "1272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CODA-AlphaV2/ProblemController.swift"
+            timestampString = "577893882.9505939"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ProblemController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CODA_AlphaV2.ProblemController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; CODA_AlphaV2.ProblemController"
+                  moduleName = "CODA-AlphaV2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duncan/Desktop/Computer%20Science/CODA/CODA-AlphaV2/CODA-AlphaV2/ProblemController.swift"
+                  timestampString = "577893677.709895"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CODA_AlphaV2.ProblemController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CODA_AlphaV2.ProblemController&gt;"
+                  moduleName = "CODA-AlphaV2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duncan/Desktop/Computer%20Science/CODA/CODA-AlphaV2/CODA-AlphaV2/ProblemController.swift"
+                  timestampString = "577893677.711875"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "204">
                </Location>
             </Locations>
          </BreakpointContent>
