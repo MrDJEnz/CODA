@@ -68,7 +68,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        touchIDButton.isHidden = !touchMe.canEvaluatePolicy()
+        if touchIDButton != nil{
+            touchIDButton.isHidden = !touchMe.canEvaluatePolicy()
+        
         
         switch touchMe.biometricType() {
         case .faceID:
@@ -76,15 +78,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         default:
             touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let touchBool = touchMe.canEvaluatePolicy()
-        if touchBool {
-            touchIDLoginAction()
         }
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        let touchBool = touchMe.canEvaluatePolicy()
+//        if touchBool {
+//            touchIDLoginAction()
+//        }
+//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
