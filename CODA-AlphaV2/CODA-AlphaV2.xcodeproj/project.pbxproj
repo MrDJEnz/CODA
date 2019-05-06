@@ -324,13 +324,16 @@
 				TargetAttributes = {
 					AE113BD0222E42070001F3D8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					AE113BE4222E42080001F3D8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = AE113BD0222E42070001F3D8;
 					};
 					AE113BEF222E42080001F3D8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = AE113BD0222E42070001F3D8;
 					};
 				};
@@ -650,7 +653,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MrDJEnz1.CODA-AlphaV2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -670,7 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MrDJEnz1.CODA-AlphaV2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -690,7 +693,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MrDJEnz.CODA-AlphaV2Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CODA-AlphaV2.app/CODA-AlphaV2";
 			};
@@ -711,7 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MrDJEnz.CODA-AlphaV2Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CODA-AlphaV2.app/CODA-AlphaV2";
 			};
@@ -731,7 +734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MrDJEnz.CODA-AlphaV2UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "CODA-AlphaV2";
 			};
@@ -751,7 +754,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MrDJEnz.CODA-AlphaV2UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "CODA-AlphaV2";
 			};
