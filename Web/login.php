@@ -111,10 +111,10 @@ echo $_SESSION["registered"];
                           <?php foreach ($records as $record) {
                             $dbHash = ((string)$record['fldPassword']);
                             $loginUser = ((string)$record['fldUsername']);}?>
-                            <?php echo "Database";?>
+          <!--                   <?php echo "Database";?>
                             <?php echo $dbHash;?>
                             <?php echo "Hash";?>
-                            <?php echo $newpassHashed;?>
+                            <?php echo $newpassHashed;?> -->
                             
                             <?php if ($newpassHashed == $dbHash) {
                               ?>
