@@ -9,12 +9,14 @@
 import Foundation
 import LocalAuthentication
 
+// Enum to store which type of biometrics are being used
 enum BiometricType {
     case none
     case touchID
     case faceID
 }
 
+// Class that allows user to try and log in to app with biometrics
 class BiometricIDAuth {
     let context = LAContext()
     var loginReason = "Logging in with Touch ID"

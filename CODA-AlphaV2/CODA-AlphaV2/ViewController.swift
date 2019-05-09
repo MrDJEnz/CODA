@@ -11,15 +11,9 @@ import Alamofire
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-
-    
     // urls for both login and register
     let URL_USER_LOGIN = "http://snguon.w3.uvm.edu/cs295d/login.php"
     let URL_USER_REGISTER = "http://snguon.w3.uvm.edu/cs295d/register.php"
-    
-    // MIGHT NEED LATER
-    // the defaultvalues to store user data
-    // let defaultValues = UserDefaults.standard
 
     // Initializing all the items on login page
     @IBOutlet weak var usernameLogin: UITextField!
@@ -51,8 +45,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         lgRgButtonAtt.layer.cornerRadius = 10
         lgRgButtonAtt.clipsToBounds = true
         }
-        //set usrname feild
-        //usrnameLbl.text = "Welcome:"
         if passwordLogin != nil{
             passwordLogin.isSecureTextEntry = true
         }
@@ -62,7 +54,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if passwordRegister != nil{
             passwordRegister.isSecureTextEntry = true
         }
-        
         
         // Create methods to move display around for keyboard use
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -81,6 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Function that allows for automatic Face ID or Touch ID login when app is opened, commented out for the moment
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        let touchBool = touchMe.canEvaluatePolicy()
@@ -89,17 +81,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        }
 //    }
     
-    
+    // Function that passes through the user's first name to the home page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homePage" {
             let vc = segue.destination as! HomeController
             let userDefault = UserDefaults.standard
             vc.userValue = userDefault.value(forKey: "firstName") as? String
         }
-        
     }
-   
-    
     
     // function that will login the user if the button is pressed
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -109,12 +98,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             "username":usernameLogin.text!,
             "password":passwordLogin.text!
         ]
-        
-        
     
         // error checking if user filled in username and password correctly
         // show alerts accordingly if false
-        if(usernameLogin.text == nil || (usernameLogin.text?.isEmpty)!) {
+        if (usernameLogin.text == nil || (usernameLogin.text?.isEmpty)!) {
             //showAlertError("Username required", message: "")
             let alertController = UIAlertController(title: "USERNAME NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -123,7 +110,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Username needed!")
             return
         }
-        if(passwordLogin.text == nil || (passwordLogin.text?.isEmpty)!) {
+        if (passwordLogin.text == nil || (passwordLogin.text?.isEmpty)!) {
             //showAlertError("Password required", message: "")
             let alertController = UIAlertController(title: "PASSWORD NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -132,11 +119,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Password needed!")
             return
         }
-        //print("USER: " + usernameForHome!)
 
-        // making a post request
-        // basically take in the parameters (username and password) we specify and
-        // see if it compares to a username and password combo on the database
+        // setting an admin account to use for quick access/testing purposes
         if usernameLogin.text == "ADMIN" && passwordLogin.text == "PASSWORD"{
             let fname1 = usernameLogin.text
             let userDefault = UserDefaults.standard
@@ -144,6 +128,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.performSegue(withIdentifier: "homePage", sender: self);
         }
         
+        // making a post request
+        // basically take in the parameters (username and password) we specify and
+        // see if it compares to a username and password combo on the database
         AF.request(URL_USER_LOGIN, method: .post, parameters: parameters, encoding: URLEncoding.default).responseString {
                 (response) in
                 // printing response for testing purposes
@@ -158,9 +145,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
                 
-            }else{
-                //seguePrep()
-                 //self.dismiss(animated: false, completion: nil)
+            } else {
                 var fname = response.description
                 fname = String(fname.dropFirst(54))
                 fname = String(fname.dropLast(3))
@@ -168,9 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let userDefault = UserDefaults.standard
                 userDefault.set(fname, forKey:"firstName")
                 self.performSegue(withIdentifier: "homePage", sender: self);
-                
             }
-            
         }
     }
     
@@ -195,7 +178,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // error checking if user filled out username, email, and password
         // shows an alert if any of these three are not filled out
-        if(usernameRegister.text == nil || (usernameRegister.text?.isEmpty)!) {
+        if (usernameRegister.text == nil || (usernameRegister.text?.isEmpty)!) {
             //showAlertError("Username required", message: "")
             let alertController = UIAlertController(title: "USERNAME NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -204,7 +187,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Username needed!")
             return
         }
-        if(fNameRegister.text == nil || (fNameRegister.text?.isEmpty)!) {
+        if (fNameRegister.text == nil || (fNameRegister.text?.isEmpty)!) {
             //showAlertError("Username required", message: "")
             let alertController = UIAlertController(title: "FIRSTNAME NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -214,7 +197,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        if(lNameRegister.text == nil || (lNameRegister.text?.isEmpty)!) {
+        if (lNameRegister.text == nil || (lNameRegister.text?.isEmpty)!) {
             //showAlertError("Username required", message: "")
             let alertController = UIAlertController(title: "LASTNAME NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -224,7 +207,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        if(emailRegister.text == nil || (emailRegister.text?.isEmpty)!) {
+        if (emailRegister.text == nil || (emailRegister.text?.isEmpty)!) {
             //showAlertError("Email Address required", message: "")
             let alertController = UIAlertController(title: "EMAIL NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -234,7 +217,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        if(passwordRegister.text == nil || (passwordRegister.text?.isEmpty)!) {
+        if (passwordRegister.text == nil || (passwordRegister.text?.isEmpty)!) {
             //showAlertError("Password required", message: "")
             let alertController = UIAlertController(title: "PASSWORD NEEDED!", message: nil, preferredStyle: .alert);
             
@@ -244,7 +227,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        if(confirmPasswordRegister.text == nil || (confirmPasswordRegister.text?.isEmpty)!) {
+        if (confirmPasswordRegister.text == nil || (confirmPasswordRegister.text?.isEmpty)!) {
             //showAlertError("Password required", message: "")
             let alertController = UIAlertController(title: "CONFIRM YOUR PASSWORD!", message: nil, preferredStyle: .alert);
             
@@ -301,10 +284,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.present(alertController, animated: true, completion: nil)
             }
         }
-        
-        
     }
     
+    // Function that allows for Touch ID/Face ID login
     @IBAction func touchIDLoginAction() {
         touchMe.authenticateUser() { [weak self] message in
             if let message = message {
@@ -325,14 +307,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func returnToLoginButtonPressed(_ sender: Any) {
     }
     
-    
-    
     //Move our view back out of the keyboard view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-   
     
     // This will move our display up so we can edit the textfield easier
     @objc func keyboardWillShow(notification: NSNotification){
@@ -342,19 +320,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     // This will move our display back to normal
     @objc func keyboardWillHide(sender: NSNotification){
         if self.view.frame.origin.y != 0{
             self.view.frame.origin.y = 0
         }
     }
-    
-    
-    
-    
-    
-    
-
-
 }
 

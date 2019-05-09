@@ -12,7 +12,7 @@ import QuartzCore
 
 class DischargeController: UIViewController {
     
-    //@IBOutlet weak var userLbl: UILabel!
+    // Storyboard variables for user's first name, the pdfview and error messages
     @IBOutlet weak var userLbl: UILabel!
     @IBOutlet var pdfView: PDFView!
     @IBOutlet weak var errorMessage: UILabel!
@@ -27,41 +27,38 @@ class DischargeController: UIViewController {
     
     
     
-    @IBDesignable class DesignableView: UIView
-    {
+    @IBDesignable class DesignableView: UIView {
         @IBInspectable var gradientColor1: UIColor = UIColor.white {
-            didSet{
+            didSet {
                 self.setGradient()
             }
         }
         
         @IBInspectable var gradientColor2: UIColor = UIColor.white {
-            didSet{
+            didSet {
                 self.setGradient()
             }
         }
         
         @IBInspectable var gradientStartPoint: CGPoint = .zero {
-            didSet{
+            didSet {
                 self.setGradient()
             }
         }
         
         @IBInspectable var gradientEndPoint: CGPoint = CGPoint(x: 0, y: 1) {
-            didSet{
+            didSet {
                 self.setGradient()
             }
         }
         
-        private func setGradient()
-        {
+        private func setGradient() {
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = [self.gradientColor1.cgColor, self.gradientColor2.cgColor]
             gradientLayer.startPoint = self.gradientStartPoint
             gradientLayer.endPoint = self.gradientEndPoint
             gradientLayer.frame = self.bounds
-            if let topLayer = self.layer.sublayers?.first, topLayer is CAGradientLayer
-            {
+            if let topLayer = self.layer.sublayers?.first, topLayer is CAGradientLayer {
                 topLayer.removeFromSuperlayer()
             }
             self.layer.addSublayer(gradientLayer)
@@ -73,6 +70,8 @@ class DischargeController: UIViewController {
     var passback = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // filling in user's first name
         userLbl.text = finalUsername
         finalUsername = String(finalUsername.dropFirst(9))
         
@@ -82,14 +81,13 @@ class DischargeController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         gradientLayer.frame = view.bounds
-        //view.layer.addSublayer(gradientLayer)
         self.view.layer.insertSublayer(gradientLayer, at: 1)
         
         getThePdf()
         
     }
     
-    
+    // Function that gets the pdf
     func getThePdf(){
         // Online PDF
         //let pdfView = PDFView()
@@ -178,8 +176,6 @@ class DischargeController: UIViewController {
             pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
             
         }
-        //        print("GATHERED TEXT:\n")
-        //        print(self.pdfText)
         
         // Change the text for the following
         //        WatchForText
@@ -193,8 +189,6 @@ class DischargeController: UIViewController {
         
         //        MedicationText
         self.MedicationText = searchPdfText(from: "PAIN CONTROL:", to: "BATHING:")
-        
-        //        print("\n\nwatchFor Section: \(self.WatchForText), Appointment Section: \(self.AppointmentText), Problems list: \(self.ProblemText), Medication List: \(self.MedicationText)")
     }
     
     
@@ -228,34 +222,40 @@ class DischargeController: UIViewController {
             return "ERROR: Query 1 not found in pdf"
         }
     }
-
-    //@IBAction func goHome(_ sender: Any) {
-    @IBAction func goHome(_ sender: Any) {
     
-}
-    
+    // Function to go to home page when button is pressed
     @IBAction func goHomeButton(_ sender: Any) {
         performSegue(withIdentifier: "dchHomeSegue", sender: self)
     }
     
+    // Function to go to medications page when button is pressed
     @IBAction func goMedButton(_ sender: Any) {
         performSegue(withIdentifier: "dchMedSegue", sender: self)
     }
+    
+    // Function to go to problems list page when button is pressed
     @IBAction func goProblemButton(_ sender: Any) {
         performSegue(withIdentifier: "dchProblemSegue", sender: self)
     }
+    
+    // Function to goes to appointments schedule page when button is pressed
     @IBAction func goAppointmentButton(_ sender: Any) {
         performSegue(withIdentifier: "dchAppointmentSegue", sender: self)
     }
+    
+    // Function to goes to what to watch for page when button is pressed
     @IBAction func goWatchButton(_ sender: Any) {
         performSegue(withIdentifier: "dchWatchSegue", sender: self)
         
     }
+    
+    // Function to go to contact on-call team page when button is pressed
     @IBAction func goCallButton(_ sender: Any) {
         performSegue(withIdentifier: "dchCallSegue", sender: self)
     }
     
-    func populateFields(){
+    // Function that populates the other scraped pdf pages with their correct text if pdf worked
+    func populateFields() {
         guard let path = Bundle.main.url(forResource: fileName, withExtension: "pdf")
             else {
                 errorMessage.text = "Error retreiving file"
@@ -296,48 +296,38 @@ class DischargeController: UIViewController {
         userDefault.set(self.ProblemText, forKey: "savingPDFStringProblem")
         userDefault.set(self.AppointmentText, forKey: "savingPDFStringAppointment")
         userDefault.set(self.WatchForText, forKey: "savingPDFStringWatch")
+        }
     }
-    }
+    
+    // Function that tells what view controller to be looking at and passing through user's first name and scrapped pdf text
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "dchHomeSegue" {
             let vc = segue.destination as! HomeController
             vc.userValue = self.finalUsername
-            
-            
         } else if segue.identifier == "dchProblemSegue" {
             let vc = segue.destination as! ProblemController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGatheredProblem = self.ProblemText
            
-        }
-        else if segue.identifier == "dchAppointmentSegue" {
+        } else if segue.identifier == "dchAppointmentSegue" {
             let vc = segue.destination as! AppointmentController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGatheredAppointment = self.AppointmentText
-        }
-        else if segue.identifier == "dchWatchSegue" {
+        } else if segue.identifier == "dchWatchSegue" {
             let vc = segue.destination as! WatchController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGatheredWatch = self.WatchForText
             
-        }
-        else if segue.identifier == "dchCallSegue" {
+        } else if segue.identifier == "dchCallSegue" {
             let vc = segue.destination as! CallController
             vc.finalUsername = "Welcome: " + self.finalUsername
            
-        }
-        else if segue.identifier == "dchMedSegue" {
+        } else if segue.identifier == "dchMedSegue" {
             let vc = segue.destination as! MedicationController
             vc.finalUsername = "Welcome: " + self.finalUsername
             vc.pdfGathered = self.MedicationText
-            
         }
-        //        let vc = segue.destination as! HomeController
-        //
-        //        vc.userValue = self.finalUsername
     }
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
