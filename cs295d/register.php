@@ -28,23 +28,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!verifyEmail($email)) {
       $response['error'] = true;
       $response['message'] = 'Your email is invalid';
+      echo 'Invalid email';
     }
 
     // making response accordingly
     if ($result == USER_CREATED && verifyEmail($email)) {
       $response['error'] = false;
       $response['message'] = 'User created';
+      echo 'User created' . PHP_EOL;
       mail($to,$subject,$txt,$headers);
       // $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
     } elseif ($result == USER_ALREADY_EXIST) {
       $response['error'] = true;
       $response['message'] = 'User already exists';
+      echo 'User already exists' . PHP_EOL;
     } elseif (!verifyEmail($email)) {
       $response['error'] = true;
       $response['message'] = 'Your email is invalid';
+      echo 'Invalid email' . PHP_EOL;
     } elseif ($result == USER_NOT_CREATED) {
       $response['error'] = true;
       $response['message'] = 'User was not created';
+      echo 'User not created' . PHP_EOL;
     }
   } else {
     $response['error'] = true;
